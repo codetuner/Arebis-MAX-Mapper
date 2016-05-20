@@ -1,0 +1,44 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using Max.Domain.Mapping;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Mapping").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "Internal.Mapping" #>
+{
+    public static partial class GeneratedMapperExtensions
+    {
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+        #region <#= MapClass.ClassName #> class implementation
+
+        /// <summary>
+        /// Returns the name of the property, or property path, that matches the given mapped property name.
+        /// </summary>
+        public static string Get<#= MapClass.ClassName #>SourcePropertyName(this Mapper mapper, string mappedPropertyName)
+        {
+            switch(mappedPropertyName)
+            {
+<# foreach(var property in MapClass.ScalarProperties) { #>
+                case "<#= property.Name #>":
+                    return "<#= property.Source.WithoutConditions #>";
+<# } #>
+                default:
+                    return null;
+            }
+        }
+
+        #endregion
+
+<# } #>
+    }
+}

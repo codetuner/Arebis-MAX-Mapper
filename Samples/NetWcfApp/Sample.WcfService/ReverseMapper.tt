@@ -1,0 +1,227 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using Max.Domain.Mapping;
+using Max.Domain.Mapping.Implementation;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Mapping").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "Internal.Mapping" #>
+{
+    public static partial class GeneratedReverseMapperExtensions
+    {
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# 	if (!MapClass.CanMap) continue; #>
+<# 	List<string> partialMethods = new List<string>(); #>
+        #region ReverseMapper extionsions for <#= MapClass.ClassName #>
+
+        public static List<<#= MapClass.SourceType #>> MapFrom<#= MapClass.ClassName #>Collection(this ReverseMapper mapper, IEnumerable<<#= MapClass.ClassName #>> source)
+        {
+            List<<#= MapClass.SourceType #>> result = new List<<#= MapClass.SourceType #>>();
+            foreach(var item in source)
+                result.Add(mapper.MapFrom<#= MapClass.ClassName #>(item));
+            return result;
+        }
+<# if (!MapClass.IsAbstract) { #>
+        
+        public static <#= MapClass.SourceType #> MapFrom<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source)
+        {
+            if (source == null)
+                return null;
+<#     foreach(string knownType in MapClass.KnownSubtypes.Reverse()) { #>
+            else if (source is <#= MapClass.Mapping.GetClass(knownType).ClassName #>)
+                return mapper.MapFrom<#= MapClass.Mapping.GetClass(knownType).ClassName #>((<#= MapClass.Mapping.GetClass(knownType).ClassName #>)source, null);
+<#     } #>
+            else
+                return mapper.MapFrom<#= MapClass.ClassName #>(source, null);
+        }
+        
+        public static <#= MapClass.SourceType #> MapFrom<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source, <#= MapClass.SourceType #> target)
+        {
+            // Null maps to null:
+            if (source == null) return null;
+
+            // Check if object already mapped (as in circular reference scenarios):
+            object mappedTarget = mapper.GetMappedTarget(source);
+            if (Object.ReferenceEquals(mappedTarget, null) == false)
+                return (<#= MapClass.SourceType #>)mappedTarget;
+
+            // Retrieve target object:
+            if (target == null)
+                target = mapper.TryGetTarget<<#= MapClass.SourceType #>>(source);
+<#     if ((MapClass.CanCreate) && (!MapClass.IsSourceTypeAbstract)) { #>
+            if ((target == null) && (mapper.CanCreate(typeof(<#= MapClass.SourceType #>))))
+                mapper.RegisterAsNewObject(target = new <#= MapClass.SourceType #>());
+<#     } #>
+            if (target == null)
+                throw new Max.Domain.Mapping.MappingException(String.Format("Cannot map {0} to an existing instance.", source.GetType().Name));
+
+            // Register mapping:
+            mapper.RegisterMapping(source, target);
+
+            // Perform mapping:
+            if (mapper.CanUpdate(target))
+<#    if (MapClass.CanUpdate) { #>
+                mapper.Update<#= MapClass.ClassName #>(source, target);
+<#    } else { #>
+                throw new Max.Domain.Mapping.MappingException("Type <#= MapClass.ClassName #> used as updatable while marked non-updatable in mapping definition.");
+<#    } #>
+
+            // Return target:
+            return target;
+        }
+<# } else /* MapClass.IsAbstract */ { #>
+
+        public static <#= MapClass.SourceType #> MapFrom<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source)
+        {
+            return mapper.MapFrom<#= MapClass.ClassName #>(source, null);
+        }
+        
+        public static <#= MapClass.SourceType #> MapFrom<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source, <#= MapClass.SourceType #> target)
+        {
+            if (source == null)
+                return null;
+<#     foreach(string knownType in MapClass.KnownSubtypes.Reverse()) { #>
+            else if (source is <#= MapClass.Mapping.GetClass(knownType).ClassName #>)
+                return mapper.MapFrom<#= MapClass.Mapping.GetClass(knownType).ClassName #>((<#= MapClass.Mapping.GetClass(knownType).ClassName #>)source, (<#= MapClass.Mapping.GetClass(knownType).SourceType #>)target);
+<#     } #>
+            else
+                throw new Max.Domain.Mapping.MappingException(String.Format("Cannot map {0} to an abstract class.", source.GetType().Name));
+        }
+<# } #>
+<# if (MapClass.CanUpdate) { #>
+
+        internal static void Update<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source, <#= MapClass.SourceType #> target)
+        {
+            // Verify null args:
+            if (Object.ReferenceEquals(source, null))
+                return;
+            else if (Object.ReferenceEquals(target, null))
+                throw new Max.Domain.Mapping.MappingException("No target provided to map <#= MapClass.ClassName #> on.");
+       
+            // Map source to target:
+            mapper.Update<#= MapClass.BaseType.Replace(".", "") #>(source, target);
+<# foreach(var property in MapClass.ScalarProperties.Where(p => p.IsSimpleProperty)) { #>
+<#     if (!property.Updatable) continue; #>
+<#     if (!property.Source.CanWrite) continue; #>
+<#     if (property.ConversionMethod == "map") { #>
+            target.<#= property.Source #> = mapper.MapFrom<#= property.TypeName #>(source.<#= property.Name #>/*, target.<#= property.Source #>*/);
+<#     } else if (property.ConversionMethod == "cast") { #>
+            if (target.<#= property.Source #> != (<#= property.SourcePropertyTypeName #>)source.<#= property.Name #>)
+                target.<#= property.Source #> = (<#= property.SourcePropertyTypeName #>)source.<#= property.Name #>;
+<#     } else if (property.ConversionMethod == "convert") { #>
+            if (target.<#= property.Source #> != (<#= property.SourcePropertyTypeName #>)Convert.ChangeType(source.<#= property.Name #>, typeof(<#= property.SourcePropertyTypeName #>)))
+                target.<#= property.Source #> = (<#= property.SourcePropertyTypeName #>)Convert.ChangeType(source.<#= property.Name #>, typeof(<#= property.SourcePropertyTypeName #>));
+<#     } else if ((property.IsString) && (property.ConversionMethod != "none")) { #>
+            if (target.<#= property.Source #> != source.<#= property.Name #>)
+                target.<#= property.Source #> = (String.IsNullOrWhiteSpace(source.<#= property.Name #>)) ? null : source.<#= property.Name #>.Trim();
+<#     } else { #>
+            if (target.<#= property.Source #> != source.<#= property.Name #>)
+                target.<#= property.Source #> = source.<#= property.Name #>;
+<#     } #>
+<# } #>
+<# foreach(var property in MapClass.ScalarProperties.Where(p => !p.IsSimpleProperty)) { #>
+<#     if (!property.Updatable) continue; #>
+            mapper.Map<#= MapClass.ClassName #><#= property.Name #>Property(target, source.<#= property.Name #>);
+<# } #>
+<# foreach(var property in MapClass.CollectionProperties) { #>
+<#     if (!property.Updatable) continue; #>
+            mapper.Map<#= MapClass.ClassName #><#= property.Name #>CollectionProperty(source, source.<#= property.Name #>, target);
+<# } #>
+
+            // Call partial AfterUpdate method:
+            AfterUpdate<#= MapClass.ClassName #>(mapper, source, target);
+        }
+
+        static partial void AfterUpdate<#= MapClass.ClassName #>(this ReverseMapper mapper, <#= MapClass.ClassName #> source, <#= MapClass.SourceType #> target);
+<#     foreach(var property in MapClass.ScalarProperties) { #>
+<#         if (!property.Updatable) continue; #>
+<#         if (property.IsSimpleProperty) { #>
+<#         } else { #>
+
+        //// To be implemented in non-generated class part: (Or mark the property in the mapping as 'updatable="false"')
+        //static void Map<#= MapClass.ClassName #><#= property.Name #>Property(this ReverseMapper mapper, <#= MapClass.SourceType #> target, <#= property.TypeName #> value)
+        //{
+        //    throw new NotImplementedException();
+        //}
+<#         } #>
+<#     } #>
+<#     foreach(var property in MapClass.CollectionProperties) { #>
+<#         if (!property.Updatable) continue; #>
+<#         if ((property.IsSimpleProperty) && (property.ConversionMethod != "custom")) { #>
+
+        static void Map<#= MapClass.ClassName #><#= property.Name #>CollectionProperty(this ReverseMapper mapper, <#= MapClass.ClassName #> source, IEnumerable<<#= property.TypeName #>> values, <#= MapClass.SourceType #> target)
+        {
+            var map = CollectionMap.Build(
+                   values,
+                    target.<#= property.Source #>,
+                    (p) => (mapper.IsMatch(p.Key, p.Value))
+                    );
+            foreach (var item in map.SourcesToAdd)
+            { 
+<# partialMethods.Add(String.Format("When{0}{1}Adding(ReverseMapper mapper, {2} source, {3} sourceItem, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+<# partialMethods.Add(String.Format("When{0}{1}Added(ReverseMapper mapper, {2} source, {3} sourceItem, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+                var itemTarget = mapper.MapFrom<#= property.TypeName #>(item, null);
+                When<#= MapClass.ClassName #><#= property.Name #>Adding(mapper, source, item, target, itemTarget);
+                target.<#= property.Source.WithoutConditions #>.Add(itemTarget);
+                When<#= MapClass.ClassName #><#= property.Name #>Added(mapper, source, item, target, itemTarget);
+            }
+            foreach (var item in map.SourcesToKeep)
+            {
+                mapper.MapFrom<#= property.TypeName #>(item, (<#= MapClass.Mapping.GetClass(property.TypeName).SourceType #>)map.TargetFor(item));
+            }
+            foreach (var item in map.TargetsToRemove)
+            {
+<# if (property.OnRemove == "remove") { #>
+<# partialMethods.Add(String.Format("When{0}{1}Removing(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+<# partialMethods.Add(String.Format("When{0}{1}Removed(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+                When<#= MapClass.ClassName #><#= property.Name #>Removing(mapper, source, target, item);
+                target.<#= property.Source.WithoutConditions #>.Remove(item);
+                When<#= MapClass.ClassName #><#= property.Name #>Removed(mapper, source, target, item);
+<# } else if (property.OnRemove == "delete") { #>
+<# partialMethods.Add(String.Format("When{0}{1}Removing(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+<# partialMethods.Add(String.Format("When{0}{1}Removed(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+                When<#= MapClass.ClassName #><#= property.Name #>Removing(mapper, source, target, item);
+                mapper.RegisterAsDeletedObject(item);
+                When<#= MapClass.ClassName #><#= property.Name #>Removed(mapper, source, target, item);
+<# } else if (property.OnRemove == "custom") { #>
+<# partialMethods.Add(String.Format("When{0}{1}Removing(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+<# partialMethods.Add(String.Format("When{0}{1}Removed(ReverseMapper mapper, {2} source, {4} target, object targetItem)", MapClass.ClassName, property.Name, MapClass.ClassName, property.TypeName, MapClass.SourceType)); #>
+                When<#= MapClass.ClassName #><#= property.Name #>Removing(mapper, source, target, item);
+                // To be implemented in non-generated class part:
+                DoCustom<#= MapClass.ClassName #><#= property.Name #>Removing(mapper, source, target, item);
+                When<#= MapClass.ClassName #><#= property.Name #>Removed(mapper, source, target, item);
+<# } else { #>
+<#     throw new InvalidOperationException(String.Format("Unsupported OnRemove property value for {0}.{1}.", MapClass.ClassName, property.Name)); #>
+<# }  #>
+            }
+        }
+<#         } else { #>
+
+        //// To be implemented in non-generated class part:
+        //static void Map<#= MapClass.ClassName #><#= property.Name #>CollectionProperty(this ReverseMapper mapper, <#= MapClass.ClassName #> source, IEnumerable<<#= property.TypeName #>> values, <#= MapClass.SourceType #> target)
+        //{
+        //    throw new NotImplementedException();
+        //}
+<#         } #>
+<#     } #>
+<# } #>
+<# foreach(string partialMethodDefinition in partialMethods) { #>
+
+        static partial void <#= partialMethodDefinition #>;
+<# } #>
+
+        #endregion
+
+<# } #>
+    }
+}

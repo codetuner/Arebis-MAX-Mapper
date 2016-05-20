@@ -1,0 +1,43 @@
+
+
+V Make 'Contract' and 'Mapping' namespaces non mandatory ?
+
+V Open up TypeManager.IsCollectionType
+
+X Allow mapping to be spread over multiple files
+
+V Toelaten dat de templates elders op een 'netwerkshare' of zo staan bv.
+  > gedaan; nog te testen
+
+V Installer maken; zie:
+  http://msdn.microsoft.com/en-us/library/dd393694.aspx
+  http://blogs.msdn.com/b/visualstudio/archive/2009/10/27/vsix-and-msi.aspx
+  http://social.msdn.microsoft.com/Forums/hu-HU/vsx/thread/e204b8db-5a54-44b1-8319-191dd79ad1c3
+  http://stackoverflow.com/questions/2792706/how-to-deploy-and-register-a-vspackage-supporting-multiple-versions-of-visual-stu
+
+- Ondersteuning voor meerdere Mapping.xml files
+
+V Linked subtemplates leiden tot lokaal gegenereerd bestand.
+
+V fix 'output extension' setting that does not work; allow setting the generated file extension
+
+- Naast 'cast|mapped|custom|...' type conversie, ook een vorm van custom type conversie voorzien die
+  geen inline editeren van de gegenereerde mappers vereist, maar implementatie van een custom type.
+  I.e:
+     <property name="Parent" conversion="plugin" conversiontype="CustomConvertor&lt;XrmObjReference, String&gt;" />
+  en:
+     public class CustomConvertor<TFrom,TTo> : IMapperConversionPlugin<TFrom,TTo>
+     {
+        public TTo Convert(TFrom from) { ... }
+        public TFrom ReverseConvert(TTo from) { ... }
+     }
+  in de mapper wordt er een static instance van gedeclareerd (zodat die niet steeds constructed moet worden)
+  en gebruikt.
+
+- Wat als entity types zelf code generated zijn ?
+  Voorzien dat ook op een andere, bv. XML bron, gegenereerd kan worden ?
+
+- 
+
+- 
+

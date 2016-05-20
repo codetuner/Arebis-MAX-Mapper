@@ -1,0 +1,15 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>IdentifierBasedObjectSource.tt</DefaultName>
+    <Name>Max Identifier based ObjectSource Mapper Template</Name>
+    <Description>Template to generate an identifier based IObjectSource implementation.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+    </References>
+    <ProjectItem SubType="" TargetFileName="IdentifierBasedObjectSource.tt" ReplaceParameters="true" CustomTool="MaxDomainGeneratorTemplate">IdentifierBasedObjectSource.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

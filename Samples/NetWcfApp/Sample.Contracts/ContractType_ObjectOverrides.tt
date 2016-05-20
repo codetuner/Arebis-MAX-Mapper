@@ -1,0 +1,75 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+
+namespace <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>
+{
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+	#region Object Overrides for <#= MapClass.ClassName #>
+
+	partial class <#= MapClass.ClassName #>
+	{
+<# if (MapClass.IdentifierProperties.Count() == 1) { #>
+		/// <summary>
+		/// Compares the object by its identifier.
+		/// </summary>
+		public override bool Equals(object obj)
+		{
+			<#= MapClass.ClassName #> other = (obj as <#= MapClass.ClassName #>);
+			if (Object.ReferenceEquals(other, null))
+				return false;
+<# foreach(var property in MapClass.IdentifierProperties) { #>
+			else if (this.IsNewInstance())
+				return Object.ReferenceEquals(this, other);
+			else
+				return (this.<#= property.Name #> == other.<#= property.Name #>);
+<# } #>
+		}
+
+		/// <summary>
+		/// Computes a hash code based on the objects identifier.
+		/// </summary>
+		public override int GetHashCode()
+		{
+<# foreach(var property in MapClass.Properties.Where(p => p.IsIdentifier)) { #>
+			if (this.IsNewInstance())
+				return base.GetHashCode();
+			else
+				return this.GetType().GetHashCode() ^ this.<#= property.Name #>.GetHashCode();
+<# } #>
+		}
+
+		/// <summary>
+		/// Whether this instance is a new instance.
+		/// </summary>
+		public virtual bool IsNewInstance()
+		{
+<# foreach(var property in MapClass.Properties.Where(p => p.IsIdentifier)) { #>
+			return (this.<#= property.Name #> == default(<#= property.TypeName #>));
+<# } #>
+		}
+
+<# } #>
+		/// <summary>
+		/// Returns a shallow copy of this object.
+		/// </summary>
+		public new <#= MapClass.ClassName #> MemberwiseClone()
+		{
+			return (<#= MapClass.ClassName #>)base.MemberwiseClone();
+		}
+	}
+
+	#endregion
+
+<# } #>
+}

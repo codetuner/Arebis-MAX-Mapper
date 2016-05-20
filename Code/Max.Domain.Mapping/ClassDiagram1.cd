@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Max.Domain.Mapping.CollectionMap">
+    <Position X="0.5" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>CollectionMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Domain.Mapping.CollectionMap&lt;TSourceItem, TTargetItem&gt;">
+    <Position X="0.5" Y="2" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABACAAAAAABAAQAAAAEAAAAAAAAgAAAkAAAAAA=</HashCode>
+      <FileName>CollectionMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Domain.Mapping.Mapper">
+    <Position X="4.75" Y="0.5" Width="1.75" />
+    <Members>
+      <Field Name="_mappedSources" Hidden="true" />
+      <Field Name="_mappedTargets" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAUAAAAAAAAQAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Mapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Domain.Mapping.ReverseMapper">
+    <Position X="6.75" Y="0.5" Width="3.5" />
+    <Members>
+      <Field Name="_asNewVersion" Hidden="true" />
+      <Field Name="_mappedSources" Hidden="true" />
+      <Field Name="_mappedTargets" Hidden="true" />
+      <Field Name="_objectSource" Hidden="true" />
+      <Field Name="_typesToCreate" Hidden="true" />
+      <Field Name="_typesToUpdate" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EEADBARAAAABUAAAAAAABRAAAQABAgiAAAAAAgAAEAI=</HashCode>
+      <FileName>ReverseMapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Max.Domain.Mapping.IObjectSource">
+    <Position X="6.75" Y="5.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBAQAAAAAAAAAAAAAAAAAAAAgAgAAgAAAAAAAAAA=</HashCode>
+      <FileName>IObjectSource.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

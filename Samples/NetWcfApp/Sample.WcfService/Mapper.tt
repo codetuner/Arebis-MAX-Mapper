@@ -1,0 +1,196 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using Max.Domain.Mapping;
+using Max.Domain.Mapping.Implementation;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Mapping").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "Internal.Mapping" #>
+{
+    public static partial class GeneratedMapperExtensions
+    {
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# if (Convert.ToBoolean(MapClass.Settings.ValueOr("skipMapper", "false"))) continue; #>
+<# 	List<string> partialMethods = new List<string>(); #>
+        #region Mapper extionsions for <#= MapClass.ClassName #>
+
+        public static Collection<<#= MapClass.ClassName #>> MapTo<#= MapClass.ClassName #>Collection(this Mapper mapper, IEnumerable<<#= MapClass.SourceType #>> source)
+        {
+            Collection<<#= MapClass.ClassName #>> target = new Collection<<#= MapClass.ClassName #>>();
+            foreach(var item in source) target.Add(mapper.MapTo<#= MapClass.ClassName #>(item));
+            return target;
+        }
+
+        public static <#= MapClass.ClassName #> MapTo<#= MapClass.ClassName #>(this Mapper mapper, <#= MapClass.SourceType #> source)
+        {
+            if (source == null)
+                return null;
+<# foreach(string knownType in MapClass.KnownSubtypes.Reverse()) { #>
+            else if (source is <#= MapClass.Mapping.GetClass(knownType).SourceType #>)
+                return mapper.MapTo<#= MapClass.Mapping.GetClass(knownType).ClassName #>((<#= MapClass.Mapping.GetClass(knownType).SourceType #>)source);
+<# } #>
+            else
+<# if (MapClass.IsAbstract) { #>
+                throw new Max.Domain.Mapping.MappingException("Cannot create instances of abstract class <#= MapClass.ClassName #>.");
+<# } else { #>
+                return mapper.MapTo<#= MapClass.ClassName #>(source, new <#= MapClass.ClassName #>());
+<# } #>
+        }
+        
+        internal static <#= MapClass.ClassName #> MapTo<#= MapClass.ClassName #>(this Mapper mapper, <#= MapClass.SourceType #> source, <#= MapClass.ClassName #> target)
+        {
+            // Null maps to null:
+            if (source == null) return null;
+
+            // Check if object already mapped (as in circular reference scenarios):
+            object mappedTarget = mapper.GetMappedTarget(source);
+            
+            // If so, return mapped instance:
+            if (Object.ReferenceEquals(mappedTarget, null) == false)
+                return (<#= MapClass.ClassName #>)mappedTarget;
+
+            // Else, register mapping and map target:
+            mapper.RegisterMapping(source, target);
+            mapper.Update<#= MapClass.ClassName #>(source, target);
+            
+            // Return mapped target:
+            return target;
+        }
+        
+        internal static void Update<#= MapClass.ClassName #>(this Mapper mapper, <#= MapClass.SourceType #> source, <#= MapClass.ClassName #> target)
+        {
+            // Verify null args:
+            if (Object.ReferenceEquals(source, null))
+                return;
+            else if (Object.ReferenceEquals(target, null))
+                throw new Max.Domain.Mapping.MappingException("No target provided to map <#= MapClass.ClassName #> on.");
+
+            // Perform base type mapping:
+            mapper.Update<#= MapClass.BaseType.Replace(".", "") #>(source, target);
+
+            // Perform mapping of properties:
+<# foreach(var property in MapClass.ScalarProperties.Where(p => p.IsSimpleProperty)) { #>
+<#     if (property.Expression != null) { #>
+            target.<#= property.Name #> = (<#= property.Expression #>);
+<#     } else if (property.ConversionMethod == "map") { #>
+            target.<#= property.Name #> = mapper.MapTo<#= property.TypeName #>(source.<#= property.Source #>);
+<#     } else if (property.ConversionMethod == "cast") { #>
+            target.<#= property.Name #> = (<#= property.TypeName #>)source.<#= property.Source #>;
+<#     } else if (property.ConversionMethod == "convert") { #>
+            target.<#= property.Name #> = (<#= property.TypeName #>)Convert.ChangeType(source.<#= property.Source #>, typeof(<#= property.TypeName #>));
+<#     } else if (property.ConversionMethod == "custom") { #>
+            mapper.Map<#= MapClass.ClassName #><#= property.Name #>Property(source, target);
+<#     } else { #>
+            target.<#= property.Name #> = source.<#= property.Source #>;
+<#     } #>
+<# } #>
+<# foreach(var property in MapClass.CollectionProperties.Where(p => p.IsSimpleProperty)) { #>
+<#     if (property.ConversionMethod == "map") { #>
+            foreach(var item in source.<#= property.Source #>) target.<#= property.Name #>.Add(mapper.MapTo<#= property.TypeName #>((<#= MapClass.Mapping.GetClass(property.TypeName).SourceType #>)item));
+<#     } else if (property.ConversionMethod == "cast") { #>
+            foreach(var item in source.<#= property.Source #>) target.<#= property.Name #>.Add((<#= property.TypeName #>)item);
+<#     } else if (property.ConversionMethod == "convert") { #>
+            foreach(var item in source.<#= property.Source #>) target.<#= property.Name #>.Add((<#= property.TypeName #>)Convert.ChangeType(item, typeof(<#= property.TypeName #>)));
+<#     } else if (property.ConversionMethod == "custom") { #>
+            mapper.Map<#= MapClass.ClassName #><#= property.Name #>Property(source, target);
+<#     } else { #>
+            foreach(var item in source.<#= property.Source #>) target.<#= property.Name #>.Add(item);
+<#     } #>
+<# } #>
+<# foreach(var property in MapClass.Properties.Where(p => !p.IsSimpleProperty)) { #>
+            mapper.Map<#= MapClass.ClassName #><#= property.Name #>Property(source, target);
+<# } #>
+
+            // Call partial AfterUpdate method:
+            AfterUpdate<#= MapClass.ClassName #>(mapper, source, target);
+        }
+
+        static partial void AfterUpdate<#= MapClass.ClassName #>(this Mapper mapper, <#= MapClass.SourceType #> source, <#= MapClass.ClassName #> target);
+
+<# foreach(var property in MapClass.Properties.Where(p => !p.IsSimpleProperty && p.ConversionMethod != "custom")) { #>
+
+        static void Map<#= MapClass.ClassName #><#= property.Name #>Property(this Mapper mapper, <#= MapClass.SourceType #> source, <#= MapClass.ClassName #> target)
+        {
+            do
+            {
+                var item0 = source;
+<#     for(int i=0; i<property.Source.PropertyPathSize; i++) { #>
+<#            if (property.Source.IsPathItemCollection(i)) { #>
+                foreach(var item<#= i+1 #> in item<#= i #>.<#= property.Source.PropertyNamePath[i] #><#= (property.Source.Conditions[i] == null) ? ("") : (".Where(" + property.Source.Conditions[i] + ")") #>)
+                {
+<#            PushIndent("    "); #>
+<#            } else { #>
+                var item<#= i+1 #> = item<#= i #>.<#= property.Source.PropertyNamePath[i] #>;
+<#              if (i < (property.Source.PropertyPathSize-1)) { #>
+                if (item<#= i+1 #> == null) break;
+<#              } #>
+<#              if (property.Source.Conditions[i] != null) { #>
+                if (item<#= i+1 #>.IsFalse(<#= property.Source.Conditions[i] #>)) break;
+<#              } #>
+<#            } #>
+<#     } #>
+<#     if (property.Source.IsCollection && property.ConversionMethod == "map") { #>
+                target.<#= property.Name #>.Add(mapper.MapTo<#= property.TypeName #>(item<#= property.Source.PropertyPathSize #>));
+<#     } else if (property.Source.IsCollection && property.ConversionMethod == "cast") { #>
+                target.<#= property.Name #>.Add((<#= property.TypeName #>)item<#= property.Source.PropertyPathSize #>);
+<#     } else if (property.Source.IsCollection && property.ConversionMethod == "convert") { #>
+                target.<#= property.Name #>.Add((<#= property.TypeName #>)Convert.ChangeType(item<#= property.Source.PropertyPathSize #>, typeof(<#= property.TypeName #>)));
+<#     } else if (property.Source.IsCollection) { #>
+                target.<#= property.Name #>.Add(item<#= property.Source.PropertyPathSize #>);
+<#     } else if (property.ConversionMethod == "map") { #>
+                target.<#= property.Name #> = mapper.MapTo<#= property.TypeName #>(item<#= property.Source.PropertyPathSize #>);
+<#     } else if (property.ConversionMethod == "cast") { #>
+                target.<#= property.Name #> = (<#= property.TypeName #>)item<#= property.Source.PropertyPathSize #>;
+<#     } else if (property.ConversionMethod == "convert") { #>
+                target.<#= property.Name #> = (<#= property.TypeName #>)Convert.ChangeType(item<#= property.Source.PropertyPathSize #>, typeof(<#= property.TypeName #>));
+<#     } else { #>
+                target.<#= property.Name #> = item<#= property.Source.PropertyPathSize #>;
+<#     } #>
+<#     for(int i=0; i<property.Source.PropertyPathSize; i++) { #>
+<#            if (property.Source.IsPathItemCollection(i)) { #>
+<#            PopIndent(); #>
+                }
+<#            } #>
+<#     } #>
+            } while (false);
+        }
+<# } #>
+<# foreach(var property in MapClass.Properties) { #>
+<#     if (property.ConversionMethod == "custom") { #>
+
+        //// To be implemented in non-generated patial class:
+        //static void Map<#= MapClass.ClassName #><#= property.Name #>Property(this Mapper mapper, <#= MapClass.SourceType #> source, <#= MapClass.ClassName #> target)
+        //{
+        //    throw new NotImplementedException();
+        //}
+<#     } #>
+<# } #>
+<# foreach(var property in MapClass.ScalarProperties) { #>
+<#     if (property.IsSimpleProperty) { #>
+<#     } else { #>
+<#     } #>
+<# } #>
+<# foreach(var property in MapClass.CollectionProperties) { #>
+<#     if (property.IsSimpleProperty) { #>
+<#     } else { #>
+<#     } #>
+<# } #>
+<# foreach(string partialMethodDefinition in partialMethods) { #>
+
+        static partial void <#= partialMethodDefinition #>;
+<# } #>
+        #endregion
+
+<# } #>
+    }
+}

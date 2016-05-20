@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Sample.Contracts.BaseObject" Collapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BaseObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sample.Contracts.Contact" Collapsed="true">
+    <Position X="3.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgECAlCAAKIAAEAAoEFQAQQAAwAAMJQEgCBAIgAAAhg=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sample.Contracts.Employee" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACEjCAACAIACCAqABIgRQAAyAAIIAAgIAAAACIAgA=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sample.Contracts.EmployeeItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGCEFCKAKIIAWCAoElYgBQAAQEAAIAEgIBAECCAAgg=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sample.Contracts.Manager" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACEDCAACAIACCAqABAAAQAASAAgIAAgIAAAACIAgA=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Sample.Contracts.SalesPerson" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAEFJBACAABAAAILAAAAAAQwAAAACAAAAAAABAAAA=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sample.Contracts.Subordinate" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACEDCAACAIACCAqABAAAQAASAAAIAAgIAAAACIAgA=</HashCode>
+      <FileName>ContractType.g.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Sample.Contracts.ISampleService" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAARABAAAAEhAAAAEAAAAAAAAAAQAAAAAAAABgIIAQ=</HashCode>
+      <FileName>ISampleService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,27 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Runtime.Serialization;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Contract").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "UndefinedContractNamespace" #>
+{
+<# foreach(var MapClass in Model.Classes.Where(c => c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+    /// <summary>
+    /// <#= MapClass.ClassName #> enumeration type.
+    /// </summary>
+    [DataContract(<#= MapClass.DataContractOptions #>), Serializable()]
+<# foreach(string attr in MapClass.Attributes) { #>
+    <#= attr #>
+<# } #>
+    public enum <#= MapClass.ClassName #>
+    {
+<# for(int i=0; i<MapClass.EnumerationNames.Length; i++) { #>
+        [EnumMember] <#= MapClass.EnumerationNames[i] #> = <#= MapClass.EnumerationValues[i] #>,
+<# } #>
+    }
+
+<# } #>
+}

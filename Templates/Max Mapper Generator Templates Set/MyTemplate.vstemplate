@@ -1,0 +1,26 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>MapperGenerator.tt</DefaultName>
+    <Name>Max Mapper Generator Templates Set</Name>
+    <Description>Set of Templates for generating domain type to contract type mapper and reverse mapper methods.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Core</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>Max.Domain.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="" TargetFileName="MapperGenerator.tt" ReplaceParameters="true" CustomTool="TextTemplatingFileGenerator">MapperGenerator.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Mapper.tt" ReplaceParameters="true" CustomTool="MaxDomainGeneratorTemplate">Mapper.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="ReverseMapper.tt" ReplaceParameters="true" CustomTool="MaxDomainGeneratorTemplate">ReverseMapper.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

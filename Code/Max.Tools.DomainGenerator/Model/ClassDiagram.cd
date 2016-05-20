@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Max.Tools.DomainGenerator.Model.CustomSettings">
+    <Position X="0.5" Y="8.25" Width="2.5" />
+    <Members>
+      <Field Name="innerDictionary" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CustomSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.MapClass">
+    <Position X="7.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="MapClass" Hidden="true" />
+      <Method Name="Validate" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Mapping" Type="Max.Tools.DomainGenerator.Model.Mapping" FixedFromPoint="true">
+      <Path>
+        <Point X="7.75" Y="2.074" />
+        <Point X="6.5" Y="2.074" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Properties" Type="Max.Tools.DomainGenerator.Model.MapProperty" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="1.324" />
+        <Point X="11.75" Y="1.324" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ScalarProperties" Type="Max.Tools.DomainGenerator.Model.MapProperty" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="2.089" />
+        <Point X="11.75" Y="2.089" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="IdentifierProperties" Type="Max.Tools.DomainGenerator.Model.MapProperty" FixedFromPoint="true">
+      <Path>
+        <Point X="10" Y="3.795" />
+        <Point X="11.75" Y="3.795" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAADIABCBKQAAYAAAAhAQAAQFACwIkAYACAACAAA=</HashCode>
+      <FileName>Model\MapClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Mapping" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Properties" />
+      <Property Name="CollectionProperties" />
+      <Property Name="ScalarProperties" />
+      <Property Name="IdentifierProperties" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.Mapping">
+    <Position X="4.25" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="Mapping" Hidden="true" />
+      <Field Name="session" Hidden="true" />
+      <Method Name="Validate" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Classes" Type="Max.Tools.DomainGenerator.Model.MapClass" FixedFromPoint="true">
+      <Path>
+        <Point X="6.5" Y="1.375" />
+        <Point X="7.75" Y="1.375" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Namespaces" Type="Max.Tools.DomainGenerator.Model.Namespace">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-1.128" Y="0.123" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQEAAAGAAQAAAAEAAAAACAQAAAEAgAAAAAACAAA=</HashCode>
+      <FileName>Model\Mapping.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Classes" />
+      <Property Name="Namespaces" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.MapProperty">
+    <Position X="11.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Method Name="MapProperty" Hidden="true" />
+      <Method Name="Validate" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Owner" Type="Max.Tools.DomainGenerator.Model.MapClass" FixedFromPoint="true">
+      <Path>
+        <Point X="11.75" Y="4.295" />
+        <Point X="10" Y="4.295" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Source" Type="Max.Tools.DomainGenerator.Model.PropertyPath" FixedToPoint="true">
+      <Path>
+        <Point X="12.438" Y="4.873" />
+        <Point X="12.438" Y="5.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AABABCCAAgCACQAIAAEAAAQQAAAMABAQgBABAAAAEQA=</HashCode>
+      <FileName>Model\MapProperty.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+      <Property Name="Source" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.Namespace">
+    <Position X="4.25" Y="3.75" Width="2.25" />
+    <Members>
+      <Method Name="Equals" Hidden="true" />
+      <Method Name="GetHashCode" Hidden="true" />
+      <Method Name="Namespace" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAIAAAAAgAAAAAQAAAAAAIAAAAAAAAAQAAA=</HashCode>
+      <FileName>Model\Namespace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.TypeManager">
+    <Position X="0.5" Y="4" Width="2.5" />
+    <Members>
+      <Method Name="CollectProjectItems" Hidden="true" />
+      <Method Name="CollectTypes" Hidden="true" />
+      <Field Name="domainGeneratorSession" Hidden="true" />
+      <Property Name="EdmManager" Hidden="true" />
+      <Field Name="typeInformation" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAgQEAoAFAAACBEQAAAAAAAgAAIACAIAACAEAAAEIA=</HashCode>
+      <FileName>Model\TypeManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.DomainGeneratorSession">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <Members>
+      <Method Name="CheckoutIfRequired" Hidden="true" />
+      <Method Name="CurrentDomain_AssemblyResolve" Hidden="true" />
+      <Method Name="CurrentDomain_TypeResolve" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="DomainGeneratorSession" Hidden="true" />
+      <Method Name="GenerateTemplateInternal" Hidden="true" />
+    </Members>
+    <AssociationLine Name="Mapping" Type="Max.Tools.DomainGenerator.Model.Mapping" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="1.375" />
+        <Point X="4.25" Y="1.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gAgIAAACECABAACAAAAAAAAAAABgBAAAAUAACAAAAyA=</HashCode>
+      <FileName>DomainGeneratorSession.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TypeManager" />
+      <Property Name="Mapping" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Max.Tools.DomainGenerator.Model.PropertyPath">
+    <Position X="11.75" Y="5.5" Width="2.25" />
+    <Members>
+      <Field Name="canWrite" Hidden="true" />
+      <Field Name="casts" Hidden="true" />
+      <Field Name="conditions" Hidden="true" />
+      <Method Name="GetIsCollection" Hidden="true" />
+      <Field Name="isCollection" Hidden="true" />
+      <Field Name="propertyNamePath" Hidden="true" />
+      <Field Name="propertyNamePathIndexes" Hidden="true" />
+      <Method Name="PropertyPath" Hidden="true" />
+      <Field Name="PropertyPathParser" Hidden="true" />
+      <Field Name="propertyType" Hidden="true" />
+      <Field Name="propertyTypePath" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AABAAADAAgDAEQGMEBAAABgAIAAIAQIAAAACAAAAMAA=</HashCode>
+      <FileName>Model\PropertyPath.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Owner" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,23 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>MasterGenerationTemplate.tt</DefaultName>
+    <Name>Max Empty Master Generation Template</Name>
+    <Description>Templates for generating domain type to contract type mapper and reverse mapper methods.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+      <Reference>
+        <Assembly>System.Core</Assembly>
+      </Reference>
+      <Reference>
+      </Reference>
+    </References>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.tt" ReplaceParameters="false" CustomTool="TextTemplatingFileGenerator">MasterTemplate.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

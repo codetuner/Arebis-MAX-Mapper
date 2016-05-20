@@ -1,0 +1,17 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="Max.Tools.DomainGenerator" #>
+<#@ import namespace="System" #>
+<#@ import namespace="Max.Tools.DomainGenerator" #>
+<#
+
+using (var generator = new DomainGeneratorSession(this, Host))
+{
+	generator.LoadMapping(@"..\Sample.Contracts\ContractsMapping.xml");
+
+	// Generate all templates within the current project that have the "MaxDomainGeneratorTemlate" CustomTool name:
+	generator.AutoGenerateLocalTemplates("MaxDomainGeneratorTemplate");
+}
+
+#>
+<# /* To generate in the output: */ #>
+// This file is meant to be empty. //

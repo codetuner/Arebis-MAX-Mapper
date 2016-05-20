@@ -1,0 +1,42 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="Max.Tools.DomainGenerator.Model" #>
+<#@ output extension=".x.cs" #>
+<# 
+foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) {
+	AssertNotRecursive(MapClass, new Stack<MapClass>(), new Stack<string>(new string[] { MapClass.ClassName }));	
+}
+#>
+<#+
+
+void AssertNotRecursive(MapClass clss, Stack<MapClass> pathTypes, Stack<string> pathNames) {
+	if (pathTypes.Contains(clss)) {
+		throw new System.ApplicationException(String.Format("Type recursion detected through path {1}; use <set name=\"AllowRecursion\" value=\"true\"/> in the property path to ignore this problem.", clss.ClassName, String.Join(".", pathNames)));
+	}
+	
+	pathTypes.Push(clss);
+	try {
+		foreach(var prop in clss.Properties)
+		{
+			if (Convert.ToBoolean(prop.Settings.ValueOr("AllowRecursion", "false")))
+				continue;
+
+			var propType = Model.GetClass(prop.TypeName);
+			if (propType != null) {
+				pathNames.Push(prop.Name);
+				try {
+				AssertNotRecursive(propType, pathTypes, pathNames);
+				} finally {
+					pathNames.Pop();
+				}
+			}
+		}
+	} finally {
+		pathTypes.Pop();
+	}
+}
+
+#>

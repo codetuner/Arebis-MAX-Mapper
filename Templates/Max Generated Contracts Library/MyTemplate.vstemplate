@@ -1,0 +1,29 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>Max Generated Contracts Library</Name>
+    <Description>A .NET 4 Contracts Library where contract types are generated based on domain types.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>Contracts</DefaultName>
+    <ProvideDefaultName>false</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="Contracts.csproj" File="Contracts.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="ContractsGenerator.tt">ContractsGenerator.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ContractType.tt">ContractType.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="ContractType_ObjectOverrides.tt">ContractType_ObjectOverrides.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="false" TargetFileName="EnumType.tt">EnumType.tt</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ContractsMapping.xml">ContractsMapping.xml</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="ContractsMapping.xsd">ContractsMapping.xsd</ProjectItem>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

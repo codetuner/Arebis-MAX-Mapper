@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
+  <Identifier Id="MaxVSNETExtensions-1">
+    <Name>Max Visual Studio.NET Extensions</Name>
+    <Author>Arebis</Author>
+    <Version>1.0</Version>
+    <Description xml:space="preserve">Microsoft Visual Studio.NET extensions for Arebis Max. Includes contract and mapper generation templates.</Description>
+    <Locale>1033</Locale>
+    <SupportedProducts>
+      <VisualStudio Version="10.0">
+        <Edition>Utimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <!--Edition>VCSExpress</Edition-->
+      </VisualStudio>
+      <VisualStudio Version="11.0">
+        <Edition>Utimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <!--Edition>VCSExpress</Edition-->
+      </VisualStudio>
+      <VisualStudio Version="12.0">
+        <Edition>Utimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
+        <!--Edition>VCSExpress</Edition-->
+      </VisualStudio>
+    </SupportedProducts>
+    <SupportedFrameworkRuntimeEdition MinVersion="4.0" />
+  </Identifier>
+  <References />
+  <Content>
+    <ProjectTemplate>ProjectTemplates</ProjectTemplate>
+    <ItemTemplate>ItemTemplates</ItemTemplate>
+	<!--Assembly AssemblyName="Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Tools.DomainGenerator.dll</Assembly-->
+	<Assembly AssemblyName="Max.Domain.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Domain.Mapping.dll</Assembly>
+	<Assembly AssemblyName="Max.Domain.Mapping.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Domain.Mapping.Entity.dll</Assembly>
+  </Content>
+</Vsix>

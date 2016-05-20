@@ -1,0 +1,15 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>SelectProjections.tt</DefaultName>
+    <Name>Max Select Projections Mapper Template</Name>
+    <Description>Template to generate Linq Select projections as an alternative to map methods.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+    </References>
+    <ProjectItem SubType="" TargetFileName="SelectProjections.tt" ReplaceParameters="true" CustomTool="MaxDomainGeneratorTemplate">SelectProjections.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,15 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Mapper_GetSourcePropertyName.tt</DefaultName>
+    <Name>Max GetSourcePropertyname Mapper Template</Name>
+    <Description>Template to generate Get~SourcePropertyNames mapper methods.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+    </References>
+    <ProjectItem SubType="" TargetFileName="Mapper_GetSourcePropertyName.tt" ReplaceParameters="true" CustomTool="MaxDomainGeneratorTemplate">Mapper_GetSourcePropertyName.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

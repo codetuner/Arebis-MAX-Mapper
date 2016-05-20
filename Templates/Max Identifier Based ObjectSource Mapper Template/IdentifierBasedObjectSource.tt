@@ -1,0 +1,101 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using Max.Domain.Mapping;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
+
+namespace <#= Host.LocalNamespace #>
+{
+    internal class IdentifierBasedObjectSource : IObjectSource
+	{
+        private static IDictionary<Type, Func<Object, Object, Boolean>> isMatchExpressions = new Dictionary<Type, Func<Object, Object, Boolean>>();
+        private static IDictionary<Type, Func<System.Data.Entity.DbContext, Object, Object>> tryGetStoreObjectExpressions = new Dictionary<Type, Func<System.Data.Entity.DbContext, object, object>>();
+	
+        static IdentifierBasedObjectSource()
+        {
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# 	var identifiers = MapClass.InheritedProperties.Where(p => p.IsIdentifier).ToList(); #>
+<# 	if (identifiers.Count > 0) { #>
+			isMatchExpressions[typeof(<#= MapClass.ClassName #>)] = ((a, b) => (b is <#= MapClass.SourceType #>)<# foreach(var property in identifiers) { #><# if (property.IsString) { #> && (((String.IsNullOrWhiteSpace(((<#= MapClass.ClassName #>)a).<#= property.Name #>) ? null : ((<#= MapClass.ClassName #>)a).<#= property.Name #>) == (String.IsNullOrWhiteSpace(((<#= MapClass.SourceType #>)b).<#= property.Source #>) ? null : ((<#= MapClass.SourceType #>)b).<#= property.Source #>)) || (String.IsNullOrWhiteSpace(((<#= MapClass.ClassName #>)a).<#= property.Name #>) && String.IsNullOrWhiteSpace(((<#= MapClass.SourceType #>)b).<#= property.Source #>)))<# } else { #> && (((<#= MapClass.ClassName #>)a).<#= property.Name #> == ((<#= MapClass.SourceType #>)b).<#= property.Source #>)<# } /* if isString */ #><# } /* foreach property */ #>);
+<# 	} else { #>
+			isMatchExpressions[typeof(<#= MapClass.ClassName #>)] = ((a, b) => (b is <#= MapClass.SourceType #>));
+<# 	} #>
+<# } /* foreach class */ #>
+
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# 	var identifiers = MapClass.InheritedProperties.Where(p => p.IsIdentifier).ToList(); #>
+<# 	if (identifiers.Count > 0) { #>
+			tryGetStoreObjectExpressions[typeof(<#= MapClass.ClassName #>)] = (context, a) => (context.Set<<#= MapClass.SourceType #>>().Find(<# var prefix0 = ""; foreach(var property in identifiers) { #><#= prefix0 #>((<#= MapClass.ClassName #>)a).<#= property.Name #><# prefix0 = ", "; #><# } /* foreach property */ #>));
+<# 	} else { #>
+			tryGetStoreObjectExpressions[typeof(<#= MapClass.ClassName #>)] = (context, a) => (default(<#= MapClass.SourceType #>));
+<# 	} #>
+<# } /* foreach class */ #>
+        }
+
+		public IdentifierBasedObjectSource(System.Data.Entity.DbContext context)
+        {
+            this.Context = context;
+        }
+
+        public System.Data.Entity.DbContext Context { get; private set; }
+
+		public virtual bool IsMatch(object sourceObject, object storeObject)
+		{
+            try
+            {
+                return isMatchExpressions[sourceObject.GetType()](sourceObject, storeObject);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new InvalidOperationException(String.Format("The contract type {0} is not part of the model for the current context mapping.", sourceObject.GetType()), ex);
+            }
+        }
+
+        public virtual TStoreObject TryGetStoreObject<TStoreObject>(object sourceObject) where TStoreObject : class
+        {
+            try
+            {
+                return (TStoreObject)tryGetStoreObjectExpressions[sourceObject.GetType()](this.Context, sourceObject);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                throw new InvalidOperationException(String.Format("The contract type {0} is not part of the model for the current context mapping.", sourceObject.GetType()), ex);
+            }
+        }
+
+        public virtual void RegisterAsNewObject(object storeObject)
+        {
+            Context.Set(GetObjectType(storeObject.GetType())).Add(storeObject);
+        }
+
+        public virtual void RegisterAsDeletedObject(object storeObject)
+        {
+            Context.Set(GetObjectType(storeObject.GetType())).Remove(storeObject);
+        }
+
+        public virtual TStoreObject CreateObject<TStoreObject>(object sourceObject) where TStoreObject : class, new()
+        {
+            return Context.Set<TStoreObject>().Create();
+        }
+
+		public virtual Type GetObjectType(Type storeObjectType)
+        {
+            return System.Data.Objects.ObjectContext.GetObjectType(storeObjectType);
+        }
+
+        public virtual void OnUpdateSystemObject(object sourceObject, object storeObject)
+        {
+        }
+	}
+}

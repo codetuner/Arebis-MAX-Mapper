@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mapping namespace="urn:Sample.Contracts" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ContractsMapping.xsd" >
+
+  <reference project="Sample.Business"/>
+
+  <namespace name="Sample.Contracts" alias="Contract" />
+  <namespace name="Sample.WcfService.Mapping" alias="Mapping" />
+
+  <type name="Contact" source="Sample.Business.Contact" reverseMapping="createAndUpdate" baseType="BaseObject">
+    <map property="Id" source="ContactID" identifier="true"></map>
+    <map property="Title"></map>
+    <map property="FirstName"></map>
+    <map property="MiddleName"></map>
+    <map property="LastName"></map>
+    <map property="Suffix"></map>
+    <map property="EmailAddress"></map>
+    <map property="Phone"></map>
+  </type>
+
+  <type name="Employee" source="Sample.Business.Employee" reverseMapping="update">
+    <knownSubtype>SalesPerson</knownSubtype>
+    <map property="Id" source="EmployeeID" identifier="true"></map>
+    <map property="Contact" type="Contact" conversion="map" updatable="false"></map>
+    <map property="Gender"></map>
+    <map property="BirthDate"></map>
+    <map property="HireDate"></map>
+    <map property="ManagerId" source="ManagerID"></map>
+  </type>
+
+  <type name="Manager" source="Sample.Business.Employee">
+    <map property="Id" source="EmployeeID" identifier="true"></map>
+    <map property="Contact" type="Contact" conversion="map" updatable="false"></map>
+    <map property="Gender"></map>
+    <map property="BirthDate"></map>
+    <map property="HireDate"></map>
+    <map property="Subordinates" type="Subordinate" conversion="map"></map>
+  </type>
+
+  <type name="Subordinate" source="Sample.Business.Employee">
+    <map property="Id" source="EmployeeID" identifier="true"></map>
+    <map property="Contact" type="Contact" conversion="map" updatable="false"></map>
+    <map property="Gender"></map>
+    <map property="BirthDate"></map>
+    <map property="HireDate"></map>
+  </type>
+
+  <type name="EmployeeItem" source="Sample.Business.Employee">
+    <map property="Id" source="EmployeeID" identifier="true"></map>
+    <map property="Title" source="Contact.Title"></map>
+    <map property="FirstName" source="Contact.FirstName"></map>
+    <map property="MiddleName" source="Contact.MiddleName"></map>
+    <map property="LastName" source="Contact.LastName"></map>
+    <map property="Gender"></map>
+    <map property="BirthDate"></map>
+    <map property="ManagerId" source="ManagerID"></map>
+    <map property="ManagerFirstName" source="Manager.Contact.FirstName"></map>
+    <map property="ManagerMiddleName" source="Manager.Contact.MiddleName"></map>
+    <map property="ManagerLastName" source="Manager.Contact.LastName"></map>
+  </type>
+
+  <type name="SalesPerson" source="Sample.Business.SalesPerson" baseType="Employee" reverseMapping="update">
+    <map property="SalesQuota"></map>
+    <map property="Bonus"></map>
+    <map property="CommissionPct"></map>
+    <map property="SalesYTD"></map>
+    <map property="TerritorySalesYTD" source="Territory.SalesYTD" type="decimal?" updatable="false"></map>
+  </type>
+
+</mapping>

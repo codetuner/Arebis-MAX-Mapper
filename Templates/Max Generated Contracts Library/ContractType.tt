@@ -1,0 +1,97 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Contract").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "UndefinedContractNamespace" #>
+{
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+	#region <#= MapClass.ClassName #> class definition
+
+	/// <summary>
+	/// <#= MapClass.ClassName #> datacontract class.
+	/// </summary>
+	[DataContract(Namespace = "<#= MapClass.Mapping.NamespaceUri #>"<#= (MapClass.IdentifierProperties.Count() > 0) ? ", IsReference = true" : "" #><#= (MapClass.DataContractOptions.Trim().Length > 0) ? ", " : "" #><#= MapClass.DataContractOptions #>), Serializable()]
+<# foreach(string st in MapClass.KnownSubtypes) { #>
+	[KnownType(typeof(<#= st #>))]
+<# } #>
+<# foreach(string attr in MapClass.Attributes) { #>
+	<#= attr #>
+<# } #>
+	public <#= MapClass.IsAbstract ? "abstract " : "" #>partial class <#= MapClass.ClassName #> : <#= MapClass.BaseType #> 
+	{
+		/// <summary>
+		/// Constructs a new <#= MapClass.ClassName #> datacontract instance.
+		/// </summary>
+		public <#= MapClass.ClassName #>()
+			: base()
+		{
+<# foreach(var property in MapClass.CollectionProperties) { #>
+			this.<#= property.Name #> = new <#= String.Format(MapClass.Mapping.DefaultCollectionClass, property.TypeName) #>();
+<# } #>
+			this.OnInstanceCreated();
+		}
+		
+		partial void OnInstanceCreated();
+<# foreach(var property in MapClass.ScalarProperties.Where(p => !p.Name.Contains("."))) { #>
+
+		private <#= property.TypeName #> _<#= property.name #>;
+
+		/// <summary>
+		/// <#= property.Name #> property.
+		/// </summary>
+		[DataMember(<#= property.DataMemberOptions #>)]
+<# foreach(string attr in property.Attributes) { #>
+		<#= attr #>
+<# } #>
+		<#= property.Modifiers #> <#= property.TypeName #> <#= property.Name #> 
+		{ 
+			get
+			{
+				return this._<#= property.name #>;
+			}
+			set 
+			{
+				this._<#= property.name #> = value;
+<# if (property.IsIdentifier) { #>
+				this.OnAnIdentifierPropertyChanged();
+<# } #>
+				this.On<#= property.Name #>PropertyChanged(value);
+				this.OnPropertyChanged("<#= property.Name #>", value);
+			}
+		}
+
+		partial void On<#= property.Name #>PropertyChanged(<#= property.TypeName #> newValue);
+<# } #>
+<# foreach(var property in MapClass.CollectionProperties) { #>
+
+		/// <summary>
+		/// <#= property.Name #> property.
+		/// </summary>
+		[DataMember(<#= property.DataMemberOptions #>)]
+<# foreach(string attr in property.Attributes) { #>
+		<#= attr #>
+<# } #>
+		<#= property.Modifiers #> <#= String.Format(MapClass.Mapping.DefaultCollectionClass, property.TypeName) #> <#= property.Name #> { get; set; }
+<# } #>
+
+		partial void OnPropertyChanged(string propertyName, object newValue);
+
+		// For internal use only:
+		partial void OnAnIdentifierPropertyChanged();
+	}
+
+	#endregion
+
+<# } #>
+}

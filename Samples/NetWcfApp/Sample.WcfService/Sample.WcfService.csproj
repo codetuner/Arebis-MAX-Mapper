@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F5821D44-D564-4B85-A1DE-C7F51713CA8C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sample.WcfService</RootNamespace>
+    <AssemblyName>Sample.WcfService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseObjectMappingExtensions.cs" />
+    <Compile Include="ManualSelectProjections.cs" />
+    <Compile Include="Mapper.g.cs">
+      <DependentUpon>Mapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MapperGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MapperGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapper_Get~SourcePropertyName.g.cs">
+      <DependentUpon>Mapper_Get~SourcePropertyName.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewFolder1\SubTemplate.g.cs" />
+    <Compile Include="NewFolder1\SubTemplate.gen.cs" />
+    <Compile Include="SelectProjections.g.cs">
+      <DependentUpon>SelectProjections.tt</DependentUpon>
+    </Compile>
+    <None Include="..\Files\Max Empty SubTemplate\SubTemplate.tt">
+      <Link>NewFolder1\SubTemplate.tt</Link>
+      <Generator>MaxDomainGeneratorTemplate</Generator>
+      <LastGenOutput>SubTemplate.g.cs</LastGenOutput>
+    </None>
+    <None Include="Mapper.tt">
+      <DependentUpon>MapperGenerator.tt</DependentUpon>
+      <Generator>MaxDomainGeneratorTemplate</Generator>
+    </None>
+    <None Include="MapperGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MapperGenerator.cs</LastGenOutput>
+    </None>
+    <None Include="Mapper_Get~SourcePropertyName.tt">
+      <DependentUpon>MapperGenerator.tt</DependentUpon>
+      <Generator>MaxDomainGeneratorTemplate</Generator>
+    </None>
+    <None Include="ReverseMapper.tt">
+      <DependentUpon>MapperGenerator.tt</DependentUpon>
+      <Generator>MaxDomainGeneratorTemplate</Generator>
+    </None>
+    <Compile Include="ReverseMapper.g.cs">
+      <DependentUpon>ReverseMapper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="SelectProjections.tt">
+      <DependentUpon>MapperGenerator.tt</DependentUpon>
+      <Generator>MaxDomainGeneratorTemplate</Generator>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Max.Domain.Mapping.Entity\Max.Domain.Mapping.Entity.csproj">
+      <Project>{4D4C90ED-3D65-4862-BF84-A06E7B18C9F6}</Project>
+      <Name>Max.Domain.Mapping.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Max.Domain.Mapping\Max.Domain.Mapping.csproj">
+      <Project>{3C39A9CA-A830-47BC-A93A-572ACF9DDA97}</Project>
+      <Name>Max.Domain.Mapping</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Business\Sample.Business.csproj">
+      <Project>{71E02F92-0F94-4F70-9E60-BE1F1BFF44B8}</Project>
+      <Name>Sample.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sample.Contracts\Sample.Contracts.csproj">
+      <Project>{446C5B7A-4FBF-443B-BFD9-39302AD9B530}</Project>
+      <Name>Sample.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>21446</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <EnableWcfTestClientForSVCDefaultValue>True</EnableWcfTestClientForSVCDefaultValue>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

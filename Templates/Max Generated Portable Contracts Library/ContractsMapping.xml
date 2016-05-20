@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mapping namespace="urn:$safeprojectname$" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ContractsMapping.xsd" >
+
+  <!-- Add project references and namespaces to use here -->
+
+  <!-- Namespace with alias "Contract" defines the contract types namespace -->
+  <namespace name="$safeprojectname$" alias="Contract" />
+
+  <!-- Add namespaces to be imported in generated files -->
+
+  <!-- Describe your mapping here -->
+
+  </mapping>

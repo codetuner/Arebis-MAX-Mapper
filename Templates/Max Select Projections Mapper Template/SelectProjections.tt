@@ -1,0 +1,151 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Runtime.Serialization;
+using Max.Domain.Mapping;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Mapping").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "Internal.Mapping" #>
+{
+    public static partial class SelectProjectionsExtensions
+    {
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# if (MapClass.IsAbstract) continue; #>
+<# if (Convert.ToBoolean(MapClass.Settings.ValueOr("skipSelectProjections", "false"))) continue; #>
+        #region <#= MapClass.ClassName #> select projections
+
+<# if (MapClass.InheritedProperties.Any(p => p.ConversionMethod == "custom")) { #>
+		// Cannot generate projections for types having custom converted properties.
+<# } else if (MapClass.InheritedProperties.Any(p => (p.Expression == null && p.Source.HasConditions))) { #>
+		// Cannot generate projections for types having conditions in the property sources.
+<# } else if (HasRecursiveProperties(MapClass, null)) { #>
+		// Cannot generate projections for types having recursion.
+<# } else if (HasMissingMappedTypeDefinition(MapClass)) { #>
+		// Cannot generate projections for types having mapped properties to unknown types.
+<# } else if (HasNestedTypeWithExpressions(MapClass)) { #>
+		// Cannot generate projections for types having expressions on nested types.
+<# } else if (HasCollectionProperties(MapClass)) { #>
+		// Cannot generate projections for types having collection properties.
+<# } else { #>
+        /// <summary>
+		/// Projects the results into <#= MapClass.ClassName #> objects.
+        /// </summary>
+        public static IQueryable<<#= MapClass.ClassName #>> SelectAs<#= MapClass.ClassName #>Collection(this IQueryable<<#= MapClass.SourceType #>> query)
+		{
+			return query
+				.Select(source => new <#= MapClass.ClassName #>() {
+<# WriteProperties("					", MapClass, "source"); #>
+				});
+        }
+<# } /* endif */ #>
+
+        #endregion
+
+<# } /* foreach MapClass */ #>
+    }
+}
+<#+
+void WriteProperties(string prefix, Max.Tools.DomainGenerator.Model.MapClass MapClass, string sourcePath) {
+	foreach(var property in MapClass.InheritedProperties) {
+		if (Convert.ToBoolean(property.Settings.ValueOr("skipSelectProjections", "false"))) {
+			// Skip this property
+		} else if (property.Expression != null) {
+			WriteLine(prefix + "{0} = ({1}),", property.Name.Replace(".", ""), property.Expression);
+		} else if (property.ConversionMethod == "cast") {
+			WriteLine(prefix + "{0} = ({1}){3}.{2},", property.Name.Replace(".", ""), property.TypeName, property.Source, sourcePath);
+		} else if (property.ConversionMethod == "map") {
+			var mapped = MapClass.Mapping.Classes.SingleOrDefault(c => c.ClassName == property.TypeName);
+			if (mapped.Properties.Any(p => p.Expression != null))
+				WriteLine(prefix + "{0} = [ERROR] // Cannot map nested type with expression. Use the \"skipSelectProjections\" setting in the mapping to skip this property or to skip this type all together.", property.Name);
+			else
+			{
+				WriteLine(prefix + "{0} = new {1}() {{", property.Name.Replace(".", ""), property.TypeName);
+				WriteProperties(prefix + "	", mapped, sourcePath + "." + property.Source);
+				WriteLine(prefix + "},");
+			}
+		} else if (property.ConversionMethod == "convert") {
+			WriteLine(prefix + "{0} = ({1})Convert.ChangeType({3}.{2}, typeof({1})),", property.Name.Replace(".", ""), property.TypeName, property.Source, sourcePath);
+		} else {
+			WriteLine(prefix + "{0} = {2}.{1},", property.Name.Replace(".", ""), property.Source, sourcePath);
+		}
+	}
+} 
+
+bool HasMissingMappedTypeDefinition(Max.Tools.DomainGenerator.Model.MapClass MapClass) {
+	foreach(var property in MapClass.InheritedProperties) {
+		if (Convert.ToBoolean(property.Settings.ValueOr("skipSelectProjections", "false"))) {
+			// Skip this property
+		} else if (property.ConversionMethod == "map") {
+			var mapped = MapClass.Mapping.Classes.SingleOrDefault(c => c.ClassName == property.TypeName);
+			if (mapped == null) return true;
+			if (HasMissingMappedTypeDefinition(mapped)) return true;
+		}
+	}
+	
+	return false;
+} 
+
+bool HasCollectionProperties(Max.Tools.DomainGenerator.Model.MapClass MapClass) {
+	foreach(var property in MapClass.InheritedProperties) {
+		if (Convert.ToBoolean(property.Settings.ValueOr("skipSelectProjections", "false"))) {
+			// Skip this property
+		} else if (property.IsCollection) {
+			return true;
+		} else if (property.ConversionMethod == "map") {
+			var mapped = MapClass.Mapping.Classes.SingleOrDefault(c => c.ClassName == property.TypeName);
+			if (HasCollectionProperties(mapped)) return true;
+		}
+	}
+	
+	return false;
+}
+
+bool HasNestedTypeWithExpressions(Max.Tools.DomainGenerator.Model.MapClass MapClass) {
+	foreach(var property in MapClass.InheritedProperties) {
+		if (Convert.ToBoolean(property.Settings.ValueOr("skipSelectProjections", "false"))) {
+			// Skip this property
+		} else if (property.ConversionMethod == "map") {
+			var mapped = MapClass.Mapping.Classes.SingleOrDefault(c => c.ClassName == property.TypeName);
+			if (mapped.Properties.Any(p => p.Expression != null))
+				return true;
+			else if (HasNestedTypeWithExpressions(mapped))
+				return true;
+		}
+	}
+	
+	return false;
+} 
+
+bool HasRecursiveProperties(Max.Tools.DomainGenerator.Model.MapClass MapClass, Stack<Max.Tools.DomainGenerator.Model.MapClass> path) {
+	path = path ?? new Stack<Max.Tools.DomainGenerator.Model.MapClass>();
+	if (path.Contains(MapClass)) return true;
+	path.Push(MapClass);
+	try
+	{
+		foreach(var property in MapClass.InheritedProperties) {
+			if (Convert.ToBoolean(property.Settings.ValueOr("skipSelectProjections", "false"))) {
+				// Skip this property
+			} else if (property.ConversionMethod == "map") {
+				var mapped = MapClass.Mapping.Classes.SingleOrDefault(c => c.ClassName == property.TypeName);
+				if ((mapped != null) && (HasRecursiveProperties(mapped, path)))
+					return true;
+			}
+		}
+	}
+	finally
+	{
+		path.Pop();
+	}
+	return false;
+} 
+#>

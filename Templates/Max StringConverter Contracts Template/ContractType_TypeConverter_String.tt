@@ -1,0 +1,106 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Linq;
+using System.ComponentModel;
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Contract").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "UndefinedContractNamespace" #>
+{
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# 	if (!MapClass.CanMap) continue; #>
+<# 	if (MapClass.IdentifierProperties.Count() == 0) continue; #>
+<# 	if (Convert.ToBoolean(MapClass.Settings.ValueOr("skipTypeConverterString", "false"))) continue; #>
+	#region TypeConverter implementation for <#= MapClass.ClassName #>
+
+	[System.ComponentModel.TypeConverter(typeof(<#= MapClass.ClassName #>TypeConverter))]
+	partial class <#= MapClass.ClassName #>
+	{ }
+
+	/// <summary>
+	/// TypeConverter implementation for <#= MapClass.ClassName #> converting
+	/// the identity values to and from string.
+	/// </summary>
+	public sealed class <#= MapClass.ClassName #>TypeConverter : System.ComponentModel.TypeConverter
+	{
+		/// <summary>
+		/// TypeConverter implementation.
+		/// </summary>
+        public override bool CanConvertFrom(System.ComponentModel.ITypeDescriptorContext context, Type sourceType)
+        {
+			if (sourceType == typeof(String))
+				return true;
+
+            return base.CanConvertFrom(context, sourceType);
+        }
+
+		/// <summary>
+		/// TypeConverter implementation.
+		/// </summary>
+        public override bool CanConvertTo(System.ComponentModel.ITypeDescriptorContext context, Type destinationType)
+        {
+			if (destinationType == typeof(String))
+				return true;
+
+			return base.CanConvertTo(context, destinationType);
+        }
+
+		/// <summary>
+		/// TypeConverter implementation.
+		/// </summary>
+        public override object ConvertFrom(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value)
+        {
+			if (value.GetType() == typeof(String))
+			{
+				var result = new <#= MapClass.ClassName #>();
+<# if (MapClass.IdentifierProperties.Count() == 1) { #>
+<#     foreach(var iprop in MapClass.IdentifierProperties) { #>
+				result.<#= iprop.Name #> = (<#= iprop.TypeName #>)Convert.ChangeType(value, typeof(<#= iprop.TypeName #>));
+<#     } #>
+<# } else { #>
+				var valueParts = ((string)value).Split(';');
+<#     var vpartc = 0; #>
+<#     foreach(var iprop in MapClass.IdentifierProperties) { #>
+				result.<#= iprop.Name #> = Convert.ChangeType(valueParts[<#= vpartc++ #>], typeof(<#= iprop.TypeName #>));
+<#     } #>
+<# } #>
+				return result;
+			}
+			else
+			{
+				return base.ConvertFrom(context, culture, value);
+			}
+        }
+
+		/// <summary>
+		/// TypeConverter implementation.
+		/// </summary>
+        public override object ConvertTo(System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, object value, Type destinationType)
+        {
+			if (destinationType == typeof(String))
+			{
+<# if (MapClass.IdentifierProperties.Count() == 1) { #>
+<#     foreach(var iprop in MapClass.IdentifierProperties) { #>
+				return ((<#= MapClass.ClassName #>)value).<#= iprop.Name #>.ToString();
+<#     } #>
+<# } else { #>
+				var source = ((<#= MapClass.ClassName #>)value);
+				var result = source.<#= MapClass.IdentifierProperties.First().Name #>.ToString();
+<#     foreach(var iprop in MapClass.IdentifierProperties.Skip(1)) { #>
+				result += ";" + source.<#= iprop.Name #>.ToString();
+<#     } #>
+<# } #>
+			}
+			else
+			{		
+				return base.ConvertTo(context, culture, value, destinationType);
+			}
+        }
+	}
+
+	#endregion
+
+<# } #>
+}

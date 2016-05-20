@@ -1,0 +1,16 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>ContractType_TypeConverter_String.tt</DefaultName>
+    <Name>Max TypeConverter to String Contracts Template</Name>
+    <Description>Template to generate TypeConverter classes providing conversion of contract types to and from string by their identity values.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+	  <Assembly>System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    </References>
+    <ProjectItem SubType="" TargetFileName="ContractType_TypeConverter_String.tt" ReplaceParameters="false" CustomTool="MaxDomainGeneratorTemplate">ContractType_TypeConverter_String.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

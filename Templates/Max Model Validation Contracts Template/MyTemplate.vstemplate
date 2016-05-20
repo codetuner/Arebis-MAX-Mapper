@@ -1,0 +1,16 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>ContractModelValidation.tt</DefaultName>
+    <Name>Max Model Validation Contracts Template</Name>
+    <Description>Template to validate the definition of the contract types.</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+        <Assembly>System.Runtime.Serialization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</Assembly>
+    </References>
+    <ProjectItem SubType="" TargetFileName="ContractModelValidation.tt" ReplaceParameters="false" CustomTool="MaxDomainGeneratorTemplate">ContractModelValidation.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,73 @@
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+<#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ import namespace="System.Linq" #>
+<#@ output extension=".g.cs" #>
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Objects.DataClasses;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ComponentModel.DataAnnotations;
+<# foreach(var import in Model.Namespaces.Where(ns => !ns.IsPredefined)) { #>
+using <#= (import.HasAlias) ? import.Alias + " = " : "" #><#= import.Name #>;
+<# } #>
+
+namespace <#= Model.Namespaces.Where(n => n.Alias == "Contract").Select(n => n.Name).FirstOrDefault() ?? Host.LocalNamespace ?? "UndefinedContractNamespace" #>
+{
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# 	if (!MapClass.CanMap) continue; #>
+<# 	if (MapClass.IdentifierProperties.Count() == 0) continue; #>
+<# 	if (Convert.ToBoolean(MapClass.Settings.ValueOr("skipIEntityWithKey", "false"))) continue; #>
+	#region IEntityWithKey implementation for <#= MapClass.ClassName #>
+
+	partial class <#= MapClass.ClassName #> : IEntityWithKey
+	{
+		private static readonly string QualifiedEntitySetName = "<#= MapClass.GetQualifiedEntitySetName() #>";
+		
+		[NonSerialized] private bool _entityKeyResolved;
+		[NonSerialized] private System.Data.EntityKey _entityKey;
+
+		/// <summary>
+		/// Key of the source entity of this contract object.
+		/// </summary>
+		System.Data.EntityKey IEntityWithKey.EntityKey
+		{
+			get
+			{
+				if (!this._entityKeyResolved)
+				{
+<# if (MapClass.IdentifierProperties.Count() == 1) { #>
+<#	 foreach(var idprop in MapClass.IdentifierProperties) { #>
+					if (this.<#= idprop.Name #> == default(<#= idprop.TypeName #>))
+						this._entityKey = null;
+					else
+						this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, "<#= idprop.Source #>", this.<#= idprop.Name #>);
+<#	 } #>
+<# } else { #>
+					List<System.Data.EntityKeyMember> keyMembers = new List<System.Data.EntityKeyMember>();
+<#	 foreach(var idprop in MapClass.IdentifierProperties) { #>
+					keyMembers.Add(new System.Data.EntityKeyMember("<#= idprop.Source.ToString() #>", this.<#= idprop.Name #>));
+<#	 } #>
+					this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, keyMembers);
+<# } #>
+					this._entityKeyResolved = true;
+				}
+				return this._entityKey;
+			}
+			set
+			{
+				throw new NotSupportedException("Setting the EntityKey of a contract object is not supported.");
+			}
+		}
+
+		partial void OnAnIdentifierPropertyChanged()
+		{
+			this._entityKeyResolved = false;
+		}
+	}
+
+	#endregion
+
+<# } #>
+}

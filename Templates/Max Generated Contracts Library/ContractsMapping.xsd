@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           >
+  <xs:element name="mapping">
+    <xs:annotation>
+      <xs:documentation>
+        Defines a contract and mapping to source types.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="set">
+          <xs:annotation>
+            <xs:documentation>
+              Custom setting.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Name of the custom setting.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="value" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Value of the custom setting.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="reference">
+          <xs:annotation>
+            <xs:documentation>
+              Assembly reference to include.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="path" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Path to the assembly file.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="project" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Name of the project in the current solution.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="namespace">
+          <xs:annotation>
+            <xs:documentation>
+              Namespace declaration. Should define at least 2 namespaces, one with alias 'Contract', one with alias 'Mapping'.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Namespace.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="alias" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Alias of the namespace ('Contract', 'Mapping', ...).
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+        <xs:element maxOccurs="unbounded" name="type">
+          <xs:annotation>
+            <xs:documentation>
+              Contract type declaration.
+            </xs:documentation>
+          </xs:annotation>
+          <xs:complexType mixed="true">
+            <xs:sequence minOccurs="0">
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="set">
+                <xs:annotation>
+                  <xs:documentation>
+                    Custom setting.
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:attribute name="name" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Name of the custom setting.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="value" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Value of the custom setting.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>
+                    Attribute of the contract type declaration.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="knownSubtype" type="xs:string">
+                <xs:annotation>
+                  <xs:documentation>
+                    Declares substitutable contract subtypes.
+                  </xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element minOccurs="0" maxOccurs="unbounded" name="map">
+                <xs:annotation>
+                  <xs:documentation>
+                    Mapping of a property.
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="set">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Custom setting.
+                        </xs:documentation>
+                      </xs:annotation>
+                      <xs:complexType>
+                        <xs:attribute name="name" type="xs:string" use="required">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Name of the custom setting.
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                        <xs:attribute name="value" type="xs:string" use="required">
+                          <xs:annotation>
+                            <xs:documentation>
+                              Value of the custom setting.
+                            </xs:documentation>
+                          </xs:annotation>
+                        </xs:attribute>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="attribute" type="xs:string">
+                      <xs:annotation>
+                        <xs:documentation>
+                          Attribute of the contract property declaration.
+                        </xs:documentation>
+                      </xs:annotation>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="property" type="xs:string" use="required">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Name of the property on the contract type.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="type" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Contract property's type (by deault same as source's property).
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="conversion" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Type conversion method.
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value = "none">
+                          <xs:annotation>
+                            <xs:documentation>Use a regular assignment without conversion.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "map">
+                          <xs:annotation>
+                            <xs:documentation>Call the Mapper to perform conversion.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "cast">
+                          <xs:annotation>
+                            <xs:documentation>Use casting for conversion.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "convert">
+                          <xs:annotation>
+                            <xs:documentation>Call Convert method for conversion.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "custom">
+                          <xs:annotation>
+                            <xs:documentation>Perform custom conversion in partial class.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="onRemove" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Action to take on remove of a member in this collection property when reverse mapping.
+                      </xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:enumeration value = "remove">
+                          <xs:annotation>
+                            <xs:documentation>Remove the member from this collection.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "delete">
+                          <xs:annotation>
+                            <xs:documentation>Delete the member.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                        <xs:enumeration value = "custom">
+                          <xs:annotation>
+                            <xs:documentation>Implement a custom action.</xs:documentation>
+                          </xs:annotation>
+                        </xs:enumeration>
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:attribute>
+                  <xs:attribute name="source" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Source of the property (if different of the contract property).
+                        Can be a property path with conditions and cast expressions,
+                        e.g: "Persons[p =&gt; p.Age &gt; 18].Car.Engine.Manufacturer as INamedItem.Name"
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="expression" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Expression that forms a read-only source for the property.
+                        Expression is in terms of 'source'.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="identifier" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Whether the property is an identifier property (default false).
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="updatable" type="xs:boolean" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Whether source property can be updated on reverse mapping (default true).
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="dataMemberOptions" type="xs:string" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>
+                        Options of the [DataMember] attribute.
+                      </xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Name of the contract type.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="source" type="xs:string" use="required">
+              <xs:annotation>
+                <xs:documentation>
+                  Source type.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="reverseMapping" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Reverse mapping setting.
+                </xs:documentation>
+              </xs:annotation>
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value = "none">
+                    <xs:annotation>
+                      <xs:documentation>Reverse mapping is not supported (default).</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value = "referenceOnly">
+                    <xs:annotation>
+                      <xs:documentation>Reverse mapping is limited to referencing.</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value = "update">
+                    <xs:annotation>
+                      <xs:documentation>Reverse mapping can update existing objects but not create new ones.</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value = "create">
+                    <xs:annotation>
+                      <xs:documentation>Reverse mapping can create new objects and reference existing ones without updating.</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                  <xs:enumeration value = "createAndUpdate">
+                    <xs:annotation>
+                      <xs:documentation>Reverse mapping can create new objects and update existing ones.</xs:documentation>
+                    </xs:annotation>
+                  </xs:enumeration>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <xs:attribute name="dataContractOptions" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Options of the [DataContract] attribute.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="baseType" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Name of the type the contract type should inherit from (default BaseDataContract).
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="typeCondition" type="xs:string" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  An optional additional condition to differentiate contract subtypes to map a source type to. Code expression in terms of 'source'.
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+            <xs:attribute name="abstract" type="xs:boolean" use="optional">
+              <xs:annotation>
+                <xs:documentation>
+                  Whether the contract type should be abstract (default false).
+                </xs:documentation>
+              </xs:annotation>
+            </xs:attribute>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="namespace" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            The namespace URI for the data contract types.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="defaultBaseClass" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            The default base class to use for contract types. By default System.Object.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="defaultCollectionClass" type="xs:string" use="optional">
+        <xs:annotation>
+          <xs:documentation>
+            The default class to use for contract collections. By default System.Collections.Generic.List&lt;{0}&gt;.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
