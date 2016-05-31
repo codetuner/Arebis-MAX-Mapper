@@ -45,7 +45,7 @@ namespace Max.Tools.DomainGenerator.Model
                     this.Updatable = false;
                     this.Source = null;
                     this.TypeName = definition.Attributes["type"].ValueOr(null);
-                    this.ConversionMethod = "default";
+                    this.ConversionMethod = definition.Attributes["conversion"].ValueOr("default");
                 }
                 this.DataMemberOptions = definition.Attributes["dataMemberOptions"].ValueOr("");
                 this.Modifiers = definition.Attributes["modifiers"].ValueOr("public");

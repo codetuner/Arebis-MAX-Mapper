@@ -1,4 +1,4 @@
-﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator.12.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
 <#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
 <#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -17,10 +17,11 @@ using <#= Model.Namespaces.Single(n => n.Alias == "Contract").Name #>;
 
 namespace <#= Host.LocalNamespace #>
 {
-    internal class IdentifierBasedObjectSource : IObjectSource
+    public partial class IdentifierBasedObjectSource : IObjectSource
 	{
         private static IDictionary<Type, Func<Object, Object, Boolean>> isMatchExpressions = new Dictionary<Type, Func<Object, Object, Boolean>>();
         private static IDictionary<Type, Func<System.Data.Entity.DbContext, Object, Object>> tryGetStoreObjectExpressions = new Dictionary<Type, Func<System.Data.Entity.DbContext, object, object>>();
+        private static IDictionary<Type, Func<System.Data.Entity.DbContext, Object, bool>> isNewObjectExpressions = new Dictionary<Type, Func<System.Data.Entity.DbContext, Object, bool>>();
 	
         static IdentifierBasedObjectSource()
         {
@@ -40,6 +41,14 @@ namespace <#= Host.LocalNamespace #>
 <# 	} else { #>
 			tryGetStoreObjectExpressions[typeof(<#= MapClass.ClassName #>)] = (context, a) => (default(<#= MapClass.SourceType #>));
 <# 	} #>
+<# } /* foreach class */ #>
+
+<# foreach(var MapClass in Model.Classes.Where(c => !c.IsEnumeration).OrderBy(c => c.ClassName)) { #>
+<# if (Convert.ToBoolean(MapClass.Settings.ValueOr("zeroBasedIdentifier", "false"))) { #>
+			isNewObjectExpressions[typeof(<#= MapClass.ClassName #>)] = (context, a) => (a) => false)); // (New instances of types having 'zeroBasedIdentifier' mapping property set cannot be identified.)
+<# } else { #>
+			isNewObjectExpressions[typeof(<#= MapClass.ClassName #>)] = (context, a) => true<# foreach(var property in MapClass.InheritedProperties.Where(p => p.IsIdentifier)) { #><# if (property.IsString) { #> && (String.IsNullOrWhiteSpace(((<#= MapClass.ClassName #>)a).<#= property.Name #>))<# } else { #> && (((<#= MapClass.ClassName #>)a).<#= property.Name #> == default(<#= property.TypeName #>))<# } #><# } #>;
+<# } #>
 <# } /* foreach class */ #>
         }
 
@@ -66,7 +75,10 @@ namespace <#= Host.LocalNamespace #>
         {
             try
             {
-                return (TStoreObject)tryGetStoreObjectExpressions[sourceObject.GetType()](this.Context, sourceObject);
+                if (isNewObjectExpressions[sourceObject.GetType()](this.Context, sourceObject))
+					return null;
+				else
+					return (TStoreObject)tryGetStoreObjectExpressions[sourceObject.GetType()](this.Context, sourceObject);
             }
             catch (KeyNotFoundException ex)
             {
@@ -77,25 +89,42 @@ namespace <#= Host.LocalNamespace #>
         public virtual void RegisterAsNewObject(object storeObject)
         {
             Context.Set(GetObjectType(storeObject.GetType())).Add(storeObject);
+			this.AfterRegisterAsNewObject(storeObject);
         }
+
+        partial void AfterRegisterAsNewObject(object storeObject);
 
         public virtual void RegisterAsDeletedObject(object storeObject)
         {
             Context.Set(GetObjectType(storeObject.GetType())).Remove(storeObject);
+			this.AfterRegisterAsDeletedObject(storeObject);
         }
+
+        partial void AfterRegisterAsDeletedObject(object storeObject);
 
         public virtual TStoreObject CreateObject<TStoreObject>(object sourceObject) where TStoreObject : class, new()
         {
-            return Context.Set<TStoreObject>().Create();
+            var result = Context.Set<TStoreObject>().Create();
+			this.AfterCreateObject<TStoreObject>(sourceObject, result);
+			return result;
         }
+
+		partial void AfterCreateObject<TStoreObject>(object sourceObject, TStoreObject result) where TStoreObject : class, new();
 
 		public virtual Type GetObjectType(Type storeObjectType)
         {
+#if MAX_EFNAMESPACEV1
             return System.Data.Objects.ObjectContext.GetObjectType(storeObjectType);
+#else
+			return System.Data.Entity.Core.Objects.ObjectContext.GetObjectType(storeObjectType);
+#endif
         }
 
         public virtual void OnUpdateSystemObject(object sourceObject, object storeObject)
         {
+			this.AfterUpdateSystemObject(sourceObject, storeObject);
         }
+
+		partial void AfterUpdateSystemObject(object sourceObject, object storeObject);
 	}
 }

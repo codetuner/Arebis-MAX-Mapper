@@ -4,7 +4,7 @@ using System.Data.Objects.DataClasses;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Xml;
+using System.Xml.Linq;
 
 namespace Max.Tools.DomainGenerator.Model
 {
@@ -20,7 +20,7 @@ namespace Max.Tools.DomainGenerator.Model
         /// </summary>
         public void RegisterProject(EnvDTE.Project project)
         {
-            Debug.WriteLine("EDM Searching project " + project.Name);
+            Debug.WriteLine("MAX:EdmManager: Searching project " + project.Name);
 
             // Search in all root-level project items:
             foreach (EnvDTE.ProjectItem item in project.ProjectItems)
@@ -52,20 +52,22 @@ namespace Max.Tools.DomainGenerator.Model
         /// </summary>
         public void RegisterEdmx(string filename)
         {
-            Debug.WriteLine("EDM Registering EDMX " + filename);
+            // Load document:
+            Debug.WriteLine(String.Format("MAX:EdmManager: RegisterEdmx(\"{0}\")", filename));
+            XDocument doc = XDocument.Load(filename);
 
-            Dictionary<String, string> edmnames = new Dictionary<string, string>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
-            if (doc.DocumentElement.GetAttribute("Version") == "1.0")
-                throw new InvalidOperationException(String.Format("The EDMX file {0} is still an EF 1.0 document. Please convert to EF 4.0.", filename));
-            XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(doc.NameTable);
-            xmlnsmgr.AddNamespace("edm", "http://schemas.microsoft.com/ado/2008/09/edm");
-            xmlnsmgr.AddNamespace("edmx", "http://schemas.microsoft.com/ado/2008/10/edmx");
-            foreach (XmlNode set in doc.SelectNodes("//edmx:ConceptualModels/edm:Schema/edm:EntityContainer/edm:EntitySet", xmlnsmgr))
+            // Check EDMX version (non-critical):
+            try
             {
-                string qualifiedEntitySetName = set.ParentNode.Attributes["Name"].Value + "." + set.Attributes["Name"].Value;
-                RegisterEntitySetName(set.Attributes["EntityType"].Value, qualifiedEntitySetName);
+                if (doc.Root.Attribute("Version").Value == "1.0")
+                    throw new InvalidOperationException(String.Format("The EDMX file {0} is still an EF 1.0 document. Please convert to EF 4.0.", filename));
+            }
+            catch { }
+
+            // Register conceptual models:
+            foreach (var conceptualModel in doc.Root.Descendants().Where(d => d.Name.LocalName == "ConceptualModels"))
+            {
+                RegisterConceptualModel(conceptualModel);
             }
         }
 
@@ -74,19 +76,8 @@ namespace Max.Tools.DomainGenerator.Model
         /// </summary>
         public void RegisterCsdl(string filename)
         {
-            Debug.WriteLine("EDM Registering CSDL " + filename);
-
-            Dictionary<String, string> edmnames = new Dictionary<string, string>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load(filename);
-            XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(doc.NameTable);
-            xmlnsmgr.AddNamespace("edm", "http://schemas.microsoft.com/ado/2008/09/edm");
-            xmlnsmgr.AddNamespace("edmx", "http://schemas.microsoft.com/ado/2008/10/edmx");
-            foreach (XmlNode set in doc.SelectNodes("//edm:Schema/edm:EntityContainer/edm:EntitySet", xmlnsmgr))
-            {
-                string qualifiedEntitySetName = set.ParentNode.Attributes["Name"].Value + "." + set.Attributes["Name"].Value;
-                RegisterEntitySetName(set.Attributes["EntityType"].Value, qualifiedEntitySetName);
-            }
+            Debug.WriteLine(String.Format("MAX:EdmManager: RegisterCsdl(\"{0}\")", filename));
+            this.RegisterConceptualModel(XDocument.Load(filename).Root);
         }
 
         /// <summary>
@@ -94,20 +85,29 @@ namespace Max.Tools.DomainGenerator.Model
         /// </summary>
         public void RegisterAssembly(Assembly asm)
         {
+            Debug.WriteLine(String.Format("MAX:EdmManager: RegisterAssembly(\"{0}\")", asm.CodeBase));
             foreach (string resourceName in asm.GetManifestResourceNames().Where(n => n.EndsWith(".csdl")))
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(asm.GetManifestResourceStream(resourceName));
-                XmlNamespaceManager xmlnsmgr = new XmlNamespaceManager(doc.NameTable);
-                if (doc.DocumentElement.GetAttribute("Version") == "1.0")
-                    xmlnsmgr.AddNamespace("edm", "http://schemas.microsoft.com/ado/2006/04/edm");
-                else
-                    xmlnsmgr.AddNamespace("edm", "http://schemas.microsoft.com/ado/2008/09/edm");
-                foreach (XmlNode set in doc.SelectNodes("//edm:EntitySet", xmlnsmgr))
-                {
-                    string qualifiedEntitySetName = set.ParentNode.Attributes["Name"].Value + "." + set.Attributes["Name"].Value;
-                    RegisterEntitySetName(set.Attributes["EntityType"].Value, qualifiedEntitySetName);
-                }
+                RegisterConceptualModel(XDocument.Load(asm.GetManifestResourceStream(resourceName)).Root);
+            }
+        }
+
+        /// <summary>
+        /// Registers a conceptual model or conceptual model schema element.
+        /// </summary>
+        private void RegisterConceptualModel(XElement conceptualModel)
+        {
+            // Retrieve EntitySet declarations:
+            var entitySetDeclarations
+                = conceptualModel
+                    .Descendants().Where(d => d.Name.LocalName == "EntityContainer")
+                    .Descendants().Where(d => d.Name.LocalName == "EntitySet");
+
+            // Determine and register EntitySet names:
+            foreach (var entitySetDeclaration in entitySetDeclarations)
+            {
+                string qualifiedEntitySetName = entitySetDeclaration.Parent.Attribute("Name").Value + "." + entitySetDeclaration.Attribute("Name").Value;
+                RegisterEntitySetName(entitySetDeclaration.Attribute("EntityType").Value, qualifiedEntitySetName);
             }
         }
 
@@ -118,6 +118,8 @@ namespace Max.Tools.DomainGenerator.Model
         /// <param name="qualifiedEntitySetName">Qualified entity set name (EntityContainerName.EntitySetName).</param>
         public void RegisterEntitySetName(string entityTypeName, string qualifiedEntitySetName)
         {
+            Debug.WriteLine(String.Format("MAX:EdmManager: RegisterEntitySetName(\"{0}\", \"{1}\")", entityTypeName ?? "<null>", qualifiedEntitySetName ?? "<null>"));
+
             entitySetNames[entityTypeName] = qualifiedEntitySetName;
         }
 
@@ -128,11 +130,19 @@ namespace Max.Tools.DomainGenerator.Model
         /// <returns>The qualified EntitySetName consisting of the entity container name and the entity set name.</returns>
         public string GetQualifiedEntitySetName(string entityTypeName)
         {
+            Debug.WriteLine(String.Format("MAX:EdmManager: GetQualifiedEntitySetName(\"{0}\")", entityTypeName ?? "<null>"));
+
             string result;
             if (entitySetNames.TryGetValue(entityTypeName, out result))
+            {
+                Debug.WriteLine(String.Format("MAX:EdmManager: GetQualifiedEntitySetName(\"{0}\") => \"{1}\"", entityTypeName ?? "<null>", result ?? "<null>"));
                 return result;
+            }
             else
+            {
+                Debug.WriteLine(String.Format("MAX:EdmManager: GetQualifiedEntitySetName(\"{0}\") => null", entityTypeName ?? "<null>"));
                 return null;
+            }
         }
 
         /// <summary>

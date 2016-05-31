@@ -340,7 +340,7 @@
             <xs:attribute name="baseType" type="xs:string" use="optional">
               <xs:annotation>
                 <xs:documentation>
-                  Name of the type the contract type should inherit from (default BaseDataContract).
+                  Name of the type the contract type should inherit from.
                 </xs:documentation>
               </xs:annotation>
             </xs:attribute>

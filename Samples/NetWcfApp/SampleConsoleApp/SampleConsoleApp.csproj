@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleConsoleApp</RootNamespace>
     <AssemblyName>SampleConsoleApp</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -27,6 +28,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -36,6 +38,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
@@ -63,16 +66,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Max.Domain.Mapping.Entity\Max.Domain.Mapping.Entity.csproj">
-      <Project>{4D4C90ED-3D65-4862-BF84-A06E7B18C9F6}</Project>
+    <ProjectReference Include="..\..\..\Code\Max.Domain.Mapping.Entity\Max.Domain.Mapping.Entity.csproj">
+      <Project>{4d4c90ed-3d65-4862-bf84-a06e7b18c9f6}</Project>
       <Name>Max.Domain.Mapping.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Max.Domain.Mapping\Max.Domain.Mapping.csproj">
-      <Project>{3C39A9CA-A830-47BC-A93A-572ACF9DDA97}</Project>
+    <ProjectReference Include="..\..\..\Code\Max.Domain.Mapping\Max.Domain.Mapping.csproj">
+      <Project>{3c39a9ca-a830-47bc-a93a-572acf9dda97}</Project>
       <Name>Max.Domain.Mapping</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj">
-      <Project>{ECDD11E4-5902-4BDA-AB00-7CCB2F2D7E5A}</Project>
+    <ProjectReference Include="..\..\..\Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj">
+      <Project>{ecdd11e4-5902-4bda-ab00-7ccb2f2d7e5a}</Project>
       <Name>Max.Tools.DomainGenerator</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sample.Business\Sample.Business.csproj">

@@ -8,12 +8,13 @@
 //------------------------------------------------------------------------------
 
 using System;
+using System.ComponentModel;
+using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Data.EntityClient;
-using System.ComponentModel;
-using System.Xml.Serialization;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region EDM Relationship Metadata
@@ -121,6 +122,7 @@ namespace Sample.Business
         private ObjectSet<SalesTerritory> _SalesTerritories;
 
         #endregion
+
         #region AddTo Methods
     
         /// <summary>
@@ -148,11 +150,11 @@ namespace Sample.Business
         }
 
         #endregion
+
     }
-    
 
     #endregion
-    
+
     #region Entities
     
     /// <summary>
@@ -193,7 +195,8 @@ namespace Sample.Business
         }
 
         #endregion
-        #region Primitive Properties
+
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -212,7 +215,7 @@ namespace Sample.Business
                 {
                     OnContactIDChanging(value);
                     ReportPropertyChanging("ContactID");
-                    _ContactID = StructuralObject.SetValidValue(value);
+                    _ContactID = StructuralObject.SetValidValue(value, "ContactID");
                     ReportPropertyChanged("ContactID");
                     OnContactIDChanged();
                 }
@@ -237,7 +240,7 @@ namespace Sample.Business
             {
                 OnNameStyleChanging(value);
                 ReportPropertyChanging("NameStyle");
-                _NameStyle = StructuralObject.SetValidValue(value);
+                _NameStyle = StructuralObject.SetValidValue(value, "NameStyle");
                 ReportPropertyChanged("NameStyle");
                 OnNameStyleChanged();
             }
@@ -261,7 +264,7 @@ namespace Sample.Business
             {
                 OnTitleChanging(value);
                 ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, true);
+                _Title = StructuralObject.SetValidValue(value, true, "Title");
                 ReportPropertyChanged("Title");
                 OnTitleChanged();
             }
@@ -285,7 +288,7 @@ namespace Sample.Business
             {
                 OnFirstNameChanging(value);
                 ReportPropertyChanging("FirstName");
-                _FirstName = StructuralObject.SetValidValue(value, false);
+                _FirstName = StructuralObject.SetValidValue(value, false, "FirstName");
                 ReportPropertyChanged("FirstName");
                 OnFirstNameChanged();
             }
@@ -309,7 +312,7 @@ namespace Sample.Business
             {
                 OnMiddleNameChanging(value);
                 ReportPropertyChanging("MiddleName");
-                _MiddleName = StructuralObject.SetValidValue(value, true);
+                _MiddleName = StructuralObject.SetValidValue(value, true, "MiddleName");
                 ReportPropertyChanged("MiddleName");
                 OnMiddleNameChanged();
             }
@@ -333,7 +336,7 @@ namespace Sample.Business
             {
                 OnLastNameChanging(value);
                 ReportPropertyChanging("LastName");
-                _LastName = StructuralObject.SetValidValue(value, false);
+                _LastName = StructuralObject.SetValidValue(value, false, "LastName");
                 ReportPropertyChanged("LastName");
                 OnLastNameChanged();
             }
@@ -357,7 +360,7 @@ namespace Sample.Business
             {
                 OnSuffixChanging(value);
                 ReportPropertyChanging("Suffix");
-                _Suffix = StructuralObject.SetValidValue(value, true);
+                _Suffix = StructuralObject.SetValidValue(value, true, "Suffix");
                 ReportPropertyChanged("Suffix");
                 OnSuffixChanged();
             }
@@ -381,7 +384,7 @@ namespace Sample.Business
             {
                 OnEmailAddressChanging(value);
                 ReportPropertyChanging("EmailAddress");
-                _EmailAddress = StructuralObject.SetValidValue(value, true);
+                _EmailAddress = StructuralObject.SetValidValue(value, true, "EmailAddress");
                 ReportPropertyChanged("EmailAddress");
                 OnEmailAddressChanged();
             }
@@ -405,7 +408,7 @@ namespace Sample.Business
             {
                 OnEmailPromotionChanging(value);
                 ReportPropertyChanging("EmailPromotion");
-                _EmailPromotion = StructuralObject.SetValidValue(value);
+                _EmailPromotion = StructuralObject.SetValidValue(value, "EmailPromotion");
                 ReportPropertyChanged("EmailPromotion");
                 OnEmailPromotionChanged();
             }
@@ -429,7 +432,7 @@ namespace Sample.Business
             {
                 OnPhoneChanging(value);
                 ReportPropertyChanging("Phone");
-                _Phone = StructuralObject.SetValidValue(value, true);
+                _Phone = StructuralObject.SetValidValue(value, true, "Phone");
                 ReportPropertyChanged("Phone");
                 OnPhoneChanged();
             }
@@ -453,7 +456,7 @@ namespace Sample.Business
             {
                 OnPasswordHashChanging(value);
                 ReportPropertyChanging("PasswordHash");
-                _PasswordHash = StructuralObject.SetValidValue(value, false);
+                _PasswordHash = StructuralObject.SetValidValue(value, false, "PasswordHash");
                 ReportPropertyChanged("PasswordHash");
                 OnPasswordHashChanged();
             }
@@ -477,7 +480,7 @@ namespace Sample.Business
             {
                 OnPasswordSaltChanging(value);
                 ReportPropertyChanging("PasswordSalt");
-                _PasswordSalt = StructuralObject.SetValidValue(value, false);
+                _PasswordSalt = StructuralObject.SetValidValue(value, false, "PasswordSalt");
                 ReportPropertyChanged("PasswordSalt");
                 OnPasswordSaltChanged();
             }
@@ -501,7 +504,7 @@ namespace Sample.Business
             {
                 OnAdditionalContactInfoChanging(value);
                 ReportPropertyChanging("AdditionalContactInfo");
-                _AdditionalContactInfo = StructuralObject.SetValidValue(value, true);
+                _AdditionalContactInfo = StructuralObject.SetValidValue(value, true, "AdditionalContactInfo");
                 ReportPropertyChanged("AdditionalContactInfo");
                 OnAdditionalContactInfoChanged();
             }
@@ -525,7 +528,7 @@ namespace Sample.Business
             {
                 OnrowguidChanging(value);
                 ReportPropertyChanging("rowguid");
-                _rowguid = StructuralObject.SetValidValue(value);
+                _rowguid = StructuralObject.SetValidValue(value, "rowguid");
                 ReportPropertyChanged("rowguid");
                 OnrowguidChanged();
             }
@@ -549,7 +552,7 @@ namespace Sample.Business
             {
                 OnModifiedDateChanging(value);
                 ReportPropertyChanging("ModifiedDate");
-                _ModifiedDate = StructuralObject.SetValidValue(value);
+                _ModifiedDate = StructuralObject.SetValidValue(value, "ModifiedDate");
                 ReportPropertyChanged("ModifiedDate");
                 OnModifiedDateChanged();
             }
@@ -559,7 +562,7 @@ namespace Sample.Business
         partial void OnModifiedDateChanged();
 
         #endregion
-    
+
         #region Navigation Properties
     
         /// <summary>
@@ -585,6 +588,7 @@ namespace Sample.Business
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -638,7 +642,8 @@ namespace Sample.Business
         }
 
         #endregion
-        #region Primitive Properties
+
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -657,7 +662,7 @@ namespace Sample.Business
                 {
                     OnEmployeeIDChanging(value);
                     ReportPropertyChanging("EmployeeID");
-                    _EmployeeID = StructuralObject.SetValidValue(value);
+                    _EmployeeID = StructuralObject.SetValidValue(value, "EmployeeID");
                     ReportPropertyChanged("EmployeeID");
                     OnEmployeeIDChanged();
                 }
@@ -682,7 +687,7 @@ namespace Sample.Business
             {
                 OnNationalIDNumberChanging(value);
                 ReportPropertyChanging("NationalIDNumber");
-                _NationalIDNumber = StructuralObject.SetValidValue(value, false);
+                _NationalIDNumber = StructuralObject.SetValidValue(value, false, "NationalIDNumber");
                 ReportPropertyChanged("NationalIDNumber");
                 OnNationalIDNumberChanged();
             }
@@ -706,7 +711,7 @@ namespace Sample.Business
             {
                 OnContactIDChanging(value);
                 ReportPropertyChanging("ContactID");
-                _ContactID = StructuralObject.SetValidValue(value);
+                _ContactID = StructuralObject.SetValidValue(value, "ContactID");
                 ReportPropertyChanged("ContactID");
                 OnContactIDChanged();
             }
@@ -730,7 +735,7 @@ namespace Sample.Business
             {
                 OnLoginIDChanging(value);
                 ReportPropertyChanging("LoginID");
-                _LoginID = StructuralObject.SetValidValue(value, false);
+                _LoginID = StructuralObject.SetValidValue(value, false, "LoginID");
                 ReportPropertyChanged("LoginID");
                 OnLoginIDChanged();
             }
@@ -754,7 +759,7 @@ namespace Sample.Business
             {
                 OnManagerIDChanging(value);
                 ReportPropertyChanging("ManagerID");
-                _ManagerID = StructuralObject.SetValidValue(value);
+                _ManagerID = StructuralObject.SetValidValue(value, "ManagerID");
                 ReportPropertyChanged("ManagerID");
                 OnManagerIDChanged();
             }
@@ -778,7 +783,7 @@ namespace Sample.Business
             {
                 OnTitleChanging(value);
                 ReportPropertyChanging("Title");
-                _Title = StructuralObject.SetValidValue(value, false);
+                _Title = StructuralObject.SetValidValue(value, false, "Title");
                 ReportPropertyChanged("Title");
                 OnTitleChanged();
             }
@@ -802,7 +807,7 @@ namespace Sample.Business
             {
                 OnBirthDateChanging(value);
                 ReportPropertyChanging("BirthDate");
-                _BirthDate = StructuralObject.SetValidValue(value);
+                _BirthDate = StructuralObject.SetValidValue(value, "BirthDate");
                 ReportPropertyChanged("BirthDate");
                 OnBirthDateChanged();
             }
@@ -826,7 +831,7 @@ namespace Sample.Business
             {
                 OnMaritalStatusChanging(value);
                 ReportPropertyChanging("MaritalStatus");
-                _MaritalStatus = StructuralObject.SetValidValue(value, false);
+                _MaritalStatus = StructuralObject.SetValidValue(value, false, "MaritalStatus");
                 ReportPropertyChanged("MaritalStatus");
                 OnMaritalStatusChanged();
             }
@@ -850,7 +855,7 @@ namespace Sample.Business
             {
                 OnGenderChanging(value);
                 ReportPropertyChanging("Gender");
-                _Gender = StructuralObject.SetValidValue(value, false);
+                _Gender = StructuralObject.SetValidValue(value, false, "Gender");
                 ReportPropertyChanged("Gender");
                 OnGenderChanged();
             }
@@ -874,7 +879,7 @@ namespace Sample.Business
             {
                 OnHireDateChanging(value);
                 ReportPropertyChanging("HireDate");
-                _HireDate = StructuralObject.SetValidValue(value);
+                _HireDate = StructuralObject.SetValidValue(value, "HireDate");
                 ReportPropertyChanged("HireDate");
                 OnHireDateChanged();
             }
@@ -898,7 +903,7 @@ namespace Sample.Business
             {
                 OnSalariedFlagChanging(value);
                 ReportPropertyChanging("SalariedFlag");
-                _SalariedFlag = StructuralObject.SetValidValue(value);
+                _SalariedFlag = StructuralObject.SetValidValue(value, "SalariedFlag");
                 ReportPropertyChanged("SalariedFlag");
                 OnSalariedFlagChanged();
             }
@@ -922,7 +927,7 @@ namespace Sample.Business
             {
                 OnVacationHoursChanging(value);
                 ReportPropertyChanging("VacationHours");
-                _VacationHours = StructuralObject.SetValidValue(value);
+                _VacationHours = StructuralObject.SetValidValue(value, "VacationHours");
                 ReportPropertyChanged("VacationHours");
                 OnVacationHoursChanged();
             }
@@ -946,7 +951,7 @@ namespace Sample.Business
             {
                 OnSickLeaveHoursChanging(value);
                 ReportPropertyChanging("SickLeaveHours");
-                _SickLeaveHours = StructuralObject.SetValidValue(value);
+                _SickLeaveHours = StructuralObject.SetValidValue(value, "SickLeaveHours");
                 ReportPropertyChanged("SickLeaveHours");
                 OnSickLeaveHoursChanged();
             }
@@ -970,7 +975,7 @@ namespace Sample.Business
             {
                 OnCurrentFlagChanging(value);
                 ReportPropertyChanging("CurrentFlag");
-                _CurrentFlag = StructuralObject.SetValidValue(value);
+                _CurrentFlag = StructuralObject.SetValidValue(value, "CurrentFlag");
                 ReportPropertyChanged("CurrentFlag");
                 OnCurrentFlagChanged();
             }
@@ -994,7 +999,7 @@ namespace Sample.Business
             {
                 OnrowguidChanging(value);
                 ReportPropertyChanging("rowguid");
-                _rowguid = StructuralObject.SetValidValue(value);
+                _rowguid = StructuralObject.SetValidValue(value, "rowguid");
                 ReportPropertyChanged("rowguid");
                 OnrowguidChanged();
             }
@@ -1018,7 +1023,7 @@ namespace Sample.Business
             {
                 OnModifiedDateChanging(value);
                 ReportPropertyChanging("ModifiedDate");
-                _ModifiedDate = StructuralObject.SetValidValue(value);
+                _ModifiedDate = StructuralObject.SetValidValue(value, "ModifiedDate");
                 ReportPropertyChanged("ModifiedDate");
                 OnModifiedDateChanged();
             }
@@ -1028,7 +1033,7 @@ namespace Sample.Business
         partial void OnModifiedDateChanged();
 
         #endregion
-    
+
         #region Navigation Properties
     
         /// <summary>
@@ -1130,6 +1135,7 @@ namespace Sample.Business
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1194,7 +1200,8 @@ namespace Sample.Business
         }
 
         #endregion
-        #region Primitive Properties
+
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1211,7 +1218,7 @@ namespace Sample.Business
             {
                 OnTerritoryIDChanging(value);
                 ReportPropertyChanging("TerritoryID");
-                _TerritoryID = StructuralObject.SetValidValue(value);
+                _TerritoryID = StructuralObject.SetValidValue(value, "TerritoryID");
                 ReportPropertyChanged("TerritoryID");
                 OnTerritoryIDChanged();
             }
@@ -1235,7 +1242,7 @@ namespace Sample.Business
             {
                 OnSalesQuotaChanging(value);
                 ReportPropertyChanging("SalesQuota");
-                _SalesQuota = StructuralObject.SetValidValue(value);
+                _SalesQuota = StructuralObject.SetValidValue(value, "SalesQuota");
                 ReportPropertyChanged("SalesQuota");
                 OnSalesQuotaChanged();
             }
@@ -1259,7 +1266,7 @@ namespace Sample.Business
             {
                 OnBonusChanging(value);
                 ReportPropertyChanging("Bonus");
-                _Bonus = StructuralObject.SetValidValue(value);
+                _Bonus = StructuralObject.SetValidValue(value, "Bonus");
                 ReportPropertyChanged("Bonus");
                 OnBonusChanged();
             }
@@ -1283,7 +1290,7 @@ namespace Sample.Business
             {
                 OnCommissionPctChanging(value);
                 ReportPropertyChanging("CommissionPct");
-                _CommissionPct = StructuralObject.SetValidValue(value);
+                _CommissionPct = StructuralObject.SetValidValue(value, "CommissionPct");
                 ReportPropertyChanged("CommissionPct");
                 OnCommissionPctChanged();
             }
@@ -1307,7 +1314,7 @@ namespace Sample.Business
             {
                 OnSalesYTDChanging(value);
                 ReportPropertyChanging("SalesYTD");
-                _SalesYTD = StructuralObject.SetValidValue(value);
+                _SalesYTD = StructuralObject.SetValidValue(value, "SalesYTD");
                 ReportPropertyChanged("SalesYTD");
                 OnSalesYTDChanged();
             }
@@ -1331,7 +1338,7 @@ namespace Sample.Business
             {
                 OnSalesLastYearChanging(value);
                 ReportPropertyChanging("SalesLastYear");
-                _SalesLastYear = StructuralObject.SetValidValue(value);
+                _SalesLastYear = StructuralObject.SetValidValue(value, "SalesLastYear");
                 ReportPropertyChanged("SalesLastYear");
                 OnSalesLastYearChanged();
             }
@@ -1355,7 +1362,7 @@ namespace Sample.Business
             {
                 Onrowguid2Changing(value);
                 ReportPropertyChanging("rowguid2");
-                _rowguid2 = StructuralObject.SetValidValue(value);
+                _rowguid2 = StructuralObject.SetValidValue(value, "rowguid2");
                 ReportPropertyChanged("rowguid2");
                 Onrowguid2Changed();
             }
@@ -1379,7 +1386,7 @@ namespace Sample.Business
             {
                 OnModifiedDate2Changing(value);
                 ReportPropertyChanging("ModifiedDate2");
-                _ModifiedDate2 = StructuralObject.SetValidValue(value);
+                _ModifiedDate2 = StructuralObject.SetValidValue(value, "ModifiedDate2");
                 ReportPropertyChanged("ModifiedDate2");
                 OnModifiedDate2Changed();
             }
@@ -1389,7 +1396,7 @@ namespace Sample.Business
         partial void OnModifiedDate2Changed();
 
         #endregion
-    
+
         #region Navigation Properties
     
         /// <summary>
@@ -1431,6 +1438,7 @@ namespace Sample.Business
         }
 
         #endregion
+
     }
     
     /// <summary>
@@ -1473,7 +1481,8 @@ namespace Sample.Business
         }
 
         #endregion
-        #region Primitive Properties
+
+        #region Simple Properties
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -1492,7 +1501,7 @@ namespace Sample.Business
                 {
                     OnTerritoryIDChanging(value);
                     ReportPropertyChanging("TerritoryID");
-                    _TerritoryID = StructuralObject.SetValidValue(value);
+                    _TerritoryID = StructuralObject.SetValidValue(value, "TerritoryID");
                     ReportPropertyChanged("TerritoryID");
                     OnTerritoryIDChanged();
                 }
@@ -1517,7 +1526,7 @@ namespace Sample.Business
             {
                 OnNameChanging(value);
                 ReportPropertyChanging("Name");
-                _Name = StructuralObject.SetValidValue(value, false);
+                _Name = StructuralObject.SetValidValue(value, false, "Name");
                 ReportPropertyChanged("Name");
                 OnNameChanged();
             }
@@ -1541,7 +1550,7 @@ namespace Sample.Business
             {
                 OnCountryRegionCodeChanging(value);
                 ReportPropertyChanging("CountryRegionCode");
-                _CountryRegionCode = StructuralObject.SetValidValue(value, false);
+                _CountryRegionCode = StructuralObject.SetValidValue(value, false, "CountryRegionCode");
                 ReportPropertyChanged("CountryRegionCode");
                 OnCountryRegionCodeChanged();
             }
@@ -1565,7 +1574,7 @@ namespace Sample.Business
             {
                 OnGroupChanging(value);
                 ReportPropertyChanging("Group");
-                _Group = StructuralObject.SetValidValue(value, false);
+                _Group = StructuralObject.SetValidValue(value, false, "Group");
                 ReportPropertyChanged("Group");
                 OnGroupChanged();
             }
@@ -1589,7 +1598,7 @@ namespace Sample.Business
             {
                 OnSalesYTDChanging(value);
                 ReportPropertyChanging("SalesYTD");
-                _SalesYTD = StructuralObject.SetValidValue(value);
+                _SalesYTD = StructuralObject.SetValidValue(value, "SalesYTD");
                 ReportPropertyChanged("SalesYTD");
                 OnSalesYTDChanged();
             }
@@ -1613,7 +1622,7 @@ namespace Sample.Business
             {
                 OnSalesLastYearChanging(value);
                 ReportPropertyChanging("SalesLastYear");
-                _SalesLastYear = StructuralObject.SetValidValue(value);
+                _SalesLastYear = StructuralObject.SetValidValue(value, "SalesLastYear");
                 ReportPropertyChanged("SalesLastYear");
                 OnSalesLastYearChanged();
             }
@@ -1637,7 +1646,7 @@ namespace Sample.Business
             {
                 OnCostYTDChanging(value);
                 ReportPropertyChanging("CostYTD");
-                _CostYTD = StructuralObject.SetValidValue(value);
+                _CostYTD = StructuralObject.SetValidValue(value, "CostYTD");
                 ReportPropertyChanged("CostYTD");
                 OnCostYTDChanged();
             }
@@ -1661,7 +1670,7 @@ namespace Sample.Business
             {
                 OnCostLastYearChanging(value);
                 ReportPropertyChanging("CostLastYear");
-                _CostLastYear = StructuralObject.SetValidValue(value);
+                _CostLastYear = StructuralObject.SetValidValue(value, "CostLastYear");
                 ReportPropertyChanged("CostLastYear");
                 OnCostLastYearChanged();
             }
@@ -1685,7 +1694,7 @@ namespace Sample.Business
             {
                 OnrowguidChanging(value);
                 ReportPropertyChanging("rowguid");
-                _rowguid = StructuralObject.SetValidValue(value);
+                _rowguid = StructuralObject.SetValidValue(value, "rowguid");
                 ReportPropertyChanged("rowguid");
                 OnrowguidChanged();
             }
@@ -1709,7 +1718,7 @@ namespace Sample.Business
             {
                 OnModifiedDateChanging(value);
                 ReportPropertyChanging("ModifiedDate");
-                _ModifiedDate = StructuralObject.SetValidValue(value);
+                _ModifiedDate = StructuralObject.SetValidValue(value, "ModifiedDate");
                 ReportPropertyChanged("ModifiedDate");
                 OnModifiedDateChanged();
             }
@@ -1719,7 +1728,7 @@ namespace Sample.Business
         partial void OnModifiedDateChanged();
 
         #endregion
-    
+
         #region Navigation Properties
     
         /// <summary>
@@ -1745,8 +1754,9 @@ namespace Sample.Business
         }
 
         #endregion
+
     }
 
     #endregion
-    
+
 }

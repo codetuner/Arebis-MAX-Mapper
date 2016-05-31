@@ -118,7 +118,7 @@ namespace Max.Tools.DomainGenerator
             if (assemblyReference.Contains(", Version="))
             {
                 // Load assembly from the GAC:
-                Debug.WriteLine(String.Format("Resolving assembly: '{0}' => GAC", assemblyReference));
+                Debug.WriteLine(String.Format("MAX:GenerationHost: Resolving assembly: '{0}' => GAC", assemblyReference));
                 return Assembly.Load(new AssemblyName(assemblyReference)).Location;
             }
             else
@@ -129,7 +129,7 @@ namespace Max.Tools.DomainGenerator
                 {
                     if (fi.Name == new FileInfo(loadedAssembly.Location).Name)
                     {
-                        Debug.WriteLine(String.Format("Resolving assembly: '{0}' => LOADED", assemblyReference));
+                        Debug.WriteLine(String.Format("MAX:GenerationHost: Resolving assembly: '{0}' => LOADED", assemblyReference));
                         return loadedAssembly.Location;
                     }
                 }
@@ -138,12 +138,12 @@ namespace Max.Tools.DomainGenerator
                 string candidate = Path.Combine(Path.GetDirectoryName(this.TemplateFile), assemblyReference);
                 if (File.Exists(candidate))
                 {
-                    Debug.WriteLine(String.Format("Resolving assembly: '{0}' => FILE", assemblyReference));
+                    Debug.WriteLine(String.Format("MAX:GenerationHost: Resolving assembly: '{0}' => FILE", assemblyReference));
                     return candidate;
                 }
 
                 // If we cannot do better, return the original file name:
-                Debug.WriteLine(String.Format("Resolving assembly: '{0}' => NOT FOUND", assemblyReference));
+                Debug.WriteLine(String.Format("MAX:GenerationHost: Resolving assembly: '{0}' => NOT FOUND", assemblyReference));
                 return assemblyReference;
             }
         }

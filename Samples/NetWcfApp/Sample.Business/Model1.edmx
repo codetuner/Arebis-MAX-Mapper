@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="AdventureWorksModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="AdventureWorksModelStoreContainer">
-          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" />
-          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" />
-          <EntitySet Name="SalesPerson" EntityType="AdventureWorksModel.Store.SalesPerson" store:Type="Tables" Schema="Sales" />
-          <EntitySet Name="SalesTerritory" EntityType="AdventureWorksModel.Store.SalesTerritory" store:Type="Tables" Schema="Sales" />
+          <EntitySet Name="Employee" EntityType="AdventureWorksModel.Store.Employee" store:Type="Tables" Schema="HumanResources" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Contact" EntityType="AdventureWorksModel.Store.Contact" store:Type="Tables" Schema="Person" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SalesPerson" EntityType="AdventureWorksModel.Store.SalesPerson" store:Type="Tables" Schema="Sales" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SalesTerritory" EntityType="AdventureWorksModel.Store.SalesTerritory" store:Type="Tables" Schema="Sales" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
           <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.Store.FK_Employee_Contact_ContactID">
             <End Role="Contact" EntitySet="Contact" />
             <End Role="Employee" EntitySet="Employee" />
@@ -148,8 +148,8 @@
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true">
+      <Schema Namespace="AdventureWorksModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="AdventureWorksEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
           <EntitySet Name="Employees" EntityType="AdventureWorksModel.Employee" />
           <EntitySet Name="Contacts" EntityType="AdventureWorksModel.Contact" />
           <AssociationSet Name="FK_Employee_Contact_ContactID" Association="AdventureWorksModel.FK_Employee_Contact_ContactID">
@@ -170,7 +170,7 @@
           <Key>
             <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NationalIDNumber" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
           <Property Name="ContactID" Type="Int32" Nullable="false" />
           <Property Name="LoginID" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
@@ -194,7 +194,7 @@
           <Key>
             <PropertyRef Name="ContactID" />
           </Key>
-          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Name="NameStyle" Type="Boolean" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="8" Unicode="true" FixedLength="false" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
@@ -250,7 +250,7 @@
           <Key>
             <PropertyRef Name="TerritoryID" />
           </Key>
-          <Property Type="Int32" Name="TerritoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="TerritoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="CountryRegionCode" Nullable="false" MaxLength="3" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="Group" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -278,7 +278,7 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AdventureWorksModelStoreContainer" CdmEntityContainer="AdventureWorksEntities">
           <EntitySetMapping Name="Employees">
             <EntityTypeMapping TypeName="IsTypeOf(AdventureWorksModel.Employee)">
@@ -354,7 +354,7 @@
     </edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
-  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <Connection>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
@@ -388,7 +388,7 @@
           <ConnectorPoint PointX="3.875" PointY="6.5" />
         </InheritanceConnector>
         <EntityTypeShape EntityType="AdventureWorksModel.SalesTerritory" Width="1.75" PointX="5.75" PointY="6.5" Height="3.1340950520833317" />
-        <AssociationConnector Association="AdventureWorksModel.FK_SalesPerson_SalesTerritory_TerritoryID" >
+        <AssociationConnector Association="AdventureWorksModel.FK_SalesPerson_SalesTerritory_TerritoryID">
           <ConnectorPoint PointX="5.75" PointY="7.87474609375" />
           <ConnectorPoint PointX="4.75" PointY="7.87474609375" />
         </AssociationConnector>

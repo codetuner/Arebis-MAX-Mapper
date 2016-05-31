@@ -1,5 +1,6 @@
 ﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
 <#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
+<#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
 <#@ import namespace="System.Linq" #>
 <#@ output extension=".g.cs" #>
 using System;
@@ -39,17 +40,37 @@ namespace <#= Model.Namespaces.Where(n => n.Alias == "Contract").Select(n => n.N
 				{
 <# if (MapClass.IdentifierProperties.Count() == 1) { #>
 <#	 foreach(var idprop in MapClass.IdentifierProperties) { #>
+<#     if (Convert.ToBoolean(MapClass.Settings.ValueOr("zeroBasedIdentifier", "false"))) { #>
+					this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, "<#= idprop.Source #>", this.<#= idprop.Name #>);
+<#     } else if (idprop.IsString) { #>
+					if (String.IsNullOrWhiteSpace(this.<#= idprop.Name #>))
+						this._entityKey = null;
+					else
+						this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, "<#= idprop.Source #>", this.<#= idprop.Name #>);
+<#     } else { #>
 					if (this.<#= idprop.Name #> == default(<#= idprop.TypeName #>))
 						this._entityKey = null;
 					else
 						this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, "<#= idprop.Source #>", this.<#= idprop.Name #>);
+<#     } #>
 <#	 } #>
 <# } else { #>
-					List<System.Data.EntityKeyMember> keyMembers = new List<System.Data.EntityKeyMember>();
 <#	 foreach(var idprop in MapClass.IdentifierProperties) { #>
-					keyMembers.Add(new System.Data.EntityKeyMember("<#= idprop.Source.ToString() #>", this.<#= idprop.Name #>));
+<#     if (idprop.IsString) { #>
+					if (String.IsNullOrWhiteSpace(this.<#= idprop.Name #>))
+<#     } else { #>
+					if (this.<#= idprop.Name #> == default(<#= idprop.TypeName #>))
+<#     } #>
+						this._entityKey = null;
+					else
 <#	 } #>
-					this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, keyMembers);
+					{
+						List<System.Data.EntityKeyMember> keyMembers = new List<System.Data.EntityKeyMember>();
+<#	 foreach(var idprop in MapClass.IdentifierProperties) { #>
+						keyMembers.Add(new System.Data.EntityKeyMember("<#= idprop.Source.ToString() #>", this.<#= idprop.Name #>));
+<#	 } #>
+						this._entityKey = new System.Data.EntityKey(QualifiedEntitySetName, keyMembers);
+					}
 <# } #>
 					this._entityKeyResolved = true;
 				}

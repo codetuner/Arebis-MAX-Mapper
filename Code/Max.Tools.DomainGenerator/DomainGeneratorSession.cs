@@ -163,7 +163,7 @@ namespace Max.Tools.DomainGenerator
 
         protected internal virtual void GenerateTemplateInternal(string fullTemplatePath, string fullOutputPath, EnvDTE.ProjectItem templateOwner, EnvDTE.ProjectItem outputOwner)
         {
-            Debug.WriteLine(String.Format("Generating template \"{0}\"\r\nto \"{1}\".", fullTemplatePath, fullOutputPath));
+            Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: Generating template \"{0}\"\r\nto \"{1}\".", fullTemplatePath, fullOutputPath));
 
             #region Auto-hide sub templates
 
@@ -182,12 +182,12 @@ namespace Max.Tools.DomainGenerator
                     // Try to hide item:
                     try
                     {
-                        Debug.WriteLine(String.Format("Hiding subtemplate \"{0}\" under \"{1}\".", fullTemplatePath, templateOwner.GetVirtualPath()));
+                        Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: Hiding subtemplate \"{0}\" under \"{1}\".", fullTemplatePath, templateOwner.GetVirtualPath()));
                         templateOwner.ProjectItems.AddFromFile(fullTemplatePath);
                     }
                     catch (Exception ex)
                     {
-                        Debug.WriteLine(String.Format("Failed to hide subtemplate {0}: {1}", outputOwner.GetFullPath(), ex.Message));
+                        Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: Failed to hide subtemplate {0}: {1}", outputOwner.GetFullPath(), ex.Message));
                     }
                 }
             }
@@ -260,14 +260,14 @@ namespace Max.Tools.DomainGenerator
                 { 
                     // File has changed: checkout & overwrite:
                     CheckoutIfRequired(fileinfo.FullName);
-                    Debug.WriteLine(String.Format("Overwriting file {0}", fileinfo.FullName));
+                    Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: Overwriting file {0}", fileinfo.FullName));
                     File.WriteAllText(fileinfo.FullName, content, encoding);
                 }
             }
             else
             { 
                 // Create new file:
-                Debug.WriteLine(String.Format("Writing new file {0}", fileinfo.FullName));
+                Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: Writing new file {0}", fileinfo.FullName));
                 File.WriteAllText(fileinfo.FullName, content);
 
                 // Add new file to project:
@@ -303,7 +303,7 @@ namespace Max.Tools.DomainGenerator
         /// </summary>
         static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
-            Debug.WriteLine(String.Format("AppDomain: Resolving asm: " + args.Name));
+            Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: AppDomain: Resolving asm: " + args.Name));
             string[] nameparts = args.Name.Split(',');
             foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
             {
@@ -318,7 +318,7 @@ namespace Max.Tools.DomainGenerator
         /// </summary>
         static Assembly CurrentDomain_TypeResolve(object sender, ResolveEventArgs args)
         {
-            Debug.WriteLine(String.Format("AppDomain: Resolving typ: " + args.Name));
+            Debug.WriteLine(String.Format("MAX:DomainGeneratorSession: AppDomain: Resolving typ: " + args.Name));
             foreach (Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
             {
                 foreach (Type type in asm.GetTypes())

@@ -257,23 +257,36 @@ namespace Max.Tools.DomainGenerator.Model
         /// </summary>
         public string GetEntitySetNameOf(string type)
         {
-            if (type == "System.Object")
+            Debug.WriteLine(String.Format("MAX:TypeManager: GetEntitySetNameOf(\"{0}\")", type ?? "<null>"));
+            if (type == null)
+            {
+                throw new ArgumentNullException("Could not find QualifiedEntitySetName for type <null>.");
+            }
+            else if (type == "System.Object")
             {
                 throw new ArgumentException("Could not find QualifiedEntitySetName for given type. Ensure a valid entity type is passed and it's assembly is registered in the mapping generation definition file.");
             }
+            else if (!typeInformation.ContainsKey(type))
+            {
+                throw new ArgumentException("No type information available for \"" + type + "\" that could help find its QualifiedEntitySetName. Ensure a valid entity type is passed and it's assembly is registered in the mapping generation definition file.");
+            }
             else if (typeInformation[type] is Type)
             {
+                Debug.WriteLine(String.Format("MAX:TypeManager: GetEntitySetNameOf(\"{0}\") : Is Type", type ?? "<null>"));
                 return EdmManager.GetQualifiedEntitySetName(EdmManager.GetEntityTypeNameOf((Type)typeInformation[type]))
                     ?? GetEntitySetNameOf(GetBaseTypeOf(type));
             }
             else if (typeInformation[type] is List<EnvDTE.CodeType>)
             {
+                Debug.WriteLine(String.Format("MAX:TypeManager: GetEntitySetNameOf(\"{0}\") : Is CodeType list", type ?? "<null>"));
                 foreach (EnvDTE.CodeType typedef in (List<EnvDTE.CodeType>)typeInformation[type])
                 {
+                    Debug.WriteLine(String.Format("MAX:TypeManager: GetEntitySetNameOf(\"{0}\") : Is CodeType list / {1}", type ?? "<null>", typedef.Name));
                     foreach (EnvDTE.CodeAttribute attr in typedef.Attributes)
                     {
                         if (attr.FullName == "System.Data.Objects.DataClasses.EdmEntityTypeAttribute")
                         {
+                            Debug.WriteLine(String.Format("MAX:TypeManager: GetEntitySetNameOf(\"{0}\") : Is CodeType list / {1} / Has EdmEntityTypeAttribute", type ?? "<null>", typedef.Name));
                             var values = new CodeAttributeValuesDictionary(attr);
                             return EdmManager.GetQualifiedEntitySetName(values["NamespaceName"] + "." + values["Name"])
                                 ?? GetEntitySetNameOf(GetBaseTypeOf(type));

@@ -1,4 +1,4 @@
-﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
+﻿<#@ template language="C#" debug="true" inherits="Max.Tools.DomainGenerator.GenerationHostTemplateBase`1[[Max.Tools.DomainGenerator.Model.Mapping, Max.Tools.DomainGenerator.12.0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7]]" #>
 <#@ assembly name="System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
 <#@ assembly name="System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" #>
 <#@ import namespace="System.Collections.Generic" #>
@@ -85,18 +85,17 @@ namespace <#= Model.Namespaces.Where(n => n.Alias == "Mapping").Select(n => n.Na
 
             // Perform mapping of properties:
 <# foreach(var property in MapClass.ScalarProperties.Where(p => p.IsSimpleProperty)) { #>
-<#     if (property.Expression != null) { #>
-            target.<#= property.Name #> = (<#= property.Expression #>);
-<#     } else if (property.ConversionMethod == "map") { #>
-            target.<#= property.Name #> = mapper.MapTo<#= property.TypeName #>(source.<#= property.Source #>);
+<#     var expression = (property.Expression) ?? ("source." + property.Source); #>
+<#     if (property.ConversionMethod == "map") { #>
+            target.<#= property.Name #> = mapper.MapTo<#= property.TypeName #>(<#= expression #>);
 <#     } else if (property.ConversionMethod == "cast") { #>
-            target.<#= property.Name #> = (<#= property.TypeName #>)source.<#= property.Source #>;
+            target.<#= property.Name #> = (<#= property.TypeName #>)(<#= expression #>);
 <#     } else if (property.ConversionMethod == "convert") { #>
-            target.<#= property.Name #> = (<#= property.TypeName #>)Convert.ChangeType(source.<#= property.Source #>, typeof(<#= property.TypeName #>));
+            target.<#= property.Name #> = (<#= property.TypeName #>)Convert.ChangeType(<#= expression #>, typeof(<#= property.TypeName #>));
 <#     } else if (property.ConversionMethod == "custom") { #>
             mapper.Map<#= MapClass.ClassName #><#= property.Name #>Property(source, target);
 <#     } else { #>
-            target.<#= property.Name #> = source.<#= property.Source #>;
+            target.<#= property.Name #> = /* <#= property.ConversionMethod #> */ <#= expression #>;
 <#     } #>
 <# } #>
 <# foreach(var property in MapClass.CollectionProperties.Where(p => p.IsSimpleProperty)) { #>
