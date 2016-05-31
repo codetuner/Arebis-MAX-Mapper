@@ -37,8 +37,8 @@
 			<Name>Max.Domain.Mapping.Entity</Name>
 			<Project>{4D4C90ED-3D65-4862-BF84-A06E7B18C9F6}</Project>
 		</ProjectReference>
-		<ProjectReference Include="..\..\Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj">
-			<Name>Max.Tools.DomainGenerator</Name>
+		<ProjectReference Include="..\..\Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.12.0.csproj">
+			<Name>Max.Tools.DomainGenerator.12.0</Name>
 			<Project>{ECDD11E4-5902-4BDA-AB00-7CCB2F2D7E5A}</Project>
 		</ProjectReference>
 	</ItemGroup>

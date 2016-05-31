@@ -367,9 +367,9 @@
 		<row><td>Max.Domain.Mapping.Entity.Primary_output1</td><td>{559BF6DD-E4DA-4E91-9882-40E1B3C2A9CB}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.domain.mapping.entity.pr1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Primary_output</td><td>{B9B4741E-EB51-4835-87D0-DC9F2F725A73}</td><td>ASSEMBLIES1</td><td>2</td><td/><td>max.domain.mapping.primary_o</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Primary_output1</td><td>{6CDDEBA0-0C8B-47F3-A084-18C5A6264BDA}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.domain.mapping.primary_o1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.Debug_Symbols</td><td>{E303983C-AF2C-4E20-9319-6BE5ABCD1CC8}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.de</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.Primary_output</td><td>{1242B8A2-4883-4688-B2A5-0C6C5591C4DA}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td>max.tools.domaingenerator.pr</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.Primary_output1</td><td>{FB724099-61CF-4198-83C0-989E9110948A}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.pr1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td>{80B04D9F-FA03-4C94-9025-DA16D6F0FF78}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.122</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td>{79AFC55D-FD85-4FFC-9DB2-F2238BC52885}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td>max.tools.domaingenerator.12</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td>{D87A60F6-B173-40A1-8B54-B53BEC76C7AA}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.121</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1930,9 +1930,9 @@
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Entity.Primary_output1</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Primary_output1</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.Debug_Symbols</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.Primary_output1</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td></row>
 	</table>
 
 	<table name="File">
@@ -1960,9 +1960,9 @@
 		<row><td>max.domain.mapping.entity.pr1</td><td>Max.Domain.Mapping.Entity.Primary_output1</td><td>Max.Domain.Mapping.Entity.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping.Entity1&gt;|Built</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.primary_o</td><td>Max.Domain.Mapping.Primary_output</td><td>Max.Domain.Mapping.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Built</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.primary_o1</td><td>Max.Domain.Mapping.Primary_output1</td><td>Max.Domain.Mapping.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Built</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.de</td><td>Max.Tools.DomainGenerator.Debug_Symbols</td><td>Max.Tools.DomainGenerator.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator1&gt;|Symbols</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.pr</td><td>Max.Tools.DomainGenerator.Primary_output</td><td>Max.Tools.DomainGenerator.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator&gt;|Built</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.pr1</td><td>Max.Tools.DomainGenerator.Primary_output1</td><td>Max.Tools.DomainGenerator.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator1&gt;|Built</td><td>3</td><td/></row>
+		<row><td>max.tools.domaingenerator.12</td><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td>Max.Tools.DomainGenerator.12.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Built</td><td>3</td><td/></row>
+		<row><td>max.tools.domaingenerator.121</td><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td>Max.Tools.DomainGenerator.12.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Built</td><td>3</td><td/></row>
+		<row><td>max.tools.domaingenerator.122</td><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td>Max.Tools.DomainGenerator.12.0.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Symbols</td><td>3</td><td/></row>
 		<row><td>max_empty_master_generation_</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty Master Generation Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Empty Master Generation Template.zip</td><td>1</td><td/></row>
 		<row><td>max_empty_subtemplate.zip</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty SubTemplate.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Empty SubTemplate.zip</td><td>1</td><td/></row>
 		<row><td>max_generated_contracts_libr</td><td>ISX_DEFAULTCOMPONENT15</td><td>MAXGEN~1.ZIP|Max Generated Contracts Library.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Generated Contracts Library.zip</td><td>1</td><td/></row>
@@ -2142,9 +2142,9 @@
 		<row><td>Max.Domain.Mapping.Entity.Primary_output1</td><td/><td/><td>_A1D2F7BC_EAC2_4A3C_B932_07BD62ED9B62_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Primary_output</td><td/><td/><td>_60D16456_9BA7_4A72_A904_122714A43FDD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Primary_output1</td><td/><td/><td>_F8AF5DB5_CA21_49FE_A62A_B658AB9AFE36_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.Debug_Symbols</td><td/><td/><td>_9A3CA4FF_2B55_436A_9E05_97600A116635_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.Primary_output</td><td/><td/><td>_0C63DD44_3C54_4723_A876_41261F039E3E_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.Primary_output1</td><td/><td/><td>_95014CFA_3AC8_4804_BFCF_08CEA0DD1431_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td/><td/><td>_54C59AD5_45F7_45F0_8474_B457CBAFB894_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td/><td/><td>_08DC0C78_2FF4_48E4_8CD1_284F218F33A6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td/><td/><td>_5DB8B616_FB1D_451B_82A3_CDCBBF285D0F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2455,6 +2455,7 @@
 		<row><td>Max.Domain.Mapping.Entity1</td><td>Code\Max.Domain.Mapping.Entity\Max.Domain.Mapping.Entity.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Domain.Mapping1</td><td>Code\Max.Domain.Mapping\Max.Domain.Mapping.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Tools.DomainGenerator</td><td>Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj</td><td/><td>2</td></row>
+		<row><td>Max.Tools.DomainGenerator.12.0</td><td>Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.12.0.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Tools.DomainGenerator1</td><td>Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
