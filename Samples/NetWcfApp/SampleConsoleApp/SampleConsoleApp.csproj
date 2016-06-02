@@ -74,9 +74,9 @@
       <Project>{3c39a9ca-a830-47bc-a93a-572acf9dda97}</Project>
       <Name>Max.Domain.Mapping</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.12.0.csproj">
+    <ProjectReference Include="..\..\..\Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.14.0.csproj">
       <Project>{ecdd11e4-5902-4bda-ab00-7ccb2f2d7e5a}</Project>
-      <Name>Max.Tools.DomainGenerator.12.0</Name>
+      <Name>Max.Tools.DomainGenerator.14.0</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sample.Business\Sample.Business.csproj">
       <Project>{71E02F92-0F94-4F70-9E60-BE1F1BFF44B8}</Project>
