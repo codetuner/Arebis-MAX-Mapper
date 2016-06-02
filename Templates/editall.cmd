@@ -1,0 +1,3 @@
+@ECHO OFF
+
+FOREACH /r *.tt CALL NPP "%%f"
