@@ -60,8 +60,8 @@
 		<lastauthor>Administrator</lastauthor>
 		<revnumber>{31E7A41A-8A1B-46B1-BA08-271C0CA45107}</revnumber>
 		<lastprinted/>
-		<createdtm>06/21/1999 14:00</createdtm>
-		<lastsavedtm>07/14/2000 17:50</lastsavedtm>
+		<createdtm>06/21/1999 15:00</createdtm>
+		<lastsavedtm>07/14/2000 18:50</lastsavedtm>
 		<pagecount>200</pagecount>
 		<wordcount>0</wordcount>
 		<charcount/>
@@ -264,10 +264,10 @@
 		<row><td>NewBinary16</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallFirstUse.ico</td></row>
 		<row><td>NewBinary17</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallPartial.ico</td></row>
 		<row><td>NewBinary18</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallStateMenu.ico</td></row>
-		<row><td>NewBinary19</td><td/><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Installers\MaxExtensionsForVSNET2013InstallshieldSetup\CustomActions.vbs</td></row>
+		<row><td>NewBinary19</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
 		<row><td>NewBinary2</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\New.ibd</td></row>
-		<row><td>NewBinary20</td><td/><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Installers\MaxExtensionsForVSNET2013InstallshieldSetup\CustomActions.vbs</td></row>
-		<row><td>NewBinary21</td><td/><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Installers\MaxExtensionsForVSNET2013InstallshieldSetup\CustomActions.vbs</td></row>
+		<row><td>NewBinary20</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
+		<row><td>NewBinary21</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
 		<row><td>NewBinary3</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\Up.ibd</td></row>
 		<row><td>NewBinary4</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\WarningIcon.ibd</td></row>
 		<row><td>NewBinary5</td><td/><td>&lt;ISProductFolder&gt;\Support\Themes\InstallShield Blue Theme\welcome.jpg</td></row>
@@ -367,9 +367,9 @@
 		<row><td>Max.Domain.Mapping.Entity.Primary_output1</td><td>{559BF6DD-E4DA-4E91-9882-40E1B3C2A9CB}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.domain.mapping.entity.pr1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Primary_output</td><td>{B9B4741E-EB51-4835-87D0-DC9F2F725A73}</td><td>ASSEMBLIES1</td><td>2</td><td/><td>max.domain.mapping.primary_o</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Primary_output1</td><td>{6CDDEBA0-0C8B-47F3-A084-18C5A6264BDA}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.domain.mapping.primary_o1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td>{80B04D9F-FA03-4C94-9025-DA16D6F0FF78}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.122</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td>{79AFC55D-FD85-4FFC-9DB2-F2238BC52885}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td>max.tools.domaingenerator.12</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td>{D87A60F6-B173-40A1-8B54-B53BEC76C7AA}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.121</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Debug_Symbols</td><td>{80B04D9F-FA03-4C94-9025-DA16D6F0FF78}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.122</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Primary_output</td><td>{79AFC55D-FD85-4FFC-9DB2-F2238BC52885}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td>max.tools.domaingenerator.12</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Primary_output1</td><td>{D87A60F6-B173-40A1-8B54-B53BEC76C7AA}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.tools.domaingenerator.121</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 	</table>
 
 	<table name="Condition">
@@ -1930,9 +1930,9 @@
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Entity.Primary_output1</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Primary_output</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Primary_output1</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Primary_output</td></row>
-		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.14.0.Debug_Symbols</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.14.0.Primary_output</td></row>
+		<row><td>AlwaysInstall</td><td>Max.Tools.DomainGenerator.14.0.Primary_output1</td></row>
 	</table>
 
 	<table name="File">
@@ -1947,7 +1947,7 @@
 		<col def="S255">ISBuildSourcePath</col>
 		<col def="I4">ISAttributes</col>
 		<col def="S72">ISComponentSubFolder_</col>
-		<row><td>extension.vsixmanifest</td><td>ISX_DEFAULTCOMPONENT9</td><td>EXTENS~1.VSI|extension.vsixmanifest</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\CodeTuner\Test\Source\201311 MappingGenerator VS2013\Files\extension.vsixmanifest</td><td>1</td><td/></row>
+		<row><td>extension.vsixmanifest</td><td>ISX_DEFAULTCOMPONENT9</td><td>EXTENS~1.VSI|extension.vsixmanifest</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\extension.vsixmanifest</td><td>1</td><td/></row>
 		<row><td>max.domain.mapping.debug_sym</td><td>Max.Domain.Mapping.Debug_Symbols</td><td>Max.Domain.Mapping.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Symbols</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.debug_sym1</td><td>Max.Domain.Mapping.Debug_Symbols1</td><td>Max.Domain.Mapping.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Symbols</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.documenta</td><td>Max.Domain.Mapping.Documentation_Files</td><td>Max.Domain.Mapping.Documentation Files</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Documentation</td><td>3</td><td/></row>
@@ -1960,22 +1960,22 @@
 		<row><td>max.domain.mapping.entity.pr1</td><td>Max.Domain.Mapping.Entity.Primary_output1</td><td>Max.Domain.Mapping.Entity.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping.Entity1&gt;|Built</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.primary_o</td><td>Max.Domain.Mapping.Primary_output</td><td>Max.Domain.Mapping.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Built</td><td>3</td><td/></row>
 		<row><td>max.domain.mapping.primary_o1</td><td>Max.Domain.Mapping.Primary_output1</td><td>Max.Domain.Mapping.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Domain.Mapping1&gt;|Built</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.12</td><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td>Max.Tools.DomainGenerator.12.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Built</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.121</td><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td>Max.Tools.DomainGenerator.12.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Built</td><td>3</td><td/></row>
-		<row><td>max.tools.domaingenerator.122</td><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td>Max.Tools.DomainGenerator.12.0.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.12.0&gt;|Symbols</td><td>3</td><td/></row>
-		<row><td>max_empty_master_generation_</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty Master Generation Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Empty Master Generation Template.zip</td><td>1</td><td/></row>
-		<row><td>max_empty_subtemplate.zip</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty SubTemplate.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Empty SubTemplate.zip</td><td>1</td><td/></row>
-		<row><td>max_generated_contracts_libr</td><td>ISX_DEFAULTCOMPONENT15</td><td>MAXGEN~1.ZIP|Max Generated Contracts Library.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Generated Contracts Library.zip</td><td>1</td><td/></row>
-		<row><td>max_generated_portable_contr</td><td>ISX_DEFAULTCOMPONENT15</td><td>MAXGEN~1.ZIP|Max Generated Portable Contracts Library.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Generated Portable Contracts Library.zip</td><td>1</td><td/></row>
-		<row><td>max_getsourcepropertyname_ma</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXGET~1.ZIP|Max GetSourcePropertyName Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max GetSourcePropertyName Mapper Template.zip</td><td>1</td><td/></row>
-		<row><td>max_identifier_based_objects</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXIDE~1.ZIP|Max Identifier Based ObjectSource Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Identifier Based ObjectSource Mapper Template.zip</td><td>1</td><td/></row>
-		<row><td>max_ientitywithkey_contracts</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXIEN~1.ZIP|Max IEntityWithKey Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max IEntityWithKey Contracts Template.zip</td><td>1</td><td/></row>
-		<row><td>max_iextensibledataobject_co</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXIEX~1.ZIP|Max IExtensibleDataObject Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max IExtensibleDataObject Contracts Template.zip</td><td>1</td><td/></row>
-		<row><td>max_mapper_generator_templat</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXMAP~1.ZIP|Max Mapper Generator Templates Set.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Mapper Generator Templates Set.zip</td><td>1</td><td/></row>
-		<row><td>max_mapping_generation_manua</td><td>ISX_DEFAULTCOMPONENT1</td><td>MAXMAP~1.DOC|Max Mapping Generation Manual.docx</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\CodeTuner\Test\Source\201304 MappingGenerator\Max Mapping Generation Manual.docx</td><td>1</td><td/></row>
-		<row><td>max_model_validation_contrac</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXMOD~1.ZIP|Max Model Validation Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Model Validation Contracts Template.zip</td><td>1</td><td/></row>
-		<row><td>max_select_projections_mappe</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXSEL~1.ZIP|Max Select Projections Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max Select Projections Mapper Template.zip</td><td>1</td><td/></row>
-		<row><td>max_stringconverter_contract</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXSTR~1.ZIP|Max StringConverter Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>C:\TFSRB\GitHub\codetuner\Arebis-MAX-Mapper\vs2013\Templates\Max StringConverter Contracts Template.zip</td><td>1</td><td/></row>
+		<row><td>max.tools.domaingenerator.12</td><td>Max.Tools.DomainGenerator.14.0.Primary_output</td><td>Max.Tools.DomainGenerator.14.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.14.0&gt;|Built</td><td>3</td><td/></row>
+		<row><td>max.tools.domaingenerator.121</td><td>Max.Tools.DomainGenerator.14.0.Primary_output1</td><td>Max.Tools.DomainGenerator.14.0.Primary output</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.14.0&gt;|Built</td><td>3</td><td/></row>
+		<row><td>max.tools.domaingenerator.122</td><td>Max.Tools.DomainGenerator.14.0.Debug_Symbols</td><td>Max.Tools.DomainGenerator.14.0.Debug Symbols</td><td>0</td><td/><td/><td/><td>1</td><td>&lt;Max.Tools.DomainGenerator.14.0&gt;|Symbols</td><td>3</td><td/></row>
+		<row><td>max_empty_master_generation_</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty Master Generation Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Empty Master Generation Template.zip</td><td>1</td><td/></row>
+		<row><td>max_empty_subtemplate.zip</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXEMP~1.ZIP|Max Empty SubTemplate.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Empty SubTemplate.zip</td><td>1</td><td/></row>
+		<row><td>max_generated_contracts_libr</td><td>ISX_DEFAULTCOMPONENT15</td><td>MAXGEN~1.ZIP|Max Generated Contracts Library.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Generated Contracts Library.zip</td><td>1</td><td/></row>
+		<row><td>max_generated_portable_contr</td><td>ISX_DEFAULTCOMPONENT15</td><td>MAXGEN~1.ZIP|Max Generated Portable Contracts Library.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Generated Portable Contracts Library.zip</td><td>1</td><td/></row>
+		<row><td>max_getsourcepropertyname_ma</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXGET~1.ZIP|Max GetSourcePropertyName Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max GetSourcePropertyName Mapper Template.zip</td><td>1</td><td/></row>
+		<row><td>max_identifier_based_objects</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXIDE~1.ZIP|Max Identifier Based ObjectSource Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Identifier Based ObjectSource Mapper Template.zip</td><td>1</td><td/></row>
+		<row><td>max_ientitywithkey_contracts</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXIEN~1.ZIP|Max IEntityWithKey Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max IEntityWithKey Contracts Template.zip</td><td>1</td><td/></row>
+		<row><td>max_iextensibledataobject_co</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXIEX~1.ZIP|Max IExtensibleDataObject Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max IExtensibleDataObject Contracts Template.zip</td><td>1</td><td/></row>
+		<row><td>max_mapper_generator_templat</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXMAP~1.ZIP|Max Mapper Generator Templates Set.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Mapper Generator Templates Set.zip</td><td>1</td><td/></row>
+		<row><td>max_mapping_generation_manua</td><td>ISX_DEFAULTCOMPONENT1</td><td>MAXMAP~1.DOC|Max Mapping Generation Manual.docx</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Documentation\Max Mapping Generation Manual.docx</td><td>1</td><td/></row>
+		<row><td>max_model_validation_contrac</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXMOD~1.ZIP|Max Model Validation Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Model Validation Contracts Template.zip</td><td>1</td><td/></row>
+		<row><td>max_select_projections_mappe</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXSEL~1.ZIP|Max Select Projections Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Select Projections Mapper Template.zip</td><td>1</td><td/></row>
+		<row><td>max_stringconverter_contract</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXSTR~1.ZIP|Max StringConverter Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max StringConverter Contracts Template.zip</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2142,9 +2142,9 @@
 		<row><td>Max.Domain.Mapping.Entity.Primary_output1</td><td/><td/><td>_A1D2F7BC_EAC2_4A3C_B932_07BD62ED9B62_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Primary_output</td><td/><td/><td>_60D16456_9BA7_4A72_A904_122714A43FDD_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Primary_output1</td><td/><td/><td>_F8AF5DB5_CA21_49FE_A62A_B658AB9AFE36_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Debug_Symbols</td><td/><td/><td>_54C59AD5_45F7_45F0_8474_B457CBAFB894_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output</td><td/><td/><td>_08DC0C78_2FF4_48E4_8CD1_284F218F33A6_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>Max.Tools.DomainGenerator.12.0.Primary_output1</td><td/><td/><td>_5DB8B616_FB1D_451B_82A3_CDCBBF285D0F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Debug_Symbols</td><td/><td/><td>_54C59AD5_45F7_45F0_8474_B457CBAFB894_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Primary_output</td><td/><td/><td>_08DC0C78_2FF4_48E4_8CD1_284F218F33A6_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>Max.Tools.DomainGenerator.14.0.Primary_output1</td><td/><td/><td>_5DB8B616_FB1D_451B_82A3_CDCBBF285D0F_FILTER</td><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="ISCustomActionReference">
@@ -2455,17 +2455,11 @@
 		<row><td>Max.Domain.Mapping.Entity1</td><td>Code\Max.Domain.Mapping.Entity\Max.Domain.Mapping.Entity.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Domain.Mapping1</td><td>Code\Max.Domain.Mapping\Max.Domain.Mapping.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Tools.DomainGenerator</td><td>Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj</td><td/><td>2</td></row>
-		<row><td>Max.Tools.DomainGenerator.12.0</td><td>Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.12.0.csproj</td><td/><td>2</td></row>
+		<row><td>Max.Tools.DomainGenerator.14.0</td><td>Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.14.0.csproj</td><td/><td>2</td></row>
 		<row><td>Max.Tools.DomainGenerator1</td><td>Code\Max.Tools.DomainGenerator\Max.Tools.DomainGenerator.csproj</td><td/><td>2</td></row>
 		<row><td>ProgramFilesFolder</td><td/><td/><td>1</td></row>
 		<row><td>SystemFolder</td><td/><td/><td>1</td></row>
 		<row><td>WindowsFolder</td><td/><td/><td>1</td></row>
-	</table>
-
-	<table name="ISPowerShellWrap">
-		<col key="yes" def="s72">Action_</col>
-		<col key="yes" def="s72">Name</col>
-		<col def="S0">Value</col>
 	</table>
 
 	<table name="ISProductConfiguration">
@@ -3942,6 +3936,12 @@
 		<col def="s255">Value</col>
 	</table>
 
+	<table name="ISWSEWrap">
+		<col key="yes" def="s72">Action_</col>
+		<col key="yes" def="s72">Name</col>
+		<col def="S0">Value</col>
+	</table>
+
 	<table name="ISXmlElement">
 		<col key="yes" def="s72">ISXmlElement</col>
 		<col def="s72">ISXmlFile_</col>
@@ -4100,8 +4100,8 @@
 		<col def="S0">Value</col>
 		<row><td>ActiveLanguage</td><td>1033</td></row>
 		<row><td>Comments</td><td/></row>
-		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="de9f554a3bc05c12be9c31b998217995">
-UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
+		<row><td>CurrentMedia</td><td dt:dt="bin.base64" md5="a4f66fafb30885f14d732b73e196bba0">
+RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 			</td></row>
 		<row><td>DefaultProductConfiguration</td><td>Express</td></row>
 		<row><td>EnableSwidtag</td><td>1</td></row>
@@ -4129,12 +4129,12 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PatchSequence</td><td>1.0.0</td></row>
 		<row><td>SaveAsSchema</td><td/></row>
 		<row><td>SccEnabled</td><td>0</td></row>
-		<row><td>SccPath</td><td>SAK</td></row>
-		<row><td>SchemaVersion</td><td>774</td></row>
+		<row><td>SccPath</td><td/></row>
+		<row><td>SchemaVersion</td><td>776</td></row>
 		<row><td>Type</td><td>MSIE</td></row>
-		<row><td>VSSccAuxPath</td><td>SAK</td></row>
-		<row><td>VSSccLocalPath</td><td>SAK</td></row>
-		<row><td>VSSccProvider</td><td>SAK</td></row>
+		<row><td>VSSccAuxPath</td><td/></row>
+		<row><td>VSSccLocalPath</td><td/></row>
+		<row><td>VSSccProvider</td><td/></row>
 	</table>
 
 	<table name="InstallUISequence">
@@ -5266,9 +5266,6 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISPathVariable</td><td>TestValue</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The test value of the path variable.</td></row>
 		<row><td>ISPathVariable</td><td>Type</td><td>N</td><td/><td/><td/><td/><td/><td>1;2;4;8</td><td>The type of the path variable.</td></row>
 		<row><td>ISPathVariable</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>The value of the path variable.</td></row>
-		<row><td>ISPowerShellWrap</td><td>Action_</td><td>N</td><td/><td/><td>CustomAction</td><td>1</td><td>Identifier</td><td/><td>Foreign key into CustomAction table</td></row>
-		<row><td>ISPowerShellWrap</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>Property associated with this Action</td></row>
-		<row><td>ISPowerShellWrap</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Value associated with this Property</td></row>
 		<row><td>ISProductConfiguration</td><td>GeneratePackageCode</td><td>Y</td><td/><td/><td/><td/><td>Number</td><td>0;1</td><td>Indicates whether or not to generate a package code.</td></row>
 		<row><td>ISProductConfiguration</td><td>ISProductConfiguration</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>The name of the product configuration.</td></row>
 		<row><td>ISProductConfiguration</td><td>ProductConfigurationFlags</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Product configuration (release) flags.</td></row>
@@ -5506,6 +5503,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISVirtualShortcut</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Property name</td></row>
 		<row><td>ISVirtualShortcut</td><td>Shortcut_</td><td>N</td><td/><td/><td>Shortcut</td><td>1</td><td>Identifier</td><td/><td>Foreign key into Shortcut table.</td></row>
 		<row><td>ISVirtualShortcut</td><td>Value</td><td>N</td><td/><td/><td/><td/><td/><td/><td>Property value</td></row>
+		<row><td>ISWSEWrap</td><td>Action_</td><td>N</td><td/><td/><td>CustomAction</td><td>1</td><td>Identifier</td><td/><td>Foreign key into CustomAction table</td></row>
+		<row><td>ISWSEWrap</td><td>Name</td><td>N</td><td/><td/><td/><td/><td>Text</td><td/><td>Property associated with this Action</td></row>
+		<row><td>ISWSEWrap</td><td>Value</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Value associated with this Property</td></row>
 		<row><td>ISXmlElement</td><td>Content</td><td>Y</td><td/><td/><td/><td/><td>Text</td><td/><td>Element contents</td></row>
 		<row><td>ISXmlElement</td><td>ISAttributes</td><td>Y</td><td/><td/><td/><td/><td>Number</td><td/><td>Internal XML element attributes</td></row>
 		<row><td>ISXmlElement</td><td>ISXmlElement</td><td>N</td><td/><td/><td/><td/><td>Identifier</td><td/><td>Primary key, non-localized, internal token for Xml element</td></row>
