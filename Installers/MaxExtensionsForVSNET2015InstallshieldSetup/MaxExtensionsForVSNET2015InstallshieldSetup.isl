@@ -264,10 +264,9 @@
 		<row><td>NewBinary16</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallFirstUse.ico</td></row>
 		<row><td>NewBinary17</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallPartial.ico</td></row>
 		<row><td>NewBinary18</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallStateMenu.ico</td></row>
-		<row><td>NewBinary19</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
+		<row><td>NewBinary19</td><td/><td>&lt;ISProductFolder&gt;\redist\Language independent\i386\SerialNumCAHelper.dll</td></row>
 		<row><td>NewBinary2</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\New.ibd</td></row>
-		<row><td>NewBinary20</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
-		<row><td>NewBinary21</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
+		<row><td>NewBinary22</td><td/><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs</td></row>
 		<row><td>NewBinary3</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\Up.ibd</td></row>
 		<row><td>NewBinary4</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\WarningIcon.ibd</td></row>
 		<row><td>NewBinary5</td><td/><td>&lt;ISProductFolder&gt;\Support\Themes\InstallShield Blue Theme\welcome.jpg</td></row>
@@ -352,8 +351,12 @@
 		<row><td>ISX_DEFAULTCOMPONENT13</td><td>{76971618-1644-4FE4-B1D8-5D77FBF39F95}</td><td>MAX_CONTRACTS_GENERATION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT14</td><td>{2703BCAB-3C8E-4A9F-AC5B-7DBFEB5ED09A}</td><td>MAX_MAPPING_GENERATION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT15</td><td>{129F21D7-638D-4E1B-B1EA-F5A66E6D9D8C}</td><td>MAX_CONTRACTS_GENERATION1</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
-		<row><td>ISX_DEFAULTCOMPONENT16</td><td>{D8A38381-8884-4133-89B0-464DBFB0F2D9}</td><td>EXTENSION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td>{572C5595-12D9-4D19-86DE-6263ED282DFC}</td><td>INSTALLDIR</td><td>258</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td>{EECEB26F-55E4-406B-BFB6-D2081B5239DD}</td><td>GlobalAssemblyCache</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td>{EB3A9466-F281-424C-95BC-71BA457CF8C6}</td><td>GOODIES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td>{5A79D96E-80E2-41E4-B83C-AC9788228514}</td><td>GOODIES</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td>{3FA2DC10-D15A-4A19-909A-35A056788327}</td><td>DATABASEDIR</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td>{E9F2B329-8C6F-481F-B292-CB9A61254614}</td><td>AREBIS_MAX_EXTENSION</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>ISX_DEFAULTCOMPONENT9</td><td>{00E253EB-C58E-4748-BD0A-5F96B3D5FBF5}</td><td>_.0</td><td>2</td><td/><td/><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Debug_Symbols</td><td>{59C95746-4EF6-4867-BA3A-835A9326600A}</td><td>ASSEMBLIES1</td><td>2</td><td/><td>max.domain.mapping.debug_sym</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
 		<row><td>Max.Domain.Mapping.Debug_Symbols1</td><td>{CD181E3C-5BB7-48C4-99CE-DA5B55978BB4}</td><td>ASSEMBLIES</td><td>2</td><td/><td>max.domain.mapping.debug_sym1</td><td>17</td><td/><td/><td/><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td><td>/LogFile=</td></row>
@@ -944,11 +947,11 @@
 		<row><td>CustomerInformation</td><td>Next</td><td>NewDialog</td><td>ReadyToInstall</td><td>(Not SERIALNUMVALRETURN) OR (SERIALNUMVALRETURN=SERIALNUMVALSUCCESSRETVAL)</td><td>3</td></row>
 		<row><td>CustomerInformation</td><td>Next</td><td>[ALLUSERS]</td><td>1</td><td>ApplicationUsers = "AllUsers" And Privileged</td><td>1</td></row>
 		<row><td>CustomerInformation</td><td>Next</td><td>[ALLUSERS]</td><td>{}</td><td>ApplicationUsers = "OnlyCurrentUser" And Privileged</td><td>2</td></row>
-		<row><td>DatabaseFolder</td><td>Back</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>1</td></row>
+		<row><td>DatabaseFolder</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>NOT Installed</td><td>1</td></row>
 		<row><td>DatabaseFolder</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
 		<row><td>DatabaseFolder</td><td>ChangeFolder</td><td>[_BrowseProperty]</td><td>DATABASEDIR</td><td>1</td><td>2</td></row>
-		<row><td>DatabaseFolder</td><td>Next</td><td>NewDialog</td><td>SetupType</td><td>1</td><td>1</td></row>
+		<row><td>DatabaseFolder</td><td>Next</td><td>NewDialog</td><td>ReadyToInstall</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>Back</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>0</td></row>
 		<row><td>DestinationFolder</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>DestinationFolder</td><td>ChangeFolder</td><td>SpawnDialog</td><td>InstallChangeFolder</td><td>1</td><td>1</td></row>
@@ -966,7 +969,7 @@
 		<row><td>InstallChangeFolder</td><td>Up</td><td>DirectoryListUp</td><td>0</td><td>1</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Back</td><td>NewDialog</td><td>SplashBitmap</td><td>Display_IsBitmapDlg</td><td>0</td></row>
 		<row><td>InstallWelcome</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
-		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>ReadyToInstall</td><td>1</td><td>0</td></row>
+		<row><td>InstallWelcome</td><td>Next</td><td>NewDialog</td><td>DatabaseFolder</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>NOT Installed</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>LicenseAgreement</td><td>ISPrintButton</td><td>DoAction</td><td>ISPrint</td><td>1</td><td>0</td></row>
@@ -1001,7 +1004,7 @@
 		<row><td>ReadmeInformation</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>1</td></row>
 		<row><td>ReadmeInformation</td><td>Next</td><td>NewDialog</td><td>CustomerInformation</td><td>1</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>CustomSetup</td><td>Installed OR _IsSetupTypeMin = "Custom"</td><td>2</td></row>
-		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>InstallWelcome</td><td>NOT Installed</td><td>1</td></row>
+		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>DatabaseFolder</td><td>NOT Installed</td><td>1</td></row>
 		<row><td>ReadyToInstall</td><td>Back</td><td>NewDialog</td><td>MaintenanceType</td><td>Installed AND _IsMaintenance = "Reinstall"</td><td>3</td></row>
 		<row><td>ReadyToInstall</td><td>Cancel</td><td>SpawnDialog</td><td>CancelSetup</td><td>1</td><td>0</td></row>
 		<row><td>ReadyToInstall</td><td>InstallNow</td><td>EndDialog</td><td>Return</td><td>OutOfNoRbDiskSpace &lt;&gt; 1</td><td>0</td></row>
@@ -1039,8 +1042,9 @@
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1")</td><td>3</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
 		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>3</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>8</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>4</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>LaunchReadmeFileFromSetupCompleteSuccess</td><td>LAUNCHREADME And READMEFILETOLAUNCHATEND &lt;&gt; "" And NOT Installed</td><td>4</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>9</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>5</td></row>
 		<row><td>SetupError</td><td>A</td><td>EndDialog</td><td>ErrorAbort</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>C</td><td>EndDialog</td><td>ErrorCancel</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>I</td><td>EndDialog</td><td>ErrorIgnore</td><td>1</td><td>0</td></row>
@@ -1078,10 +1082,18 @@
 	<table name="CreateFolder">
 		<col key="yes" def="s72">Directory_</col>
 		<col key="yes" def="s72">Component_</col>
+		<row><td>AREBIS_MAX_EXTENSION</td><td>ISX_DEFAULTCOMPONENT7</td></row>
 		<row><td>ASSEMBLIES</td><td>ISX_DEFAULTCOMPONENT</td></row>
 		<row><td>ASSEMBLIES1</td><td>ISX_DEFAULTCOMPONENT10</td></row>
-		<row><td>EXTENSION</td><td>ISX_DEFAULTCOMPONENT16</td></row>
+		<row><td>DATABASEDIR</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>GOODIES</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>GOODIES</td><td>ISX_DEFAULTCOMPONENT5</td></row>
 		<row><td>GlobalAssemblyCache</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT2</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>INSTALLDIR</td><td>ISX_DEFAULTCOMPONENT7</td></row>
 		<row><td>ITEMTEMPLATES</td><td>ISX_DEFAULTCOMPONENT11</td></row>
 		<row><td>PROJECTTEMPLATES</td><td>ISX_DEFAULTCOMPONENT12</td></row>
 	</table>
@@ -1093,7 +1105,6 @@
 		<col def="S0">Target</col>
 		<col def="I4">ExtendedType</col>
 		<col def="S255">ISComments</col>
-		<row><td>CopyExtensionToVSNET</td><td>1030</td><td>NewBinary20</td><td>CopyExtensionToVSNET</td><td/><td/></row>
 		<row><td>ISPreventDowngrade</td><td>19</td><td/><td>[IS_PREVENT_DOWNGRADE_EXIT]</td><td/><td>Exits install when a newer version of this product is found</td></row>
 		<row><td>ISPrint</td><td>1</td><td>SetAllUsers.dll</td><td>PrintScrollableText</td><td/><td>Prints the contents of a ScrollableText control on a dialog.</td></row>
 		<row><td>ISRunSetupTypeAddLocalEvent</td><td>1</td><td>ISExpHlp.dll</td><td>RunSetupTypeAddLocalEvent</td><td/><td>Run the AddLocal events associated with the Next button on the Setup Type dialog.</td></row>
@@ -1101,10 +1112,10 @@
 		<row><td>ISSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFiles</td><td/><td/></row>
 		<row><td>ISSelfRegisterFinalize</td><td>1</td><td>ISSELFREG.DLL</td><td>ISSelfRegisterFinalize</td><td/><td/></row>
 		<row><td>ISUnSelfRegisterFiles</td><td>3073</td><td>ISSELFREG.DLL</td><td>ISUnSelfRegisterFiles</td><td/><td/></row>
-		<row><td>PrepareInstallation</td><td>6</td><td>NewBinary19</td><td>PrepareInstallation</td><td/><td/></row>
-		<row><td>RemoveExtensionFromVSNET</td><td>1094</td><td>NewBinary21</td><td>RemoveExtensionFromVSNET</td><td/><td/></row>
+		<row><td>LaunchReadmeFileFromSetupCompleteSuccess</td><td>1</td><td>NewBinary19</td><td>LaunchReadMe</td><td/><td/></row>
 		<row><td>SetARPINSTALLLOCATION</td><td>51</td><td>ARPINSTALLLOCATION</td><td>[INSTALLDIR]</td><td/><td/></row>
 		<row><td>SetAllUsersProfileNT</td><td>51</td><td>ALLUSERSPROFILE</td><td>[%SystemRoot]\Profiles\All Users</td><td/><td/></row>
+		<row><td>SetDatabaseDir</td><td>70</td><td>NewBinary22</td><td>SetDatabaseDir</td><td/><td>Sets the DATABASEDIR to the VS.NET Extensions folder.</td></row>
 		<row><td>ShowMsiLog</td><td>226</td><td>SystemFolder</td><td>[SystemFolder]notepad.exe "[MsiLogFileLocation]"</td><td/><td>Shows Property-driven MSI Log</td></row>
 		<row><td>setAllUsersProfile2K</td><td>51</td><td>ALLUSERSPROFILE</td><td>[%ALLUSERSPROFILE]</td><td/><td/></row>
 		<row><td>setUserProfileNT</td><td>51</td><td>USERPROFILE</td><td>[%USERPROFILE]</td><td/><td/></row>
@@ -1167,6 +1178,7 @@
 		<col def="S255">ISFolderName</col>
 		<row><td>ALLUSERSPROFILE</td><td>TARGETDIR</td><td>.:ALLUSE~1|All Users</td><td/><td>0</td><td/></row>
 		<row><td>AREBIS</td><td>ProgramFilesFolder</td><td>Arebis</td><td/><td>0</td><td/></row>
+		<row><td>AREBIS_MAX_EXTENSION</td><td>DATABASEDIR</td><td>AREBIS~1|Arebis MAX Extension</td><td/><td>0</td><td/></row>
 		<row><td>ASSEMBLIES</td><td>INSTALLDIR</td><td>ASSEMB~1|Assemblies</td><td/><td>0</td><td/></row>
 		<row><td>ASSEMBLIES1</td><td>_.0</td><td>ASSEMB~1|Assemblies</td><td/><td>0</td><td/></row>
 		<row><td>AdminToolsFolder</td><td>TARGETDIR</td><td>.:Admint~1|AdminTools</td><td/><td>0</td><td/></row>
@@ -1176,22 +1188,23 @@
 		<row><td>CommonFilesFolder</td><td>TARGETDIR</td><td>.:Common</td><td/><td>0</td><td/></row>
 		<row><td>DATABASEDIR</td><td>ISYourDataBaseDir</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>DesktopFolder</td><td>TARGETDIR</td><td>.:Desktop</td><td/><td>3</td><td/></row>
-		<row><td>EXTENSION</td><td>INSTALLDIR</td><td>EXTENS~1|Extension</td><td/><td>0</td><td/></row>
 		<row><td>FavoritesFolder</td><td>TARGETDIR</td><td>.:FAVORI~1|Favorites</td><td/><td>0</td><td/></row>
 		<row><td>FontsFolder</td><td>TARGETDIR</td><td>.:Fonts</td><td/><td>0</td><td/></row>
+		<row><td>GOODIES</td><td>INSTALLDIR</td><td>Goodies</td><td/><td>0</td><td/></row>
 		<row><td>GlobalAssemblyCache</td><td>TARGETDIR</td><td>.:Global~1|GlobalAssemblyCache</td><td/><td>0</td><td/></row>
-		<row><td>INSTALLDIR</td><td>MAX_EXTENSIONS_FOR_VS.NET_2013</td><td>.</td><td/><td>0</td><td/></row>
+		<row><td>INSTALLDIR</td><td>MAX_EXTENSIONS_FOR_VS.NET_2015</td><td>.</td><td/><td>0</td><td/></row>
 		<row><td>ISCommonFilesFolder</td><td>CommonFilesFolder</td><td>Instal~1|InstallShield</td><td/><td>0</td><td/></row>
 		<row><td>ISMyCompanyDir</td><td>ProgramFilesFolder</td><td>MYCOMP~1|My Company Name</td><td/><td>0</td><td/></row>
 		<row><td>ISMyProductDir</td><td>ISMyCompanyDir</td><td>MYPROD~1|My Product Name</td><td/><td>0</td><td/></row>
-		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>Database</td><td/><td>0</td><td/></row>
+		<row><td>ISYourDataBaseDir</td><td>INSTALLDIR</td><td>VS_NET~1|VS.NET Extensions</td><td/><td>0</td><td/></row>
 		<row><td>ITEMTEMPLATES</td><td>_.0</td><td>ITEMTE~1|ItemTemplates</td><td/><td>0</td><td/></row>
 		<row><td>LocalAppDataFolder</td><td>TARGETDIR</td><td>.:LocalA~1|LocalAppData</td><td/><td>0</td><td/></row>
 		<row><td>MAX_CONTRACTS_GENERATION</td><td>ITEMTEMPLATES</td><td>MAXCON~1|Max Contracts Generation</td><td/><td>0</td><td/></row>
 		<row><td>MAX_CONTRACTS_GENERATION1</td><td>PROJECTTEMPLATES</td><td>MAXCON~1|Max Contracts Generation</td><td/><td>0</td><td/></row>
-		<row><td>MAX_EXTENSIONS_FOR_VS.NET_2013</td><td>AREBIS</td><td>MAXEXT~1|MAX Extensions for VS.NET 2013</td><td/><td>0</td><td/></row>
+		<row><td>MAX_EXTENSIONS_FOR_VS.NET_2015</td><td>AREBIS</td><td>MAXEXT~1|MAX Extensions for VS.NET 2015</td><td/><td>0</td><td/></row>
 		<row><td>MAX_MAPPING_GENERATION</td><td>ITEMTEMPLATES</td><td>MAXMAP~1|Max Mapping Generation</td><td/><td>0</td><td/></row>
 		<row><td>MyPicturesFolder</td><td>TARGETDIR</td><td>.:MyPict~1|MyPictures</td><td/><td>0</td><td/></row>
+		<row><td>NEW_FOLDER_1</td><td>TARGETDIR</td><td>NEW_FOLDER_1</td><td/><td>0</td><td/></row>
 		<row><td>NetHoodFolder</td><td>TARGETDIR</td><td>.:NetHood</td><td/><td>0</td><td/></row>
 		<row><td>PROJECTTEMPLATES</td><td>_.0</td><td>PROJEC~1|ProjectTemplates</td><td/><td>0</td><td/></row>
 		<row><td>PersonalFolder</td><td>TARGETDIR</td><td>.:Personal</td><td/><td>0</td><td/></row>
@@ -1211,11 +1224,12 @@
 		<row><td>TempFolder</td><td>TARGETDIR</td><td>.:Temp</td><td/><td>0</td><td/></row>
 		<row><td>TemplateFolder</td><td>TARGETDIR</td><td>.:ShellNew</td><td/><td>0</td><td/></row>
 		<row><td>USERPROFILE</td><td>TARGETDIR</td><td>.:USERPR~1|UserProfile</td><td/><td>0</td><td/></row>
+		<row><td>VSNETEXTENSIONS</td><td>TARGETDIR</td><td>VSNETE~1|VSNETEXTENSIONS</td><td/><td>0</td><td/></row>
 		<row><td>WindowsFolder</td><td>TARGETDIR</td><td>.:Windows</td><td/><td>0</td><td/></row>
 		<row><td>WindowsVolume</td><td>TARGETDIR</td><td>.:WinRoot</td><td/><td>0</td><td/></row>
-		<row><td>_.0</td><td>EXTENSION</td><td>1.0</td><td/><td>0</td><td/></row>
+		<row><td>_.0</td><td>AREBIS_MAX_EXTENSION</td><td>1.0</td><td/><td>0</td><td/></row>
 		<row><td>arebis</td><td>ProgramMenuFolder</td><td>Arebis</td><td/><td>1</td><td/></row>
-		<row><td>maxext_1.net_max_extensions_for_vs.net_2013</td><td>arebis</td><td>MAXEXT~1.NET|MAX Extensions for VS.NET 2013</td><td/><td>1</td><td/></row>
+		<row><td>maxext_1.net_max_extensions_for_vs.net_2015</td><td>arebis</td><td>MAXEXT~1.NET|MAX Extensions for VS.NET 2015</td><td/><td>1</td><td/></row>
 	</table>
 
 	<table name="DrLocator">
@@ -1915,8 +1929,12 @@
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT13</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT14</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT15</td></row>
-		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT16</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT2</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT3</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT4</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT5</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT6</td></row>
+		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT7</td></row>
 		<row><td>AlwaysInstall</td><td>ISX_DEFAULTCOMPONENT9</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Debug_Symbols</td></row>
 		<row><td>AlwaysInstall</td><td>Max.Domain.Mapping.Debug_Symbols1</td></row>
@@ -1976,6 +1994,8 @@
 		<row><td>max_model_validation_contrac</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXMOD~1.ZIP|Max Model Validation Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Model Validation Contracts Template.zip</td><td>1</td><td/></row>
 		<row><td>max_select_projections_mappe</td><td>ISX_DEFAULTCOMPONENT14</td><td>MAXSEL~1.ZIP|Max Select Projections Mapper Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max Select Projections Mapper Template.zip</td><td>1</td><td/></row>
 		<row><td>max_stringconverter_contract</td><td>ISX_DEFAULTCOMPONENT13</td><td>MAXSTR~1.ZIP|Max StringConverter Contracts Template.zip</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Templates\Max StringConverter Contracts Template.zip</td><td>1</td><td/></row>
+		<row><td>readme.txt</td><td>ISX_DEFAULTCOMPONENT1</td><td>ReadMe.txt</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Documentation\ReadMe.txt</td><td>1</td><td/></row>
+		<row><td>sqlserverdevtools.sql</td><td>ISX_DEFAULTCOMPONENT5</td><td>SQLSER~1.SQL|SqlServerDevTools.sql</td><td>0</td><td/><td/><td/><td>1</td><td>D:\SRCRBR\GitHub\codetuner\Arebis-MAX-Mapper\Documentation\Goodies\SqlServerDevTools.sql</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">
@@ -2127,8 +2147,12 @@
 		<row><td>ISX_DEFAULTCOMPONENT13</td><td/><td/><td>_933CB5E5_AAED_4D18_BE38_B8B72C0A8B10_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT14</td><td/><td/><td>_FD71B457_21F4_46FF_BE44_A739ECF9C613_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT15</td><td/><td/><td>_ABE9C742_5C74_43AD_8CF1_E84EF1B2ECA7_FILTER</td><td/><td/><td/><td/></row>
-		<row><td>ISX_DEFAULTCOMPONENT16</td><td/><td/><td>_5986D5A3_21CC_4C72_B1D9_142027FA6C6E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT2</td><td/><td/><td>_CB4DA72E_7A36_461F_8EDB_7FF5DD125565_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT3</td><td/><td/><td>_889ED85B_E849_4806_8C98_77E198443991_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT4</td><td/><td/><td>_9C1D786E_C342_4AEC_B280_926B73CAB39E_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT5</td><td/><td/><td>_1D110737_841A_4147_A214_70965C5F004B_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT6</td><td/><td/><td>_40B05AE1_3C66_48C2_827B_2D498A73B57F_FILTER</td><td/><td/><td/><td/></row>
+		<row><td>ISX_DEFAULTCOMPONENT7</td><td/><td/><td>_A797D647_5938_4939_8996_379A4EC270FA_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>ISX_DEFAULTCOMPONENT9</td><td/><td/><td>_E31BE61D_4A2D_42A3_8B25_B55DD96839A8_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Debug_Symbols</td><td/><td/><td>_FD5885BC_0064_44FA_BCBB_050F92DF0E5A_FILTER</td><td/><td/><td/><td/></row>
 		<row><td>Max.Domain.Mapping.Debug_Symbols1</td><td/><td/><td>_DFA16BED_FEB8_4B6F_A621_A09F6677B8B8_FILTER</td><td/><td/><td/><td/></row>
@@ -2480,8 +2504,8 @@
 		<col key="yes" def="s72">ISProductConfiguration_</col>
 		<col key="yes" def="s72">Property</col>
 		<col def="L255">Value</col>
-		<row><td>Express</td><td>MSIPackageFileName</td><td>MAX Extensions for VSNET2013</td></row>
-		<row><td>Express</td><td>SetupFileName</td><td>MaxExtensionsForVSNet2013Setup</td></row>
+		<row><td>Express</td><td>MSIPackageFileName</td><td>MAX Extensions for VSNET2015</td></row>
+		<row><td>Express</td><td>SetupFileName</td><td>MaxExtensionsForVSNet2015Setup</td></row>
 	</table>
 
 	<table name="ISRelease">
@@ -2768,6 +2792,7 @@
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1566268975</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_INSTALLDIR</td><td>1033</td><td>IDPROP_EXPRESS_LAUNCH_CONDITION_INSTALLDIR</td><td>0</td><td/><td>321169450</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
@@ -2920,7 +2945,7 @@
 		<row><td>IDS_DIFX_AMD64</td><td>1033</td><td>[ProductName] requires an X64 processor. Click OK to exit the wizard.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_DIFX_IA64</td><td>1033</td><td>[ProductName] requires an IA64 processor. Click OK to exit the wizard.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_DIFX_X86</td><td>1033</td><td>[ProductName] requires an X86 processor. Click OK to exit the wizard.</td><td>0</td><td/><td>-576624144</td></row>
-		<row><td>IDS_DatabaseFolder_InstallDatabaseTo</td><td>1033</td><td>Install [ProductName] database to:</td><td>0</td><td/><td>-576624144</td></row>
+		<row><td>IDS_DatabaseFolder_InstallDatabaseTo</td><td>1033</td><td>Install [ProductName] extension files to:</td><td>0</td><td/><td>321158990</td></row>
 		<row><td>IDS_ERROR_0</td><td>1033</td><td>{{Fatal error: }}</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_ERROR_1</td><td>1033</td><td>Error [1]. </td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_ERROR_10</td><td>1033</td><td>=== Logging started: [Date]  [Time] ===</td><td>0</td><td/><td>-576624144</td></row>
@@ -3578,7 +3603,7 @@
 		<row><td>IDS_SETUPEXE_EXPIRE_MSG</td><td>1033</td><td>This setup works until %s. The setup will now exit.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_SETUPEXE_LAUNCH_COND_E</td><td>1033</td><td>This setup was built with an evaluation version of InstallShield and can only be launched from setup.exe.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_SHORTCUT_DISPLAY_NAME1</td><td>1033</td><td>Max Mapping Generation Manual</td><td>0</td><td/><td>-576647984</td></row>
-		<row><td>IDS_SOFTWARE_REQUIREMENT_MESSAGE1</td><td>1033</td><td>Visual Studio 2013 is not found.</td><td>0</td><td/><td>-576626671</td></row>
+		<row><td>IDS_SOFTWARE_REQUIREMENT_MESSAGE1</td><td>1033</td><td>Visual Studio 2015 is not found.</td><td>0</td><td/><td>-576626671</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO</td><td>1033</td><td>From the list of servers below, select the database server you would like to target.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_DB</td><td>1033</td><td>From the list of catalog names below, select the database catalog you would like to target.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS_SQLBROWSE_INTRO_TEMPLATE</td><td>1033</td><td>[IS_SQLBROWSE_INTRO]</td><td>0</td><td/><td>-576624144</td></row>
@@ -3660,7 +3685,7 @@
 		<row><td>IDS__AgreeToLicense_1</td><td>1033</td><td>I &amp;accept the terms in the license agreement</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__DatabaseFolder_ChangeFolder</td><td>1033</td><td>Click Next to install to this folder, or click Change to install to a different folder.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__DatabaseFolder_DatabaseDir</td><td>1033</td><td>[DATABASEDIR]</td><td>0</td><td/><td>-576624144</td></row>
-		<row><td>IDS__DatabaseFolder_DatabaseFolder</td><td>1033</td><td>{&amp;MSSansBold8}Database Folder</td><td>0</td><td/><td>-576624144</td></row>
+		<row><td>IDS__DatabaseFolder_DatabaseFolder</td><td>1033</td><td>{&amp;MSSansBold8}VS.NET Extensions Folder</td><td>0</td><td/><td>321138510</td></row>
 		<row><td>IDS__DestinationFolder_Change</td><td>1033</td><td>&amp;Change...</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__DestinationFolder_ChangeFolder</td><td>1033</td><td>Click Next to install to this folder, or click Change to install to a different folder.</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__DestinationFolder_DestinationFolder</td><td>1033</td><td>{&amp;MSSansBold8}Destination Folder</td><td>0</td><td/><td>-576624144</td></row>
@@ -3867,15 +3892,16 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-576624144</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.Arebis.com</td><td>0</td><td/><td>-576619344</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.arebis.be</td><td>0</td><td/><td>321153219</td></row>
 		<row><td>ID_STRING2</td><td>1033</td><td>Arebis</td><td>0</td><td/><td>-576619344</td></row>
+		<row><td>ID_STRING3</td><td>1033</td><td>MAXMAP~1|Max Mapping Generation Manual</td><td>0</td><td/><td>321173097</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-576624144</td></row>
 	</table>
 
 	<table name="ISSwidtagProperty">
 		<col key="yes" def="s72">Name</col>
 		<col def="s0">Value</col>
-		<row><td>UniqueId</td><td>0B316CE5-A028-4AC1-8418-2C5C965393E4</td></row>
+		<row><td>UniqueId</td><td>9631CAAD-16D4-4102-B3DD-71758438F341</td></row>
 	</table>
 
 	<table name="ISTargetImage">
@@ -4015,7 +4041,6 @@
 		<row><td>AppSearch</td><td/><td>400</td><td>AppSearch</td><td/></row>
 		<row><td>BindImage</td><td/><td>4300</td><td>BindImage</td><td/></row>
 		<row><td>CCPSearch</td><td>CCP_TEST</td><td>500</td><td>CCPSearch</td><td/></row>
-		<row><td>CopyExtensionToVSNET</td><td>Not Installed</td><td>6405</td><td/><td/></row>
 		<row><td>CostFinalize</td><td/><td>1000</td><td>CostFinalize</td><td/></row>
 		<row><td>CostInitialize</td><td/><td>800</td><td>CostInitialize</td><td/></row>
 		<row><td>CreateFolders</td><td/><td>3700</td><td>CreateFolders</td><td/></row>
@@ -4044,7 +4069,6 @@
 		<row><td>MsiPublishAssemblies</td><td/><td>6250</td><td>MsiPublishAssemblies</td><td/></row>
 		<row><td>MsiUnpublishAssemblies</td><td/><td>1750</td><td>MsiUnpublishAssemblies</td><td/></row>
 		<row><td>PatchFiles</td><td/><td>4090</td><td>PatchFiles</td><td/></row>
-		<row><td>PrepareInstallation</td><td>Not Installed And (INSTALLDIR)</td><td>3650</td><td/><td/></row>
 		<row><td>ProcessComponents</td><td/><td>1600</td><td>ProcessComponents</td><td/></row>
 		<row><td>PublishComponents</td><td/><td>6200</td><td>PublishComponents</td><td/></row>
 		<row><td>PublishFeatures</td><td/><td>6300</td><td>PublishFeatures</td><td/></row>
@@ -4062,7 +4086,6 @@
 		<row><td>RemoveDuplicateFiles</td><td/><td>3400</td><td>RemoveDuplicateFiles</td><td/></row>
 		<row><td>RemoveEnvironmentStrings</td><td/><td>3300</td><td>RemoveEnvironmentStrings</td><td/></row>
 		<row><td>RemoveExistingProducts</td><td/><td>1410</td><td>RemoveExistingProducts</td><td/></row>
-		<row><td>RemoveExtensionFromVSNET</td><td>REMOVE="ALL"</td><td>6402</td><td/><td/></row>
 		<row><td>RemoveFiles</td><td/><td>3500</td><td>RemoveFiles</td><td/></row>
 		<row><td>RemoveFolders</td><td/><td>3600</td><td>RemoveFolders</td><td/></row>
 		<row><td>RemoveIniValues</td><td/><td>3100</td><td>RemoveIniValues</td><td/></row>
@@ -4118,7 +4141,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{A2FCB6B9-E8F5-4F60-9E36-54762920594D}</td></row>
 		<row><td>ISUSSignature</td><td>{F4DAE65E-768A-4114-B332-65F945472297}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUI,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpdateService,viewAppFiles,viewFeatureFiles,viewObjects,viewDependencies,viewRegistry,viewEnvironmentVariables,viewVRoots,viewSystemSearch,viewInstallScriptStd,viewCustomActions,viewAppV,viewSupportFiles,viewRelease,viewISToday,viewDesignPatches,viewUpgradePaths</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewProject,viewUI,viewRealSetupDesign,viewSetupDesign,viewSetupTypes,viewUpdateService,viewAppFiles,viewFeatureFiles,viewObjects,viewDependencies,viewRegistry,viewEnvironmentVariables,viewVRoots,viewSystemSearch,viewInstallScriptStd,viewCustomActions,viewAppV,viewSupportFiles,viewRelease,viewISToday,viewDesignPatches,viewUpgradePaths,viewShortcuts,viewIniFiles,viewFileExtensions,viewServices,viewTextMessages</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4160,6 +4183,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RMCCPSearch</td><td>Not CCP_SUCCESS And CCP_TEST</td><td>600</td><td>RMCCPSearch</td><td/></row>
 		<row><td>ResolveSource</td><td>Not Installed</td><td>990</td><td>ResolveSource</td><td/></row>
 		<row><td>SetAllUsersProfileNT</td><td>VersionNT = 400</td><td>970</td><td/><td/></row>
+		<row><td>SetDatabaseDir</td><td>Not Installed</td><td>1207</td><td/><td/></row>
 		<row><td>SetupCompleteError</td><td/><td>-3</td><td>SetupCompleteError</td><td/></row>
 		<row><td>SetupCompleteSuccess</td><td/><td>-1</td><td>SetupCompleteSuccess</td><td/></row>
 		<row><td>SetupInitialization</td><td/><td>420</td><td>SetupInitialization</td><td/></row>
@@ -4466,9 +4490,13 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>IS_SQLSERVER_SERVER</td><td/><td/></row>
 		<row><td>IS_SQLSERVER_USERNAME</td><td>sa</td><td/></row>
 		<row><td>InstallChoice</td><td>AR</td><td/></row>
+		<row><td>LAUNCHPREADMECOMPCODE</td><td>{775367F4-7E4E-4DBD-9EA2-962E81750CDB}</td><td/></row>
+		<row><td>LAUNCHPREADMEFILEKEY</td><td>readme.txt</td><td/></row>
 		<row><td>LAUNCHPROGRAM</td><td>1</td><td/></row>
 		<row><td>LAUNCHREADME</td><td>1</td><td/></row>
+		<row><td>MSIFASTINSTALL</td><td>2</td><td/></row>
 		<row><td>Manufacturer</td><td>##COMPANY_NAME##</td><td/></row>
+		<row><td>MsiLogging</td><td>voicewarmup</td><td/></row>
 		<row><td>PIDKEY</td><td/><td/></row>
 		<row><td>PIDTemplate</td><td>12345&lt;###-%%%%%%%&gt;@@@@@</td><td/></row>
 		<row><td>PROGMSG_IIS_CREATEAPPPOOL</td><td>##IDS_PROGMSG_IIS_CREATEAPPPOOL##</td><td/></row>
@@ -4494,13 +4522,14 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGMSG_IIS_ROLLBACKAPPPOOLS</td><td>##IDS_PROGMSG_IIS_ROLLBACKAPPPOOLS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKVROOTS</td><td>##IDS_PROGMSG_IIS_ROLLBACKVROOTS##</td><td/></row>
 		<row><td>PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS</td><td>##IDS_PROGMSG_IIS_ROLLBACKWEBSERVICEEXTENSIONS##</td><td/></row>
-		<row><td>ProductCode</td><td>{C4066A11-65D7-4530-9ACB-FA9C31F9E6BB}</td><td/></row>
-		<row><td>ProductName</td><td>MAX Extensions for VS.NET 2013</td><td/></row>
+		<row><td>ProductCode</td><td>{57473B49-7B82-4F3E-AC50-6B102FB4A189}</td><td/></row>
+		<row><td>ProductName</td><td>MAX Extensions for VS.NET 2015</td><td/></row>
 		<row><td>ProductVersion</td><td>1.00.0000</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
 		<row><td>ProgressType3</td><td>installs</td><td/></row>
+		<row><td>READMEFILETOLAUNCHATEND</td><td>[INSTALLDIR]ReadMe.txt</td><td/></row>
 		<row><td>RebootYesNo</td><td>Yes</td><td/></row>
 		<row><td>ReinstallFileVersion</td><td>o</td><td/></row>
 		<row><td>ReinstallModeText</td><td>omus</td><td/></row>
@@ -4508,10 +4537,11 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>RestartManagerOption</td><td>CloseRestart</td><td/></row>
 		<row><td>SERIALNUMBER</td><td/><td/></row>
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
+		<row><td>SHOWLAUNCHREADME</td><td>-1</td><td/></row>
 		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;INSTALLDIR;DOTNETVERSION45FULL</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
-		<row><td>UpgradeCode</td><td>{A4EE6717-7F66-4141-BCFF-3C234EFDB205}</td><td/></row>
+		<row><td>UpgradeCode</td><td>{954A6336-EE4D-4346-88FC-F0284613B349}</td><td/></row>
 		<row><td>_IsMaintenance</td><td>Change</td><td/></row>
 		<row><td>_IsSetupTypeMin</td><td>Typical</td><td/></row>
 	</table>
@@ -4554,7 +4584,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
 		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
-		<row><td>NewSignature1</td><td>1</td><td>Software\Microsoft\VisualStudio\12.0_Config</td><td>InstallDir</td><td>1</td></row>
+		<row><td>NewSignature1</td><td>1</td><td>Software\Microsoft\VisualStudio\14.0_Config</td><td>InstallDir</td><td>1</td></row>
 	</table>
 
 	<table name="Registry">
@@ -4565,6 +4595,8 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S0">Value</col>
 		<col def="s72">Component_</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>Registry1</td><td>2</td><td>SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions</td><td/><td>[INSTALLDIR]Assemblies\</td><td>ISX_DEFAULTCOMPONENT2</td><td>0</td></row>
+		<row><td>Registry2</td><td>2</td><td>SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions</td><td/><td>[INSTALLDIR]Assemblies\</td><td>ISX_DEFAULTCOMPONENT1</td><td>0</td></row>
 	</table>
 
 	<table name="RemoveFile">
@@ -4574,7 +4606,8 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">DirProperty</col>
 		<col def="i2">InstallMode</col>
 		<row><td>FileKey1</td><td>ISX_DEFAULTCOMPONENT1</td><td/><td>arebis</td><td>2</td></row>
-		<row><td>FileKey2</td><td>ISX_DEFAULTCOMPONENT1</td><td/><td>maxext_1.net_max_extensions_for_vs.net_2013</td><td>2</td></row>
+		<row><td>FileKey2</td><td>ISX_DEFAULTCOMPONENT1</td><td/><td>maxext_1.net_max_extensions_for_vs.net_2015</td><td>2</td></row>
+		<row><td>NewShortcut1</td><td>ISX_DEFAULTCOMPONENT1</td><td/><td>maxext_1.net_max_extensions_for_vs.net_2015</td><td>2</td></row>
 	</table>
 
 	<table name="RemoveIniFile">
@@ -4660,6 +4693,7 @@ RABWAEQALQA1AAEARQB4AHAAcgBlAHMAcwA=
 		<col def="S255">ISComments</col>
 		<col def="S255">ISShortcutName</col>
 		<col def="I4">ISAttributes</col>
+		<row><td>NewShortcut1</td><td>maxext_1.net_max_extensions_for_vs.net_2015</td><td>##ID_STRING3##</td><td>ISX_DEFAULTCOMPONENT1</td><td>[INSTALLDIR]Max Mapping Generation Manual.docx</td><td/><td/><td/><td/><td/><td>1</td><td/><td/><td/><td/><td/><td/><td/><td/></row>
 	</table>
 
 	<table name="Signature">

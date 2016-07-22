@@ -28,8 +28,28 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{F2C212D9-EE85-4D2D-9FFD-B63D88B96B78}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{E3115BA7-DF60-4B05-9A94-D91E50D02216}"
+	ProjectSection(SolutionItems) = preProject
+		Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs = Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs
+		Installers\Notes.txt = Installers\Notes.txt
+	EndProjectSection
 EndProject
 Project("{6141683F-8A12-4E36-9623-2EB02B2C2303}") = "MaxExtensionsForVSNET2015InstallshieldSetup", "Installers\MaxExtensionsForVSNET2015InstallshieldSetup\MaxExtensionsForVSNET2015InstallshieldSetup.isproj", "{76AEED85-3F89-431A-B5D1-733C66B87980}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3C39A9CA-A830-47BC-A93A-572ACF9DDA97} = {3C39A9CA-A830-47BC-A93A-572ACF9DDA97}
+		{ECDD11E4-5902-4BDA-AB00-7CCB2F2D7E5A} = {ECDD11E4-5902-4BDA-AB00-7CCB2F2D7E5A}
+		{4D4C90ED-3D65-4862-BF84-A06E7B18C9F6} = {4D4C90ED-3D65-4862-BF84-A06E7B18C9F6}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{84841C97-7EDD-4818-BBB6-D80CE9744DA7}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Max Mapping Generation Manual.docx = Documentation\Max Mapping Generation Manual.docx
+		Documentation\ReadMe.txt = Documentation\ReadMe.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Goodies", "Goodies", "{56AAA57A-2B45-47D8-B0E6-9E30A9366CA9}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Goodies\SqlServerDevTools.sql = Documentation\Goodies\SqlServerDevTools.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -227,8 +247,8 @@ Global
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.CD_ROM|x86.Build.0 = CD_ROM
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|Any CPU.ActiveCfg = DVD-5
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|Any CPU.Build.0 = DVD-5
-		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|x86.ActiveCfg = DVD-5
-		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|x86.Build.0 = DVD-5
+		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|x86.ActiveCfg = SingleImage
+		{76AEED85-3F89-431A-B5D1-733C66B87980}.Debug|x86.Build.0 = SingleImage
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.DVD-5|Any CPU.ActiveCfg = DVD-5
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.DVD-5|Any CPU.Build.0 = DVD-5
 		{76AEED85-3F89-431A-B5D1-733C66B87980}.DVD-5|x86.ActiveCfg = DVD-5
@@ -256,5 +276,6 @@ Global
 		{F5821D44-D564-4B85-A1DE-C7F51713CA8C} = {1AD2FADA-9A18-4364-AECF-731C26FB9AA8}
 		{1AEA8907-FEBF-492F-AFA9-17871611535A} = {1AD2FADA-9A18-4364-AECF-731C26FB9AA8}
 		{76AEED85-3F89-431A-B5D1-733C66B87980} = {E3115BA7-DF60-4B05-9A94-D91E50D02216}
+		{56AAA57A-2B45-47D8-B0E6-9E30A9366CA9} = {84841C97-7EDD-4818-BBB6-D80CE9744DA7}
 	EndGlobalSection
 EndGlobal
