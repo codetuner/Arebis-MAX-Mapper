@@ -1,20 +1,5 @@
 
-InstallShield installer
-=======================
-
-Now obsolete.
-
-Past issues
------------
-
-InstallShield example script:
-http://helpnet.installshield.com/isxhelp22/isxhelp22.htm#CSHID=helplibrary%2FISXVBSCAExample.htm|StartTopic=helplibrary%2FISXVBSCAExample.htm
-
-Encountered issues:
-https://community.flexerasoftware.com/showthread.php?220765-DATABASEDIR-set-by-Custom-Action-but-not-(always)-taken-into-account
-
-
-How to install
+Manual Install
 ==============
 
 1. Files to be installed
