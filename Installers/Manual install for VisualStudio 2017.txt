@@ -93,8 +93,6 @@ On 64-bit machine:
    Windows Registry Editor Version 5.00
    
    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions]
-   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2015\\Assemblies\\"
-
-
+   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2017\\Assemblies\\"
 
 
