@@ -24,7 +24,10 @@ Among some great features of Max, i'd like to mention:
 
 To get you introduced to Max I've created a few video's that give you a quick introduction in just a few minutes. Be aware that the video's show only a very limited set of features of the Max Mapping Generator. For a more complete sample, see the Getting Started section of the documentation.
 
-* Visit the Videos page (temporarily not available anymore since mogration from Codeplex)
+* Videos
+
+- [Creating The Business Layer 2010](https://www.youtube.com/watch?v=vmmVYMFSdnA)
+- [Creating The WCF Service 2010](https://www.youtube.com/watch?v=3vIPbjMRg-8)
 
 ## Manual
 
