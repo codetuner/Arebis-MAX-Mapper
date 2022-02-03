@@ -5,17 +5,21 @@ Manual Install
 1. Files to be installed
 ------------------------
 
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Max Mapping Generation Manual.docx
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\ReadMe.txt
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.xml
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.xml
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Tools.DomainGenerator.15.0.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Tools.DomainGenerator.15.0.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Goodies\SqlServerDevTools.sql
+   Extract from "SetupFiles\ProgramFiles (2022).zip" :
+
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Max Mapping Generation Manual.docx
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\ReadMe.txt
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.Entity.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.Entity.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.Entity.xml
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Domain.Mapping.xml
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Tools.DomainGenerator.15.0.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Assemblies\Max.Tools.DomainGenerator.15.0.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Goodies\SqlServerDevTools.sql
+
+   Extract from "SetupFiles\Visual Studio Extension (2022).zip" :
 
 [VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\extension.vsixmanifest
 [VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.dll
@@ -43,13 +47,14 @@ C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Goodies\SqlServerDe
 <?xml version="1.0" encoding="utf-8"?>
 <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
   <Identifier Id="MaxVSNETExtensions-1">
-    <Name>Max Visual Studio.NET 2017 Extensions</Name>
+    <Name>Max Visual Studio.NET 2022 Extensions</Name>
     <Author>Arebis</Author>
     <Version>1.0</Version>
     <Description xml:space="preserve">Microsoft Visual Studio.NET extensions for Arebis Max. Includes contract and mapper generation templates.</Description>
     <Locale>1033</Locale>
     <SupportedProducts>
-      <VisualStudio Version="15.0">
+      <VisualStudio Version="17.0">
+        <Edition>Community</Edition>
         <Edition>Utimate</Edition>
         <Edition>Premium</Edition>
         <Edition>Pro</Edition>
@@ -61,9 +66,9 @@ C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Goodies\SqlServerDe
   <Content>
     <ProjectTemplate>ProjectTemplates</ProjectTemplate>
     <ItemTemplate>ItemTemplates</ItemTemplate>
-	<!--Assembly AssemblyName="Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Tools.DomainGenerator.dll</Assembly-->
-	<Assembly AssemblyName="Max.Domain.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Domain.Mapping.dll</Assembly>
-	<Assembly AssemblyName="Max.Domain.Mapping.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=122132a8c4d478f7">Assemblies\Max.Domain.Mapping.Entity.dll</Assembly>
+	<!--Assembly AssemblyName="Max.Tools.DomainGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eba9f2bdad4c8d0c">Assemblies\Max.Tools.DomainGenerator.15.0.dll</Assembly-->
+	<Assembly AssemblyName="Max.Domain.Mapping, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eba9f2bdad4c8d0c">Assemblies\Max.Domain.Mapping.dll</Assembly>
+	<Assembly AssemblyName="Max.Domain.Mapping.Entity, Version=1.0.0.0, Culture=neutral, PublicKeyToken=eba9f2bdad4c8d0c">Assemblies\Max.Domain.Mapping.Entity.dll</Assembly>
   </Content>
 </Vsix>
 
@@ -75,7 +80,7 @@ Max.Tools.DomainGenerator.15.0.dll
 3. Shortcuts to create
 ----------------------
 
-Create a shortcut "Start Menu/Programs Menu/Arebis/MAX Extensions for VS.NET 2017/Max Mapping Generation Manual"
+Create a shortcut "Start Menu/Programs Menu/Arebis/MAX Extensions for VS.NET 2022/Max Mapping Generation Manual"
 pointing to the manual file.
 
 4. Registry settings
@@ -85,14 +90,16 @@ On 32-bit machine:
 
    Windows Registry Editor Version 5.00
    
-   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions]
-   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2017\\Assemblies\\"
+   [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions 2022]
+   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2022\\Assemblies\\"
 
 On 64-bit machine:
 
    Windows Registry Editor Version 5.00
    
-   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions]
-   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2017\\Assemblies\\"
+   [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions 2022]
+   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2022\\Assemblies\\"
+
+
 
 

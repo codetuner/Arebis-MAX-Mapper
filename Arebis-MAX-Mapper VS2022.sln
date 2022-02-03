@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2008
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GacTestApp", "Code\GacTestApp\GacTestApp.vbproj", "{864D1E69-B3A7-4223-AFF7-2D156CBF7709}"
 EndProject
@@ -29,8 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misc", "Misc", "{F2C212D9-E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Installer", "Installer", "{E3115BA7-DF60-4B05-9A94-D91E50D02216}"
 	ProjectSection(SolutionItems) = preProject
-		Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs = Installers\MaxExtensionsForVSNET2015InstallshieldSetup\CustomActions.vbs
-		Installers\Notes.txt = Installers\Notes.txt
+		Installers\Manual install for VisualStudio 2022.txt = Installers\Manual install for VisualStudio 2022.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{84841C97-7EDD-4818-BBB6-D80CE9744DA7}"
