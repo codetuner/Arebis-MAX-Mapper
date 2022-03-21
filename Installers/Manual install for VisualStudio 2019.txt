@@ -7,39 +7,39 @@ Manual Install
 
    Extract from "SetupFiles\ProgramFiles.7z" :
 
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Max Mapping Generation Manual.docx
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\ReadMe.txt
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.Entity.xml
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Domain.Mapping.xml
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Tools.DomainGenerator.15.0.dll
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Assemblies\Max.Tools.DomainGenerator.15.0.pdb
-C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2017\Goodies\SqlServerDevTools.sql
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Max Mapping Generation Manual.docx
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\ReadMe.txt
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.Entity.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.Entity.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.Entity.xml
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Domain.Mapping.xml
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Tools.DomainGenerator.15.0.dll
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Assemblies\Max.Tools.DomainGenerator.15.0.pdb
+C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2019\Goodies\SqlServerDevTools.sql
 
    Extract from "SetupFiles\Visual Studio Extension (2019).7z" :
 
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\extension.vsixmanifest
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.dll
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.dll
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.pdb
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.xml
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.pdb
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.xml
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty Master Generation Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty SubTemplate.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IEntityWithKey Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IExtensibleDataObject Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Model Validation Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max StringConverter Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max GetSourcePropertyName Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Identifier Based ObjectSource Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Mapper Generator Templates Set.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Select Projections Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Contracts Library.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Portable Contracts Library.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\extension.vsixmanifest
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.dll
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.Entity.dll
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.Entity.pdb
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.Entity.xml
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.pdb
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\Assemblies\Max.Domain.Mapping.xml
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max Empty Master Generation Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max Empty SubTemplate.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max IEntityWithKey Contracts Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max IExtensibleDataObject Contracts Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max Model Validation Contracts Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Contracts Generation\Max StringConverter Contracts Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Mapping Generation\Max GetSourcePropertyName Mapper Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Mapping Generation\Max Identifier Based ObjectSource Mapper Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Mapping Generation\Max Mapper Generator Templates Set.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ItemTemplates\Max Mapping Generation\Max Select Projections Mapper Template.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ProjectTemplates\Max Contracts Generation\Max Generated Contracts Library.zip
+[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\16.0\ProjectTemplates\Max Contracts Generation\Max Generated Portable Contracts Library.zip
 
 
 "extension.vsixmanifest" content:
@@ -79,7 +79,7 @@ Max.Tools.DomainGenerator.15.0.dll
 3. Shortcuts to create
 ----------------------
 
-Create a shortcut "Start Menu/Programs Menu/Arebis/MAX Extensions for VS.NET 2017/Max Mapping Generation Manual"
+Create a shortcut "Start Menu/Programs Menu/Arebis/MAX Extensions for VS.NET 2019/Max Mapping Generation Manual"
 pointing to the manual file.
 
 4. Registry settings
@@ -90,14 +90,14 @@ On 32-bit machine:
    Windows Registry Editor Version 5.00
    
    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions]
-   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2017\\Assemblies\\"
+   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2019\\Assemblies\\"
 
 On 64-bit machine:
 
    Windows Registry Editor Version 5.00
    
    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319\AssemblyFoldersEx\Arebis MAX Mapper Extensions]
-   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2017\\Assemblies\\"
+   @="C:\\Program Files (x86)\\Arebis\\MAX Extensions for VS.NET 2019\\Assemblies\\"
 
 
 
