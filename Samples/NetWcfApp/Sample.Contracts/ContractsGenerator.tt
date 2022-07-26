@@ -1,6 +1,5 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ assembly name="Max.Tools.DomainGenerator" #>
-<#@ assembly name="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" #>
+<#@ assembly name="Max.Tools.DomainGenerator.15.0" #>
 <#@ import namespace="System" #>
 <#@ import namespace="Max.Tools.DomainGenerator" #>
 <#

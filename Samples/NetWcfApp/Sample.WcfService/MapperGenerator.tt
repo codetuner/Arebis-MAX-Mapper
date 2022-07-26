@@ -1,5 +1,5 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
-<#@ assembly name="Max.Tools.DomainGenerator" #>
+<#@ assembly name="Max.Tools.DomainGenerator.15.0" #>
 <#@ import namespace="System" #>
 <#@ import namespace="Max.Tools.DomainGenerator" #>
 <#

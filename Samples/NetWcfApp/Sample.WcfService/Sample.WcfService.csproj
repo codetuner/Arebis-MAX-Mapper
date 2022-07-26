@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sample.WcfService</RootNamespace>
     <AssemblyName>Sample.WcfService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -29,6 +29,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -88,16 +90,9 @@
     <Compile Include="Mapper_Get~SourcePropertyName.g.cs">
       <DependentUpon>Mapper_Get~SourcePropertyName.tt</DependentUpon>
     </Compile>
-    <Compile Include="NewFolder1\SubTemplate.g.cs" />
-    <Compile Include="NewFolder1\SubTemplate.gen.cs" />
     <Compile Include="SelectProjections.g.cs">
       <DependentUpon>SelectProjections.tt</DependentUpon>
     </Compile>
-    <None Include="..\Files\Max Empty SubTemplate\SubTemplate.tt">
-      <Link>NewFolder1\SubTemplate.tt</Link>
-      <Generator>MaxDomainGeneratorTemplate</Generator>
-      <LastGenOutput>SubTemplate.g.cs</LastGenOutput>
-    </None>
     <None Include="Mapper.tt">
       <DependentUpon>MapperGenerator.tt</DependentUpon>
       <Generator>MaxDomainGeneratorTemplate</Generator>

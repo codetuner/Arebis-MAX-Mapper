@@ -21,25 +21,25 @@ C:\Program Files (x86)\Arebis\MAX Extensions for VS.NET 2022\Goodies\SqlServerDe
 
    Extract from "SetupFiles\Visual Studio Extension (2022).zip" :
 
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\extension.vsixmanifest
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.dll
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.dll
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.pdb
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.xml
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.pdb
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.xml
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty Master Generation Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty SubTemplate.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IEntityWithKey Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IExtensibleDataObject Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Model Validation Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max StringConverter Contracts Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max GetSourcePropertyName Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Identifier Based ObjectSource Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Mapper Generator Templates Set.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Select Projections Mapper Template.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Contracts Library.zip
-[VSNETHOME]\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Portable Contracts Library.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\extension.vsixmanifest
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.dll
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.dll
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.pdb
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.Entity.xml
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.pdb
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\Assemblies\Max.Domain.Mapping.xml
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty Master Generation Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Empty SubTemplate.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IEntityWithKey Contracts Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max IExtensibleDataObject Contracts Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max Model Validation Contracts Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Contracts Generation\Max StringConverter Contracts Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max GetSourcePropertyName Mapper Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Identifier Based ObjectSource Mapper Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Mapper Generator Templates Set.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ItemTemplates\Max Mapping Generation\Max Select Projections Mapper Template.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Contracts Library.zip
+%VSINSTALLDIR%\Common7\IDE\Extensions\Arebis MAX Extension\15.0\ProjectTemplates\Max Contracts Generation\Max Generated Portable Contracts Library.zip
 
 
 "extension.vsixmanifest" content:

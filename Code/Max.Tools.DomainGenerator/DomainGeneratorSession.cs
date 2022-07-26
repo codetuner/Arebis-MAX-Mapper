@@ -48,7 +48,7 @@ namespace Max.Tools.DomainGenerator
 
             this.TemplateFile = host.TemplateFile;
             IServiceProvider hostServiceProvider = (IServiceProvider)host;
-            this.Dte = (EnvDTE.DTE)hostServiceProvider.GetService(typeof(EnvDTE.DTE));
+            this.Dte = (EnvDTE.DTE)hostServiceProvider.GetCOMService(typeof(EnvDTE.DTE));
         }
 
         public string TemplateFile { get; private set; }
